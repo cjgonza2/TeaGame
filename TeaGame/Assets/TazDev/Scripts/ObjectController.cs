@@ -33,4 +33,13 @@ public class ObjectController : MonoBehaviour
             Debug.Log("drag");
             transform.position = GetMouseWorldPosition() + mousePosOffset;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("cup") == true)
+        {
+            Debug.Log("hit");
+        }
+
+    }
 }
