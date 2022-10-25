@@ -15,7 +15,7 @@ public class CamMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     private void OnMouseDown()
@@ -38,12 +38,21 @@ public class CamMove : MonoBehaviour
         transform.position = GetMouseWorldPosition() + mousePosOffset;
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+
+    public void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("YOu have entered me");
         if (col.gameObject.CompareTag("Cup"))
         {
             animator.SetTrigger("pouring");
         }
+    }
+
+    public void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log("Poop");
+        /*if (col.gameObject.CompareTag("Cup"))
+        {
+            animator.SetTrigger("pouring");
+        }*/
     }
 }
