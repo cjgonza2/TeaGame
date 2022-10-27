@@ -6,6 +6,29 @@ public class ObjectController : MonoBehaviour
 {
     Vector3 mousePosOffset;
     private float mouseZ;
+    public bool isCollided = false;
+
+    #region SingletonDeclaration 
+    private static ObjectController instance;
+    public static ObjectController FindInstance()
+    {
+        return instance; //that's just a singletone as the region says
+    }
+
+    void Awake() //this happens before the game even starts and it's a part of the singletone
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else if (instance == null)
+        {
+            //DontDestroyOnLoad(this);
+            instance = this;
+        }
+    }
+    #endregion
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,8 +61,15 @@ public class ObjectController : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("cup") == true)
         {
-            Debug.Log("hit");
+            //Debug.Log("hit");
+            isCollided = true;
         }
 
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        isCollided = false;
+        Debug.Log("not collided");
     }
 }
