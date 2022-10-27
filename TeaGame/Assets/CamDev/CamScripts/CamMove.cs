@@ -1,35 +1,82 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CamMove : MonoBehaviour
 {
+    //do tween - an extension for tweening that might be worth looking into.
+    public Animator animator; //references our animator.
 
-
-    //do tween
-    public Animator animator;
-    
     Vector3 mousePosOffset;
     private float mouseZ;
 
+    private bool animationDone; //whether animation is done or not
+    private bool canSwitch = true; //whether a state can switch or not.
+
+    //Declares States
     public enum State
     {
         Default,
         Pouring,
         Reset
     }
+
+    public State currentState;  //Variable state that is set to current state.
+
+    //coroutine that returns if the
+    IEnumerator AnimationDone()
+    {
+        yield return new WaitForSecondsRealtime(animator.GetCurrentAnimatorClipInfo(0).Length); //waits for the length of the current animation before declaring animation bool to ture.
+        animationDone = true;
+    }
+    
+   //coroutine that gives a buffer between each state switch.
+    IEnumerator StateBuffer()
+    {
+        canSwitch = false;
+        yield return new WaitForSeconds(0.1f);
+        canSwitch = true;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        TransitionState(State.Default);
+        TransitionState(State.Default); //sets state to default.
     }
 
-    public void TransitionState(State newstate)
+    #region StateMachine
+    private void TransitionState(State newstate)
     {
-        //currentState = newstate
+        if (canSwitch)
+        {
+            currentState = newstate; //sets current state to state declared when function is called.
+            //state Machine
+            switch (newstate)
+            {
+                case State.Default:
+                    break;
+                case State.Pouring:
+                    
+                    animator.Play("TeaPot Body", 0, 0f); //plays pouring animation
+                    StartCoroutine(AnimationDone());
+                    if (animationDone)
+                    {
+                        StartCoroutine(StateBuffer());
+                        animationDone = false;
+                    }
+                    break;
+                case State.Reset:
+                    animator.Play("ResetPot", 0, 0f);
+                    TransitionState(State.Default);
+                    break;
+            }
+        }
     }
+    #endregion
 
+    #region Obj Movement
     private void OnMouseDown()
     {
         Debug.Log("click");
@@ -49,14 +96,15 @@ public class CamMove : MonoBehaviour
         Debug.Log("drag");
         transform.position = GetMouseWorldPosition() + mousePosOffset;
     }
+    #endregion
 
 
+    #region Collisions
     public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("cup"))
         {
-            animator.SetBool("pouring", true);
-            //animator.SetTrigger("pouring");
+            TransitionState(State.Pouring);
         }
     }
 
@@ -64,9 +112,8 @@ public class CamMove : MonoBehaviour
     {
         if (other.gameObject.CompareTag("cup"))
         {
-            animator.SetTrigger("reset");
-            animator.SetBool("pouring", false);
-            //animator.SetTrigger("reset");
+            TransitionState(State.Reset);
         }
     }
+    #endregion
 }
