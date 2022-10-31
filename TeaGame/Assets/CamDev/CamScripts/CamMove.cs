@@ -8,6 +8,7 @@ public class CamMove : MonoBehaviour
 {
     //do tween - an extension for tweening that might be worth looking into.
     public Animator animator; //references our animator.
+    public GameObject poop;
 
     Vector3 mousePosOffset;
     private float mouseZ;
@@ -15,6 +16,7 @@ public class CamMove : MonoBehaviour
     private bool animationDone; //whether animation is done or not
     private bool canSwitch = true; //whether a state can switch or not.
 
+    #region StateMachineVar
     //Declares States
     public enum State
     {
@@ -22,9 +24,11 @@ public class CamMove : MonoBehaviour
         Pouring,
         Reset
     }
-
+    
     public State currentState;  //Variable state that is set to current state.
+    #endregion
 
+    #region CoRoutines
     //coroutine that returns if the
     IEnumerator AnimationDone()
     {
@@ -39,6 +43,7 @@ public class CamMove : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         canSwitch = true;
     }
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -58,18 +63,17 @@ public class CamMove : MonoBehaviour
                 case State.Default:
                     break;
                 case State.Pouring:
-                    
                     animator.Play("TeaPot Body", 0, 0f); //plays pouring animation
-                    StartCoroutine(AnimationDone());
-                    if (animationDone)
+                    StartCoroutine(AnimationDone()); //checks if animation is done
+                    if (animationDone) //if so
                     {
-                        StartCoroutine(StateBuffer());
-                        animationDone = false;
+                        StartCoroutine(StateBuffer()); //implement the state buffer.
+                        animationDone = false; //sets animationdone back to false. 
                     }
                     break;
                 case State.Reset:
-                    animator.Play("ResetPot", 0, 0f);
-                    TransitionState(State.Default);
+                    animator.Play("ResetPot", 0, 0f);   //plays reset animation
+                    TransitionState(State.Default); //sets state back to default
                     break;
             }
         }
