@@ -6,15 +6,43 @@ using UnityEngine;
 
 public class CamMove : MonoBehaviour
 {
+    //private Cam_PouringManager pouringManager;
+    
     //do tween - an extension for tweening that might be worth looking into.
     public Animator animator; //references our animator.
-    public GameObject poop;
+
+    [SerializeField]
+    private GameObject pouringAnim;
+
+    [SerializeField]
+    private Animator pourAnimator;
 
     Vector3 mousePosOffset;
     private float mouseZ;
 
     private bool animationDone; //whether animation is done or not
     private bool canSwitch = true; //whether a state can switch or not.
+
+    #region Singleton
+    private static CamMove instance;
+    public static CamMove FindInstance()
+    {
+        return instance; //that's just a singletone as the region says
+    }
+
+    void Awake() //this happens before the game even starts and it's a part of the singletone
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else if (instance == null)
+        {
+            //DontDestroyOnLoad(this);
+            instance = this;
+        }
+    }
+    #endregion
 
     #region StateMachineVar
     //Declares States
@@ -48,6 +76,7 @@ public class CamMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //pouringManager
         TransitionState(State.Default); //sets state to default.
     }
 
@@ -63,7 +92,8 @@ public class CamMove : MonoBehaviour
                 case State.Default:
                     break;
                 case State.Pouring:
-                    animator.Play("TeaPot Body", 0, 0f); //plays pouring animation
+                    animator.Play("TeaPot Body", 0, 0f); //plays pouring animation.
+                    pourAnimator.Play("pour_animation", 0, 0f); //plays the liquid pouring.
                     StartCoroutine(AnimationDone()); //checks if animation is done
                     if (animationDone) //if so
                     {
