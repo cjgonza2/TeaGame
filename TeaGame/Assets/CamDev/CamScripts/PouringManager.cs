@@ -1,38 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PouringManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public Animator anim;
-    public string trigger_name;
-    public bool pouring;
 
-    CamMove controller;
+    public Animator potAnimator;
+    public Animator liqAnimator;
 
-    IEnumerator AnimationDone()
+    [SerializeField]
+    private GameObject teaPot;
+    [SerializeField]
+    private GameObject teaLiquid;
+
+    private bool animationDone;
+    private bool canSwitch = true;
+    public bool changeSprite;
+
+    private static PouringManager instance;
+
+    public static PouringManager FindInstance()
     {
-        yield return new WaitForSecondsRealtime(anim.GetCurrentAnimatorClipInfo(0).Length);
-        anim.SetTrigger(trigger_name);
+        return instance;
     }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        controller = CamMove.FindInstance();
-        anim = gameObject.GetComponent<Animator>();
-        StartCoroutine(AnimationDone());
-    }
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        if(controller.currentState == CamMove.State.Pouring)
+        if (instance != null && instance != this)
         {
-            Debug.Log("hit");
-            anim.SetTrigger(trigger_name);
-            //anim.SetBool("pouring", true);
+            Destroy(this);
+        }
+        else if (instance == null)
+        {
+            instance = this;
         }
     }
 }

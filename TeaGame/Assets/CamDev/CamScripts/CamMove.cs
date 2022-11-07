@@ -22,6 +22,7 @@ public class CamMove : MonoBehaviour
 
     private bool animationDone; //whether animation is done or not
     private bool canSwitch = true; //whether a state can switch or not.
+    public bool changeSprite;
 
     #region Singleton
     private static CamMove instance;
@@ -62,6 +63,8 @@ public class CamMove : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(animator.GetCurrentAnimatorClipInfo(0).Length); //waits for the length of the current animation before declaring animation bool to ture.
         animationDone = true;
+        changeSprite = true;
+        Debug.Log("changeSprite");
     }
     
    //coroutine that gives a buffer between each state switch.
