@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 306131751}
   - component: {fileID: 306131750}
   - component: {fileID: 306131753}
+  - component: {fileID: 306131754}
   m_Layer: 0
   m_Name: teacup
   m_TagString: cup
@@ -256,6 +257,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &306131754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306131749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ffe7a9f1a3a33a478a637ba1b40c2a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theSR: {fileID: 306131750}
+  defaultImage: {fileID: 21300000, guid: 41c19c4325b4fab49a4c07da5951cb7c, type: 3}
+  changedImage: {fileID: 21300000, guid: aa55741ee551ad24a905567a46e0388f, type: 3}
 --- !u!1 &644686395
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +669,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1608201838}
-  poop: {fileID: 0}
+  pouringAnim: {fileID: 1266466434}
+  pourAnimator: {fileID: 1266466437}
+  changeSprite: 0
   currentState: 0
 --- !u!95 &1608201838
 Animator:
