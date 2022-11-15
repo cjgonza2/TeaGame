@@ -9,21 +9,28 @@ public class CamMove : MonoBehaviour
     //private Cam_PouringManager pouringManager;
     
     //do tween - an extension for tweening that might be worth looking into.
-    public Animator animator; //references our animator.
+    /*public Animator animator; //references our animator.
+     
 
     [SerializeField]
     private GameObject pouringAnim;
 
     [SerializeField]
-    private Animator pourAnimator;
+    private Animator pourAnimator;*/
+    
+    [SerializeField]
+    PouringManager _myManager;
 
     Vector3 mousePosOffset;
     private float mouseZ;
 
-    private bool animationDone; //whether animation is done or not
-    private bool canSwitch = true; //whether a state can switch or not.
-    public bool changeSprite;
+    [SerializeField]
+    private Rigidbody2D teaPot;
 
+    /*private bool animationDone; //whether animation is done or not
+    private bool canSwitch = true; //whether a state can switch or not.
+    public bool changeSprite;*/
+    
     #region Singleton
     private static CamMove instance;
     public static CamMove FindInstance()
@@ -44,21 +51,9 @@ public class CamMove : MonoBehaviour
         }
     }
     #endregion
-
-    #region StateMachineVar
-    //Declares States
-    public enum State
-    {
-        Default,
-        Pouring,
-        Reset
-    }
     
-    public State currentState;  //Variable state that is set to current state.
-    #endregion
-
-    #region CoRoutines
-    //coroutine that returns if the
+   #region CoRoutines
+    /*//coroutine that returns if the
     IEnumerator AnimationDone()
     {
         yield return new WaitForSecondsRealtime(animator.GetCurrentAnimatorClipInfo(0).Length); //waits for the length of the current animation before declaring animation bool to ture.
@@ -73,18 +68,18 @@ public class CamMove : MonoBehaviour
         canSwitch = false;
         yield return new WaitForSeconds(0.1f);
         canSwitch = true;
-    }
+    }*/
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        //pouringManager
-        TransitionState(State.Default); //sets state to default.
+        _myManager = PouringManager.FindInstance();
+        //TransitionState(State.Default); //sets state to default.
     }
 
     #region StateMachine
-    private void TransitionState(State newstate)
+    /*private void TransitionState(State newstate)
     {
         if (canSwitch)
         {
@@ -110,7 +105,7 @@ public class CamMove : MonoBehaviour
                     break;
             }
         }
-    }
+    }*/
     #endregion
 
     #region Obj Movement
@@ -139,18 +134,20 @@ public class CamMove : MonoBehaviour
     #region Collisions
     public void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("cup"))
+        if (col.gameObject.CompareTag("cup")) //if the object is a cup 
         {
-            TransitionState(State.Pouring);
+            //TransitionState(State.Pouring);
+            _myManager.TransitionState(PouringManager.State.Pouring);
         }
     }
 
     public void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("cup"))
-        {
-            TransitionState(State.Reset);
-        }
+            {
+                //TransitionState(State.Reset);
+                _myManager.TransitionState(PouringManager.State.Reset);
+            }
     }
     #endregion
 }
