@@ -819,6 +819,7 @@ GameObject:
   - component: {fileID: 1608201836}
   - component: {fileID: 1608201838}
   - component: {fileID: 1608201837}
+  - component: {fileID: 1608201842}
   - component: {fileID: 1608201841}
   m_Layer: 0
   m_Name: teapot
@@ -929,13 +930,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608201833}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 874170f390d4edb4e955ed49966b3152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _myManager: {fileID: 1801081260}
-  teaPot: {fileID: 0}
 --- !u!95 &1608201838
 Animator:
   serializedVersion: 4
@@ -977,6 +977,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1608201842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608201833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da84a64e5969ed94aab6f40b10d0d844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myManager: {fileID: 1801081260}
+  teaPot: {fileID: 0}
 --- !u!1 &1645038036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1152,6 +1166,7 @@ MonoBehaviour:
   potAnimator: {fileID: 1608201838}
   liqAnimator: {fileID: 1266466437}
   teaPot: {fileID: 1608201833}
+  teaPot_RB: {fileID: 1608201841}
   teaLiquid: {fileID: 1266466434}
   changeSprite: 0
   CurrentState: 0
