@@ -21,13 +21,13 @@ public class CamMove : MonoBehaviour
     }
 
     #region Obj Movement
-    private void OnMouseDown()
+    public virtual void OnMouseDown()
     {
         Debug.Log("click");
         mouseZ = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
         mousePosOffset = gameObject.transform.position - GetMouseWorldPosition();
     }
-    private Vector3 GetMouseWorldPosition()
+    public virtual Vector3 GetMouseWorldPosition()
     {
         //capture mouse position and return world point
         Vector3 mousePoint = Input.mousePosition;
@@ -35,7 +35,7 @@ public class CamMove : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
 
-    private void OnMouseDrag()
+    public virtual void OnMouseDrag()
     {
         Debug.Log("drag");
         transform.position = GetMouseWorldPosition() + mousePosOffset;
