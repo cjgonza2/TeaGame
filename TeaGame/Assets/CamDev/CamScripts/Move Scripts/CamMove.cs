@@ -11,8 +11,10 @@ public class CamMove : MonoBehaviour
     [SerializeField]
     public PouringManager _myManager;
 
-    Vector3 mousePosOffset;
-    private float mouseZ;
+    [HideInInspector]
+    public Vector3 mousePosOffset;
+    [HideInInspector]
+    public float mouseZ;
 
     // Start is called before the first frame update
     public virtual void Start()

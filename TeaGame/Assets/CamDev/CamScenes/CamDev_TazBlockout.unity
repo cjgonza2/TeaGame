@@ -234,7 +234,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &306131753
 Rigidbody2D:
@@ -354,7 +354,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &644686395
 GameObject:
@@ -366,7 +366,9 @@ GameObject:
   m_Component:
   - component: {fileID: 644686396}
   - component: {fileID: 644686397}
+  - component: {fileID: 644686399}
   - component: {fileID: 644686398}
+  - component: {fileID: 644686400}
   m_Layer: 0
   m_Name: teapot_lid
   m_TagString: Untagged
@@ -382,12 +384,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644686395}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 4.56, y: -1.53, z: 0}
+  m_LocalScale: {x: 0.37, y: 0.37, z: 0.37}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1608201834}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &644686397
 SpriteRenderer:
@@ -467,6 +469,43 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.1489325, y: 4.3945775}
   m_EdgeRadius: 0
+--- !u!114 &644686399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644686395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b63a3332b05334291667f9f596bd87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myManager: {fileID: 0}
+  mousePosOffset: {x: 0, y: 0, z: 0}
+  mouseZ: 0
+  _teaParent: {fileID: 0}
+--- !u!50 &644686400
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644686395}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &961041577
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +602,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &1019151161
 GameObject:
@@ -647,7 +686,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1266466434
 GameObject:
@@ -680,7 +719,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1608201834}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1266466436
 SpriteRenderer:
@@ -804,7 +843,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1608201833
 GameObject:
@@ -818,12 +857,11 @@ GameObject:
   - component: {fileID: 1608201835}
   - component: {fileID: 1608201836}
   - component: {fileID: 1608201838}
-  - component: {fileID: 1608201837}
   - component: {fileID: 1608201842}
   - component: {fileID: 1608201841}
   m_Layer: 0
   m_Name: teapot
-  m_TagString: Untagged
+  m_TagString: TeaPot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -840,10 +878,9 @@ Transform:
   m_LocalScale: {x: 0.37, y: 0.37, z: 0.37}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 644686396}
   - {fileID: 1266466435}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1608201835
 SpriteRenderer:
@@ -910,7 +947,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.37407446, y: -1.579423}
+  m_Offset: {x: -0.37407494, y: -1.2727364}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -921,21 +958,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 20.449337, y: 9.714739}
+  m_Size: {x: 20.449337, y: 10.328112}
   m_EdgeRadius: 0
---- !u!114 &1608201837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1608201833}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 874170f390d4edb4e955ed49966b3152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myManager: {fileID: 1801081260}
 --- !u!95 &1608201838
 Animator:
   serializedVersion: 4
@@ -970,7 +994,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -990,6 +1014,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myManager: {fileID: 1801081260}
+  mousePosOffset: {x: 0, y: 0, z: 0}
+  mouseZ: 0
   teaPot: {fileID: 0}
 --- !u!1 &1645038036
 GameObject:
@@ -1003,6 +1029,7 @@ GameObject:
   - component: {fileID: 1645038039}
   - component: {fileID: 1645038038}
   - component: {fileID: 1645038037}
+  - component: {fileID: 1645038041}
   m_Layer: 0
   m_Name: Table
   m_TagString: Untagged
@@ -1087,8 +1114,21 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!65 &1645038041
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645038036}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.000001, y: 2.2205045e-16, z: 7.820927}
+  m_Center: {x: 0, y: 2.5776947e-14, z: -1.0895388}
 --- !u!1 &1752554502
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,7 +1172,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1801081259
 GameObject:
@@ -1183,7 +1223,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2046405052
 GameObject:
@@ -1466,5 +1506,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
