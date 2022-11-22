@@ -10,6 +10,7 @@ public class PouringManager : MonoBehaviour
 
     public Animator potAnimator;
     public Animator liqAnimator;
+    public Animator ketAnimator;
 
     [SerializeField]
     private GameObject teaPot;
@@ -49,7 +50,9 @@ public class PouringManager : MonoBehaviour
     {
         Resting,
         Pouring,
-        Reset
+        Reset,
+        KettlePour,
+        KettleReset
     }
 
     public State CurrentState;
@@ -57,13 +60,19 @@ public class PouringManager : MonoBehaviour
 
     #region Coroutines
 
-    IEnumerator AnimationDone()
+    IEnumerator PotAnimationDone()
     {
         teaPot_RB.constraints = RigidbodyConstraints2D.FreezePosition;
         yield return new WaitForSecondsRealtime(potAnimator.GetCurrentAnimatorClipInfo(0).Length);
         animationDone = true;
         changeSprite = true;
         teaPot_RB.constraints = RigidbodyConstraints2D.None;
+    }
+
+    IEnumerator KettleDone()
+    {
+        yield return new WaitForSeconds(ketAnimator.GetCurrentAnimatorClipInfo(0).Length);
+        animationDone = true;
     }
 
     //coroutine that gives a buffer between each state switch.
@@ -90,7 +99,7 @@ public class PouringManager : MonoBehaviour
                 case State.Pouring:
                     potAnimator.Play("TeaPot Body", 0, 0f); //plays pouring animation.
                     liqAnimator.Play("pour_animation", 0, 0f); //plays the liquid pouring.
-                    StartCoroutine(AnimationDone()); //checks if animation is done
+                    StartCoroutine(PotAnimationDone()); //checks if animation is done
                     if (animationDone) //if so 
                     {
                         StartCoroutine(StateBuffer()); //implement the state buffer.
@@ -100,6 +109,19 @@ public class PouringManager : MonoBehaviour
                 case State.Reset:
                     potAnimator.Play("ResetPot", 0, 0f); //plays reset animation
                     TransitionState(State.Resting); //sets state back to default
+                    break;
+                case State.KettlePour:
+                    ketAnimator.Play("KettlePour", 0, 0f);
+                    StartCoroutine(KettleDone());
+                    if (animationDone)
+                    {
+                        StartCoroutine(StateBuffer());
+                        animationDone = false;
+                    }
+                    break;
+                case State.KettleReset:
+                    ketAnimator.Play("KettleReset",0,0f);
+                    TransitionState(State.Resting);
                     break;
             }
         }

@@ -384,7 +384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644686395}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.56, y: -1.53, z: 0}
+  m_LocalPosition: {x: 4.56, y: -1.53, z: 1}
   m_LocalScale: {x: 0.37, y: 0.37, z: 0.37}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -432,7 +432,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 43288afb7834d1a4bb7cc7fafc4efe95, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9806733fe158f2f4a9be7a6b7cc3178d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -499,7 +499,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -614,6 +614,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1019151163}
   - component: {fileID: 1019151162}
+  - component: {fileID: 1019151165}
+  - component: {fileID: 1019151164}
+  - component: {fileID: 1019151167}
+  - component: {fileID: 1019151166}
   m_Layer: 0
   m_Name: kettle
   m_TagString: Untagged
@@ -688,6 +692,88 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1019151164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019151161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f3800784b124e4e91df84e32321d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myManager: {fileID: 0}
+  mousePosOffset: {x: 0, y: 0, z: 0}
+  mouseZ: 0
+--- !u!95 &1019151165
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019151161}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 832509303094a0b44a4ce4f1dec6909f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &1019151166
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019151161}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &1019151167
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019151161}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.0787244, y: 1.0113046}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 30.009003, y: 18.36}
+    newSize: {x: 30.009003, y: 18.36}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 9.378396, y: 10.1347275}
+  m_EdgeRadius: 0
 --- !u!1 &1266466434
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +945,7 @@ GameObject:
   - component: {fileID: 1608201838}
   - component: {fileID: 1608201842}
   - component: {fileID: 1608201841}
+  - component: {fileID: 1608201843}
   m_Layer: 0
   m_Name: teapot
   m_TagString: TeaPot
@@ -923,7 +1010,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 778e849c90f2d8b4cbf78bf8ae5bfd43, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5ca24f2ecfca1d9458dc599d45c10213, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -947,7 +1034,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.37407494, y: -1.2727364}
+  m_Offset: {x: -2.2191267, y: 0.9961778}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -958,7 +1045,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 20.449337, y: 10.328112}
+  m_Size: {x: 16.759233, y: 5.7902813}
   m_EdgeRadius: 0
 --- !u!95 &1608201838
 Animator:
@@ -988,7 +1075,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608201833}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1017,6 +1104,22 @@ MonoBehaviour:
   mousePosOffset: {x: 0, y: 0, z: 0}
   mouseZ: 0
   teaPot: {fileID: 0}
+--- !u!58 &1608201843
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608201833}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 11.7}
+  serializedVersion: 2
+  m_Radius: 3.5135114
 --- !u!1 &1645038036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,6 +1308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   potAnimator: {fileID: 1608201838}
   liqAnimator: {fileID: 1266466437}
+  ketAnimator: {fileID: 1019151165}
   teaPot: {fileID: 1608201833}
   teaPot_RB: {fileID: 1608201841}
   teaLiquid: {fileID: 1266466434}
