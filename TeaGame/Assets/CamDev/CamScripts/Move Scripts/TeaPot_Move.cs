@@ -9,19 +9,28 @@ public class TeaPot_Move : CamMove
     private Rigidbody2D teaPot;
 
     [SerializeField] 
-    private Pot_SpriteChanger sprChanger;
+    private Pot_SpriteChanger sprTrack;
 
     public override void Start()
     {
         _myManager = PouringManager.FindInstance();
         teaPot = gameObject.GetComponent<Rigidbody2D>();
     }
+
+    public void Update()
+    {
+        if (_myManager.CurrentState == PouringManager.State.Resting && sprTrack._filled == true)
+        {
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        }
+    }
+
     public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("cup"))
         {
             _myManager.TransitionState(PouringManager.State.Pouring);
-            teaPot.constraints = RigidbodyConstraints2D.FreezePosition;
+            //teaPot.constraints = RigidbodyConstraints2D.FreezePosition;
             Debug.Log(teaPot.constraints);
         }
     }

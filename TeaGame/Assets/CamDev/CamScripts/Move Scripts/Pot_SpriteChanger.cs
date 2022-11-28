@@ -20,7 +20,8 @@ public class Pot_SpriteChanger : MonoBehaviour
     [SerializeField] 
     private Kettle_Move _kettle;
 
-    private bool _filled = false;
+    public bool _filled = false;
+    public bool _steeping = false;
     
     
     // Start is called before the first frame update
@@ -42,6 +43,11 @@ public class Pot_SpriteChanger : MonoBehaviour
         {
             potSPR.sprite = potWater;
             _filled = true;
+        }
+
+        if (_filled && _steeping)
+        {
+            potSPR.sprite = potTea;
         }
     }
 }
