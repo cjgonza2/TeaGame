@@ -8,6 +8,7 @@ using UnityEngine;
 public class PouringManager : MonoBehaviour
 {
 
+    [Header("Animators")]
     public Animator potAnimator;
     public Animator liqAnimator;
     public Animator ketAnimator;
