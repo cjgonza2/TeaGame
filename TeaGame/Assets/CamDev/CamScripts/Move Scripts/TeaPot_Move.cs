@@ -19,7 +19,7 @@ public class TeaPot_Move : CamMove
 
     public void Update()
     {
-        if (_myManager.CurrentState == PouringManager.State.Resting && sprTrack._filled == true)
+        if (_myManager.CurrentState == PouringManager.State.Resting && sprTrack._filled)
         {
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
         }
@@ -31,7 +31,6 @@ public class TeaPot_Move : CamMove
         {
             _myManager.TransitionState(PouringManager.State.Pouring);
             //teaPot.constraints = RigidbodyConstraints2D.FreezePosition;
-            Debug.Log(teaPot.constraints);
         }
     }
 

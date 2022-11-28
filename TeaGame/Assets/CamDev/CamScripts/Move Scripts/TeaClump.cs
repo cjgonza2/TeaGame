@@ -6,7 +6,7 @@ using UnityEngine;
 public class TeaClump : MonoBehaviour
 {
     [SerializeField] 
-    private Pot_SpriteChanger potSpr;
+    private Pot_SpriteChanger potSpr; //this is so we can access the 
 
     private Lid_Move _lid;
 
@@ -17,7 +17,7 @@ public class TeaClump : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("I have arrived");
+        //Debug.Log("I have arrived");
         restPos = new Vector2(0, -7.5f);
         teaPot = GameObject.Find("teapot");
         lid = GameObject.Find("teapot_lid");
