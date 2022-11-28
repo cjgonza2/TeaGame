@@ -10,7 +10,7 @@ public class Lid_Move : CamMove
 
     private bool _dragging = false;
 
-    private bool _colliding;
+    public bool _colliding;
     // Start is called before the first frame update
     public override void Start()
     {

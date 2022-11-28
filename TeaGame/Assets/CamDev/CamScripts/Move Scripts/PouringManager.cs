@@ -11,6 +11,7 @@ public class PouringManager : MonoBehaviour
     public Animator potAnimator;
     public Animator liqAnimator;
     public Animator ketAnimator;
+    public Animator KetLiqAnimator;
 
     [SerializeField]
     private GameObject teaPot;
@@ -18,7 +19,7 @@ public class PouringManager : MonoBehaviour
     private Rigidbody2D teaPot_RB;
     [SerializeField]
     private GameObject teaLiquid;
-
+    
     private bool animationDone; //whether animation is done or not
     private bool canSwitch = true; //whether a state can switch or not.
     public bool changeSprite;
@@ -112,6 +113,7 @@ public class PouringManager : MonoBehaviour
                     break;
                 case State.KettlePour:
                     ketAnimator.Play("KettlePour", 0, 0f);
+                    KetLiqAnimator.Play("water_pour", 0, 0f);
                     StartCoroutine(KettleDone());
                     if (animationDone)
                     {

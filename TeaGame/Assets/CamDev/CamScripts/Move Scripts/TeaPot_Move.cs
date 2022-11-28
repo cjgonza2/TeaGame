@@ -8,6 +8,9 @@ public class TeaPot_Move : CamMove
     [SerializeField] 
     private Rigidbody2D teaPot;
 
+    [SerializeField] 
+    private Pot_SpriteChanger sprChanger;
+
     public override void Start()
     {
         _myManager = PouringManager.FindInstance();

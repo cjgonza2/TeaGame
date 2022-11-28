@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -964695534074148310}
   m_Layer: 0
   m_Name: tea clump
-  m_TagString: Untagged
+  m_TagString: TeaLeaf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myManager: {fileID: 0}
+  mousePosOffset: {x: 0, y: 0, z: 0}
+  mouseZ: 0
 --- !u!61 &9080742044428416987
 BoxCollider2D:
   m_ObjectHideFlags: 0

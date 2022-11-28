@@ -10,6 +10,8 @@ public class Kettle_Move : CamMove
     [SerializeField]
     private bool _dragging = false;
 
+    public bool _pouring = false;
+
     public override void Start()
     {
         base.Start();
@@ -42,6 +44,7 @@ public class Kettle_Move : CamMove
         if (col.gameObject.CompareTag("TeaPot"))
         {
             _myManager.TransitionState(PouringManager.State.KettlePour);
+            _pouring = true;
         }
     }
 
@@ -50,6 +53,7 @@ public class Kettle_Move : CamMove
         if (other.gameObject.CompareTag("TeaPot"))
         {
             _myManager.TransitionState((PouringManager.State.KettleReset));
+            _pouring = false;
         }
     }
 }
