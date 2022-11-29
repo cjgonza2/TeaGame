@@ -4,9 +4,20 @@ using UnityEngine;
 
 public class Cam_Steep_Manager : MonoBehaviour
 {
+    #region Script References
     [SerializeField] 
     private Pot_SpriteChanger mySprite;
+    #endregion
+    
 
+    #region Objects
+    GameObject teaCup
+
+    [SerializeField] 
+    private SpriteRenderer teaSprite;
+
+    #endregion
+    
     #region Bools
     [Header("Bool")]
     public bool stop = false;
@@ -14,10 +25,12 @@ public class Cam_Steep_Manager : MonoBehaviour
     private bool _finishedSteep = false;
     #endregion
 
+    #region Values
     [Header("Time Ints")]
     public int maxTime;
     public int roundedTime;
     public float steepTime;
+    #endregion
 
     // Update is called once per frame
     void Update()
