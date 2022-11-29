@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/CamDev/CamScenes/Cam_Taz_TransitionScreen.unity
     guid: b6eade6c228316d4f810d1478be73094
+  - enabled: 1
+    path: Assets/CamDev/CamScenes/CamDev_TazBlockout.unity
+    guid: d360a9e4bd1e2144ea365f1aa76aed60
   m_configObjects: {}
