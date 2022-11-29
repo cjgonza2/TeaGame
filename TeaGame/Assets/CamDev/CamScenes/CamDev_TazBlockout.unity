@@ -172,6 +172,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 3939108319315143323, guid: 913ca54b71178124da6c1a329b343d6b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3939108319315143326, guid: 913ca54b71178124da6c1a329b343d6b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -387,7 +391,7 @@ MonoBehaviour:
   mouseZ: 0
   manager: {fileID: 1808856649}
   cupSpr: {fileID: 0}
-  sipPos: {x: 0, y: 0, z: 0}
+  sipPos: {x: -7.25, y: -20, z: -0.09935325}
 --- !u!58 &306131756
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1995,6 +1999,7 @@ MonoBehaviour:
   lambIdle: {fileID: 21300000, guid: 3d716d61431233d4c8c552bbbeff81ce, type: 3}
   lambSip: {fileID: 21300000, guid: d81479f9d6fc7e54e87f9759805914a1, type: 3}
   lambReact: {fileID: 21300000, guid: 3306742f33e72cd4fb581f86bff29512, type: 3}
+  lambPresent: 0
 --- !u!114 &1808856649
 MonoBehaviour:
   m_ObjectHideFlags: 0
