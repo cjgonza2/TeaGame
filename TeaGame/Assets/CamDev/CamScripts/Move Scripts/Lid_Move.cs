@@ -6,6 +6,8 @@ using UnityEngine;
 public class Lid_Move : CamMove
 {
     [SerializeField] 
+    private Cam_Steep_Manager _steepManager;
+    [SerializeField] 
     private GameObject _teaParent;
 
     private bool _dragging = false;
@@ -24,8 +26,8 @@ public class Lid_Move : CamMove
         {
             gameObject.transform.position = _teaParent.transform.position;
         }
-        Debug.Log("Dragging" + _dragging);
-        Debug.Log("Colliding" + _colliding);
+        //Debug.Log("Dragging" + _dragging);
+        //Debug.Log("Colliding" + _colliding);
     }
 
     public override void OnMouseDown()
@@ -34,7 +36,6 @@ public class Lid_Move : CamMove
         _colliding = false;
         mouseZ = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
         mousePosOffset = gameObject.transform.position - GetMouseWorldPosition();
-        
     }
 
     private void OnMouseUp()

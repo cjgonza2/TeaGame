@@ -39,11 +39,11 @@ public class TeaPot_Move : CamMove
     public override void OnMouseDown()
     {
         base.OnMouseDown();
-        if (sprTrack._steeping)
+        if (sprTrack._steeping && _steepManager._finishedSteep == false)
         {
-            _steepManager._finishedSteep = true;
+            //Debug.Log("you've clicekd me");
+            //_steepManager._finishedSteep = true;
         }
-        
     }
 
     public void OnTriggerEnter2D(Collider2D col)
@@ -53,6 +53,7 @@ public class TeaPot_Move : CamMove
             if (sprTrack._steeping)
             {
                 _myManager.TransitionState(PouringManager.State.Pouring);
+                _steepManager._finishedSteep = true;
             }
             //teaPot.constraints = RigidbodyConstraints2D.FreezePosition;
         }

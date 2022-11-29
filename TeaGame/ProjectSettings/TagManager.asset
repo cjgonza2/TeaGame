@@ -8,6 +8,7 @@ TagManager:
   - Cup
   - TeaPot
   - TeaLeaf
+  - Character
   layers:
   - Default
   - TransparentFX

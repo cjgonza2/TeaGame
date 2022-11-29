@@ -40,7 +40,7 @@ public class Pot_SpriteChanger : MonoBehaviour
         {
             currentSprite = potEmpty;
             potSPR.sprite = currentSprite;
-            Debug.Log("You gotta remove the cover!");
+            //Debug.Log("You gotta remove the cover!");
         }
 
         if (_kettle._pouring && _lid._colliding == false)

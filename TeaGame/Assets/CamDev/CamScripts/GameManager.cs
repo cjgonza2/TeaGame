@@ -39,6 +39,18 @@ public class GameManager : MonoBehaviour
 
     public State currentState;
     // Start is called before the first frame update
+
+    private IEnumerator WaitBeforeTaste()
+    {
+        yield return new WaitForSeconds(5f);
+        TransitionState(State.Tasting);
+    }
+
+    IEnumerator WaitBeforeExit()
+    {
+        yield return new WaitForSeconds(3f);
+        TransitionState(State.Exiting);
+    }
     void Start()
     {
         TransitionState(State.Enter);
@@ -56,12 +68,15 @@ public class GameManager : MonoBehaviour
         switch (newState)
         {
             case State.Enter:
+                TransitionState(State.Resting);
                 break;
             case State.Resting:
                 break;
             case State.Drinking:
+                StartCoroutine(WaitBeforeTaste());
                 break;
             case State.Tasting:
+                StartCoroutine(WaitBeforeExit());
                 break;
             case State.Exiting:
                 break;

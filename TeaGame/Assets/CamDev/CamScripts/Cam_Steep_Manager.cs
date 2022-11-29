@@ -68,7 +68,7 @@ public class Cam_Steep_Manager : MonoBehaviour
             steepTime += Time.deltaTime;
             roundedTime = (int)(steepTime % 60);
         }
-        Debug.Log(roundedTime);
+        //Debug.Log(roundedTime);
 
         if (roundedTime >= maxTime)
         {

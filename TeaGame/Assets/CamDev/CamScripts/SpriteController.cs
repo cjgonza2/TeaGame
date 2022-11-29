@@ -7,6 +7,7 @@ public class SpriteController : MonoBehaviour
     public SpriteRenderer theSR;
     public Sprite defaultImage;
     public Sprite changedImage;
+    public Sprite currentSprite;
 
     private PouringManager boolCheck;
     
@@ -22,12 +23,14 @@ public class SpriteController : MonoBehaviour
     {
         if (boolCheck.changeSprite)
         {
-            theSR.sprite = changedImage;
+            currentSprite = changedImage;
+            theSR.sprite = currentSprite;
         }
 
         if (boolCheck.CurrentState == PouringManager.State.Resting && theSR.sprite == changedImage)
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            gameObject.GetComponent<CircleCollider2D>().enabled = true;
         }
 
         if (gameObject.transform.rotation.z < -25)

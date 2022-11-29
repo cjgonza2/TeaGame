@@ -168,6 +168,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lombardo
       objectReference: {fileID: 0}
+    - target: {fileID: 3939108319315143323, guid: 913ca54b71178124da6c1a329b343d6b, type: 3}
+      propertyPath: m_TagString
+      value: Character
+      objectReference: {fileID: 0}
     - target: {fileID: 3939108319315143326, guid: 913ca54b71178124da6c1a329b343d6b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -224,8 +228,10 @@ GameObject:
   m_Component:
   - component: {fileID: 306131752}
   - component: {fileID: 306131751}
+  - component: {fileID: 306131756}
   - component: {fileID: 306131753}
   - component: {fileID: 306131750}
+  - component: {fileID: 306131755}
   - component: {fileID: 306131754}
   m_Layer: 0
   m_Name: teacup
@@ -363,6 +369,41 @@ MonoBehaviour:
   theSR: {fileID: 0}
   defaultImage: {fileID: 21300000, guid: 41c19c4325b4fab49a4c07da5951cb7c, type: 3}
   changedImage: {fileID: 21300000, guid: aa55741ee551ad24a905567a46e0388f, type: 3}
+  currentSprite: {fileID: 0}
+--- !u!114 &306131755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306131749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8abce40fc6eaf1c43942940efaffdebe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myManager: {fileID: 0}
+  mousePosOffset: {x: 0, y: 0, z: 0}
+  mouseZ: 0
+  manager: {fileID: 1808856649}
+  cupSpr: {fileID: 0}
+  sipPos: {x: 0, y: 0, z: 0}
+--- !u!58 &306131756
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306131749}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0000010145471, y: -0.94168264}
+  serializedVersion: 2
+  m_Radius: 3.003738
 --- !u!1 &391743003
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,6 +658,7 @@ MonoBehaviour:
   _myManager: {fileID: 0}
   mousePosOffset: {x: 0, y: 0, z: 0}
   mouseZ: 0
+  _steepManager: {fileID: 0}
   _teaParent: {fileID: 0}
   _colliding: 0
 --- !u!50 &644686400
@@ -670,6 +712,37 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &750061845
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750061840}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.35492754, y: -1.0533085}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 30.009003, y: 18.36}
+    newSize: {x: 30.009003, y: 18.36}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8.851155, y: 7.943508}
+  m_EdgeRadius: 0
+--- !u!212 &750061847 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3939108319315143321, guid: 913ca54b71178124da6c1a329b343d6b, type: 3}
+  m_PrefabInstance: {fileID: 123207453}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &867159614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,7 +1638,7 @@ MonoBehaviour:
   _myManager: {fileID: 1801081260}
   mousePosOffset: {x: 0, y: 0, z: 0}
   mouseZ: 0
-  _steepManager: {fileID: 0}
+  _steepManager: {fileID: 1608201845}
   sprTrack: {fileID: 1608201844}
   teaPot: {fileID: 0}
   lid: {fileID: 644686399}
@@ -1624,7 +1697,7 @@ MonoBehaviour:
   lowFlavor: 0
   medFlavor: 0
   highFlavor: 0
-  maxTime: 30
+  maxTime: 45
   roundedTime: 0
   steepTime: 0
 --- !u!1 &1618086171
@@ -1879,6 +1952,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1808856647}
+  - component: {fileID: 1808856649}
+  - component: {fileID: 1808856648}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1901,6 +1976,39 @@ Transform:
   m_Father: {fileID: 16339410}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1808856648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808856646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411eb076f1dcccd4b8ef8fc322c96cbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 1808856649}
+  steepManager: {fileID: 1608201845}
+  lambAnim: {fileID: 750061844}
+  lambSpr: {fileID: 750061847}
+  lambIdle: {fileID: 21300000, guid: 3d716d61431233d4c8c552bbbeff81ce, type: 3}
+  lambSip: {fileID: 21300000, guid: d81479f9d6fc7e54e87f9759805914a1, type: 3}
+  lambReact: {fileID: 21300000, guid: 3306742f33e72cd4fb581f86bff29512, type: 3}
+--- !u!114 &1808856649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808856646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c432656077bb44247b48638b8514570f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charMan: {fileID: 1808856648}
+  currentState: 0
 --- !u!1 &1857015281
 GameObject:
   m_ObjectHideFlags: 0
