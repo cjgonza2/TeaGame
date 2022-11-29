@@ -40,7 +40,7 @@ public class TeaClump : MonoBehaviour
             if (potSpr._filled && _lid._colliding == false)
             {
                 Debug.Log("Time to steep");
-                potSpr._steeping = true;
+                potSpr._steeping = true; //sets the teapot to steeping. Steeping counter starts.
                 gameObject.transform.position = restPos;
             }
             //potSpr._steeping = true;

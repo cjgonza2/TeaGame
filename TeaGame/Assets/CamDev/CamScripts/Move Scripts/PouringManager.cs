@@ -9,11 +9,21 @@ public class PouringManager : MonoBehaviour
 {
 
     [Header("Animators")]
-    public Animator potAnimator;
-    public Animator liqAnimator;
-    public Animator ketAnimator;
-    public Animator KetLiqAnimator;
+    [SerializeField]
+    private Animator potAnimator;
+    [SerializeField]
+    private Animator liqAnimator;
+    [SerializeField]
+    private Animator ketAnimator;
+    [SerializeField]
+    private Animator KetLiqAnimator;
 
+    [Header("SpriteTracking")] 
+    [SerializeField]
+    private Pot_SpriteChanger potSpr;
+    
+    
+    [Header("GameObjects")]
     [SerializeField]
     private GameObject teaPot;
     [SerializeField]
@@ -21,9 +31,10 @@ public class PouringManager : MonoBehaviour
     [SerializeField]
     private GameObject teaLiquid;
     
+    [Header("Bools")]
+    public bool changeSprite;
     private bool animationDone; //whether animation is done or not
     private bool canSwitch = true; //whether a state can switch or not.
-    public bool changeSprite;
 
     #region singleton
     private static PouringManager instance;

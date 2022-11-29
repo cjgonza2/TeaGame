@@ -11,7 +11,8 @@ public class Cam_Steep_Manager : MonoBehaviour
     
 
     #region Objects
-    GameObject teaCup
+
+    private GameObject teaCup;
 
     [SerializeField] 
     private SpriteRenderer teaSprite;
@@ -20,9 +21,12 @@ public class Cam_Steep_Manager : MonoBehaviour
     
     #region Bools
     [Header("Bool")]
-    public bool stop = false;
+    public bool _finishedSteep = false;
     
-    private bool _finishedSteep = false;
+    [Header("Tea Flavors")]
+    public bool lowFlavor = false;
+    public bool medFlavor = false;
+    public bool highFlavor = false;
     #endregion
 
     #region Values
@@ -39,12 +43,31 @@ public class Cam_Steep_Manager : MonoBehaviour
         {
             Steeping();
         }
+
+        if (_finishedSteep)
+        {
+            if (roundedTime < 15)
+            {
+                lowFlavor = true;
+            }
+            else if (roundedTime >= 15 && roundedTime < 30)
+            {
+                medFlavor = true;
+            }
+            else if (roundedTime >= 30)
+            {
+                highFlavor = true;
+            }
+        } ;
     }
 
     void Steeping()
     {
-        steepTime += Time.deltaTime;
-        roundedTime = (int)(steepTime % 60);
+        if (_finishedSteep == false)
+        {
+            steepTime += Time.deltaTime;
+            roundedTime = (int)(steepTime % 60);
+        }
         Debug.Log(roundedTime);
 
         if (roundedTime >= maxTime)

@@ -6,10 +6,16 @@ using UnityEngine;
 public class TeaPot_Move : CamMove
 {
     [SerializeField] 
-    private Rigidbody2D teaPot;
-
+    private Cam_Steep_Manager _steepManager;
     [SerializeField] 
     private Pot_SpriteChanger sprTrack;
+    
+    [SerializeField] 
+    private Rigidbody2D teaPot;
+
+
+    [SerializeField] 
+    private Lid_Move lid;
 
     public override void Start()
     {
@@ -19,17 +25,35 @@ public class TeaPot_Move : CamMove
 
     public void Update()
     {
-        if (_myManager.CurrentState == PouringManager.State.Resting && sprTrack._filled)
+        if (_myManager.CurrentState == PouringManager.State.Resting && sprTrack._filled || lid._colliding)
         {
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
         }
+
+        if (sprTrack._filled == false && lid._colliding == false)
+        {
+            gameObject.GetComponent<CircleCollider2D>().enabled = true;
+        }
+    }
+
+    public override void OnMouseDown()
+    {
+        base.OnMouseDown();
+        if (sprTrack._steeping)
+        {
+            _steepManager._finishedSteep = true;
+        }
+        
     }
 
     public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("cup"))
         {
-            _myManager.TransitionState(PouringManager.State.Pouring);
+            if (sprTrack._steeping)
+            {
+                _myManager.TransitionState(PouringManager.State.Pouring);
+            }
             //teaPot.constraints = RigidbodyConstraints2D.FreezePosition;
         }
     }
@@ -38,7 +62,10 @@ public class TeaPot_Move : CamMove
     {
         if (other.gameObject.CompareTag("cup"))
         {
-            _myManager.TransitionState(PouringManager.State.Reset);
+            if (sprTrack._steeping)
+            {
+                _myManager.TransitionState(PouringManager.State.Reset);
+            }
         }
     }
 }
