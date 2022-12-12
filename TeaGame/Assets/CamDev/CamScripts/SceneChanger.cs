@@ -14,6 +14,14 @@ public class SceneChanger : MonoBehaviour
 
     public void Start()
     {
-        StartCoroutine(WaitToLoad());
+       // StartCoroutine(WaitToLoad());
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene("CamDev_TazBlockout");
+        }
     }
 }
