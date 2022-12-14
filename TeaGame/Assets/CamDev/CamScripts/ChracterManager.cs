@@ -8,6 +8,7 @@ public class ChracterManager : MonoBehaviour
     public GameManager manager;
     public Cam_Steep_Manager steepManager;
 
+    #region Lombardo
     [Header("Lambardo")]
     [Header("Animator")]
     [SerializeField] 
@@ -25,6 +26,13 @@ public class ChracterManager : MonoBehaviour
     private Sprite _lambCurrentSprite;
     [SerializeField]
     private bool lambPresent = false;
+    #endregion
+
+    #region Rana
+
+    #endregion
+
+    public bool _sceneEnd = false;
     
     // Start is called before the first frame update
     IEnumerator WaitToStart()
@@ -41,7 +49,9 @@ public class ChracterManager : MonoBehaviour
         Debug.Log("about to start");
         yield return new WaitForSeconds(0.1f);
         lambAnim.Play("LambardoExit", 0, 0f);
+        _sceneEnd = true;
     }
+    
     void Start()
     {
         if (manager.currentState == GameManager.State.Enter)

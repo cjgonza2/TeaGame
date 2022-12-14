@@ -8,6 +8,12 @@ using UnityEngine;
 public class PouringManager : MonoBehaviour
 {
 
+    [SerializeField] 
+    private AudioManager audioManager;
+
+    [SerializeField]
+    private AudioSource pouringsfx;
+    
     [Header("Animators")]
     [SerializeField]
     private Animator potAnimator;
@@ -21,8 +27,8 @@ public class PouringManager : MonoBehaviour
     [Header("SpriteTracking")] 
     [SerializeField]
     private Pot_SpriteChanger potSpr;
-    
-    
+
+    #region GameObjects
     [Header("GameObjects")]
     [SerializeField]
     private GameObject teaPot;
@@ -30,11 +36,14 @@ public class PouringManager : MonoBehaviour
     private Rigidbody2D teaPot_RB;
     [SerializeField]
     private GameObject teaLiquid;
-    
+    #endregion
+
+    #region Bools
     [Header("Bools")]
     public bool changeSprite;
     private bool animationDone; //whether animation is done or not
     private bool canSwitch = true; //whether a state can switch or not.
+    #endregion
 
     #region singleton
     private static PouringManager instance;
@@ -85,7 +94,9 @@ public class PouringManager : MonoBehaviour
     IEnumerator KettleDone()
     {
         yield return new WaitForSeconds(ketAnimator.GetCurrentAnimatorClipInfo(0).Length);
+        //Stop();
         animationDone = true;
+
     }
 
     //coroutine that gives a buffer between each state switch.
@@ -99,6 +110,11 @@ public class PouringManager : MonoBehaviour
     #endregion
 
     #region StateMachine
+
+    private void Start()
+    {
+        pouringsfx = audioManager.Pouring;
+    }
 
     public void TransitionState(State newState)
     {
@@ -124,11 +140,16 @@ public class PouringManager : MonoBehaviour
                     TransitionState(State.Resting); //sets state back to default
                     break;
                 case State.KettlePour:
+                    //plays kettle pouring animation.
                     ketAnimator.Play("KettlePour", 0, 0f);
                     KetLiqAnimator.Play("water_pour", 0, 0f);
+                    
+                    pouringsfx.Play();  //plays the pouring audio.
+                    
                     StartCoroutine(KettleDone());
                     if (animationDone)
                     {
+                        pouringsfx.Stop();
                         StartCoroutine(StateBuffer());
                         animationDone = false;
                     }
@@ -142,4 +163,9 @@ public class PouringManager : MonoBehaviour
     }
 
     #endregion
+
+    public void Stop()
+    {
+        audioManager.Pouring.Stop();
+    }
 }

@@ -1,11 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] 
     private ChracterManager charMan;
+
+    [SerializeField] 
+    private CycleManager cyclMan;
 
     #region Singleton
     private static GameManager instance;
@@ -56,10 +61,20 @@ public class GameManager : MonoBehaviour
         TransitionState(State.Enter);
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator WaitBeforeTransition()
     {
+        yield return new WaitForSeconds(3f);
+        cyclMan.cycleCount++;
+        NextCycle();
         
+    }
+
+    private void Update()
+    {
+        if (charMan._sceneEnd)
+        {
+            StartCoroutine(WaitBeforeTransition());
+        }
     }
 
     public void TransitionState(State newState)
@@ -81,5 +96,11 @@ public class GameManager : MonoBehaviour
             case State.Exiting:
                 break;
         }
+    }
+
+    private void NextCycle()
+    {
+        Debug.Log("I am in the process of changing scenes");
+        SceneManager.LoadScene(0);
     }
 }
