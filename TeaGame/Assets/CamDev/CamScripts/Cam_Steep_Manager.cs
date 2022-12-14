@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Cam_Steep_Manager : MonoBehaviour
@@ -34,6 +35,7 @@ public class Cam_Steep_Manager : MonoBehaviour
     public int maxTime;
     public int roundedTime;
     public float steepTime;
+    
     #endregion
 
     // Update is called once per frame
@@ -43,6 +45,18 @@ public class Cam_Steep_Manager : MonoBehaviour
         {
             Steeping();
         }
+
+        if (roundedTime < 15)
+        {
+            mySprite.currentSprite = mySprite.potTea;
+        }else if (roundedTime >= 15 && roundedTime < 30)
+        {
+            mySprite.currentSprite = mySprite.teaMed;
+        }else if (roundedTime >= 30)
+        {
+            mySprite.currentSprite = mySprite.teaHigh;
+        }
+
 
         if (_finishedSteep)
         {

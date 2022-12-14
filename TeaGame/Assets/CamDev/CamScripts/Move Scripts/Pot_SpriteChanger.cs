@@ -12,8 +12,11 @@ public class Pot_SpriteChanger : MonoBehaviour
     private Sprite potEmpty;
     [SerializeField] 
     private Sprite potWater;
-    [SerializeField] 
-    private Sprite potTea;
+    
+    //Reference to the flavor of tea sprites
+    public Sprite potTea;
+    public Sprite teaMed;
+    public Sprite teaHigh;
 
     public Sprite currentSprite;
 
@@ -52,7 +55,7 @@ public class Pot_SpriteChanger : MonoBehaviour
 
         if (_filled && _steeping)
         {
-            currentSprite = potTea;
+            //currentSprite = potTea;
             potSPR.sprite = currentSprite;
         }
     }
