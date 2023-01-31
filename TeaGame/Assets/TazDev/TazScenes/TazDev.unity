@@ -606,7 +606,7 @@ GameObject:
   - component: {fileID: 627223106}
   m_Layer: 0
   m_Name: Sleep
-  m_TagString: sweet
+  m_TagString: sleep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1421,6 +1421,7 @@ GameObject:
   - component: {fileID: 1579152454}
   - component: {fileID: 1579152455}
   - component: {fileID: 1579152456}
+  - component: {fileID: 1579152457}
   m_Layer: 0
   m_Name: teacup
   m_TagString: Cup
@@ -1555,6 +1556,41 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1579152457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579152451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 812573e55e2fcba4f97da7fb06694311, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mildBase: {fileID: 0}
+  sweetBase: {fileID: 0}
+  bitterBase: {fileID: 0}
+  sleepInfuse: {fileID: 0}
+  healthInfuse: {fileID: 0}
+  energyInfuse: {fileID: 0}
+  mild: 0
+  sweet: 0
+  bitter: 0
+  sleep: 0
+  health: 0
+  energy: 0
+  mildSleep: 0
+  mildHealth: 0
+  mildEnergy: 0
+  sweetSleep: 0
+  sweetHealth: 0
+  sweetEnergy: 0
+  bitterSleep: 0
+  bitterHealth: 0
+  bitterEnergy: 0
+  teaBase: 0
+  teaIng: 0
 --- !u!1 &1779085525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,73 +1922,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!1 &2031934800
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2031934802}
-  - component: {fileID: 2031934801}
-  m_Layer: 0
-  m_Name: TeaBlending
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2031934801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2031934800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 812573e55e2fcba4f97da7fb06694311, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mildBase: {fileID: 0}
-  sweetBase: {fileID: 0}
-  bitterBase: {fileID: 0}
-  sleepInfuse: {fileID: 0}
-  healthInfuse: {fileID: 0}
-  energyInfuse: {fileID: 0}
-  mild: 0
-  sweet: 0
-  bitter: 0
-  sleep: 0
-  health: 0
-  energy: 0
-  mildSleep: 0
-  mildHealth: 0
-  mildEnergy: 0
-  sweetSleep: 0
-  sweetHealth: 0
-  sweetEnergy: 0
-  bitterSleep: 0
-  bitterHealth: 0
-  bitterEnergy: 0
-  teaBase: 0
-  teaIng: 0
---- !u!4 &2031934802
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2031934800}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2091520147
 GameObject:
   m_ObjectHideFlags: 0

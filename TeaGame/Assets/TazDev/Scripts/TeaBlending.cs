@@ -113,37 +113,49 @@ public class TeaBlending : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("mild") == true && teaBase == 0)
+        /*if (collision.gameObject.tag.Equals("mild"))
         {
-            mild = true;
-            teaBase++;
+            Debug.Log("hit");
+        }*/
+
+        
+        if(teaBase == 0)
+        {
+            if (collision.gameObject.tag.Equals("mild") == true)
+            {
+                mild = true;
+                teaBase++;
+            }
+            if (collision.gameObject.tag.Equals("bitter") == true)
+            {
+                bitter = true;
+                teaBase++;
+            }
+            if (collision.gameObject.tag.Equals("sweet") == true)
+            {
+                sweet = true;
+                teaBase++;
+            }
         }
-        if (collision.gameObject.tag.Equals("bitter") == true && teaBase == 0)
+        if(teaIng == 0)
         {
-            bitter = true;
-            teaBase++;
-        }
-        if (collision.gameObject.tag.Equals("sweet") == true && teaBase == 0)
-        {
-            sweet = true;
-            teaBase++;
-        }
-        if (collision.gameObject.tag.Equals("sleep") == true && teaIng == 0)
-        {
-            sleep = true;
-            teaIng++;
-        }
-        if (collision.gameObject.tag.Equals("health") == true && teaIng == 0)
-        {
-            health = true;
-            teaIng++;
-        }
-        if (collision.gameObject.tag.Equals("energy") == true && teaIng == 0)
-        {
-            energy = true;
-            teaIng++;
+            if (collision.gameObject.tag.Equals("sleep") == true)
+            {
+                sleep = true;
+                teaIng++;
+            }
+            if (collision.gameObject.tag.Equals("health") == true)
+            {
+                health = true;
+                teaIng++;
+            }
+            if (collision.gameObject.tag.Equals("energy") == true)
+            {
+                energy = true;
+                teaIng++;
+            }
         }
     }
 }
