@@ -57,7 +57,7 @@ public class ObjectController : MonoBehaviour
             transform.position = GetMouseWorldPosition() + mousePosOffset;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("cup") == true)
         {
@@ -71,5 +71,5 @@ public class ObjectController : MonoBehaviour
     {
         isCollided = false;
         Debug.Log("not collided");
-    }
+    }*/
 }

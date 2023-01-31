@@ -9,6 +9,12 @@ TagManager:
   - TeaPot
   - TeaLeaf
   - Character
+  - mild
+  - bitter
+  - sweet
+  - sleep
+  - health
+  - energy
   layers:
   - Default
   - TransparentFX
