@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5798671141735087648}
   - component: {fileID: 5798671141735087649}
-  - component: {fileID: 5798671141735087654}
   - component: {fileID: 5798671141735087655}
   - component: {fileID: -4696373298305365974}
+  - component: {fileID: 757269128685978102}
+  - component: {fileID: 6869415657378366093}
   m_Layer: 0
   m_Name: Mild Base
   m_TagString: mild
@@ -87,20 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5798671141735087654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5798671141735087650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56c48997899e2a14d9652b1cafe11e7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tea: {fileID: 841392332907388582, guid: 26352c4c83eee0d4f9f7bf5ffe4b7988, type: 3}
-  clumpExists: 0
 --- !u!61 &5798671141735087655
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,3 +135,35 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &757269128685978102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5798671141735087650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 874170f390d4edb4e955ed49966b3152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myManager: {fileID: 0}
+  mousePosOffset: {x: 0, y: 0, z: 0}
+  mouseZ: 0
+--- !u!114 &6869415657378366093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5798671141735087650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39d33f4db48c1a419c4c1fedd39330c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potSpr: {fileID: 0}
+  potSteep: {fileID: 0}
+  teaPot: {fileID: 0}
+  lid: {fileID: 0}
+  restPos: {x: 0, y: 0}

@@ -84,14 +84,27 @@ public class ChracterManager : MonoBehaviour
     {
         if (manager.currentState == GameManager.State.Tasting)
         {
-            if (steepManager.lowFlavor || steepManager.medFlavor)
+            //if the tea blend is made of bitter and health.
+            if (steepManager.bitterHealth)
             {
-                _lambCurrentSprite = lambReact;
-                lambSpr.sprite = _lambCurrentSprite;
+                //and if the flavor is high.
+                if (steepManager.highFlavor)
+                {
+                    //sets character sprite to idle.
+                    _lambCurrentSprite = lambIdle;
+                    lambSpr.sprite = _lambCurrentSprite;
+                }
+                else
+                {
+                    //sets char sprite to negative react sprite. 
+                    _lambCurrentSprite = lambReact;
+                    lambSpr.sprite = _lambCurrentSprite;
+                }
             }
-            else if(steepManager.highFlavor)
+            else //otherwise;
             {
-                _lambCurrentSprite = lambIdle;
+                //sets char sprite to negative react sprite. 
+                _lambCurrentSprite = lambReact;
                 lambSpr.sprite = _lambCurrentSprite;
             }
         }

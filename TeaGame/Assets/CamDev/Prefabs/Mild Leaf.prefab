@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2665646472614033688}
   m_Layer: 0
   m_Name: Mild Leaf
-  m_TagString: Untagged
+  m_TagString: mild
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

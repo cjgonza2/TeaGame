@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1660599152090355940}
   m_Layer: 0
   m_Name: Bitter Leaf
-  m_TagString: Untagged
+  m_TagString: bitter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

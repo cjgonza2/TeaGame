@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class TeaBlending : MonoBehaviour
 {
-    #region Objects
-    public GameObject mildBase;
-    public GameObject sweetBase;
-    public GameObject bitterBase;
-
-    public GameObject sleepInfuse;
-    public GameObject healthInfuse;
-    public GameObject energyInfuse;
-    #endregion
-
     #region Bools
 
     //Bases check

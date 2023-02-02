@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3337372112478521013}
   m_Layer: 0
   m_Name: Health Leaf
-  m_TagString: Untagged
+  m_TagString: health
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
