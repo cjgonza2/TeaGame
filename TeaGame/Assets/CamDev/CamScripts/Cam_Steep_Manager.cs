@@ -23,7 +23,7 @@ public class Cam_Steep_Manager : MonoBehaviour
     public bool energy = false;
     #endregion
 
-    #region Tea Flavors
+    #region Tea Blends
 
     [Header("Bitter Blends")]
     public bool bitterSleep = false;
@@ -42,13 +42,12 @@ public class Cam_Steep_Manager : MonoBehaviour
 
     #endregion
 
+    [Header("Component Checks")]
     #region Ingredient Checks
-
     //Checks if there is a tea base in the mix.
     public bool teaBase = false;
     //Checks if there is a tea ingredient in mix.
     public bool teaIng = false;
-
     #endregion
     
     #region Objects

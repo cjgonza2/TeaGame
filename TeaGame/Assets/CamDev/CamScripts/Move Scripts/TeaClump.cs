@@ -42,8 +42,7 @@ public class TeaClump : MonoBehaviour
     {
         if (col.transform.tag == ("TeaPot"))
         {
-            
-            //if the pot has water, and the lid is not on top:
+           //if the pot has water, and the lid is not on top:
             if (potSpr._filled && _lid._colliding == false)
             {
                 #region Base & Ingredient Set
@@ -67,9 +66,14 @@ public class TeaClump : MonoBehaviour
                     SetIngredient(gameObject.tag);
                 }
                 #endregion
+
                 //Debug.Log("Time to steep");
-                potSpr._steeping = true; //sets the teapot to steeping. Steeping counter starts.
-                gameObject.transform.position = restPos;
+                if (potSteep.teaBase && potSteep.teaIng)
+                {
+                    potSpr._steeping = true; //sets the teapot to steeping. Steeping counter starts.
+                }
+                Destroy(this);
+                //gameObject.transform.position = restPos;
             }
             //potSpr._steeping = true;
         }
