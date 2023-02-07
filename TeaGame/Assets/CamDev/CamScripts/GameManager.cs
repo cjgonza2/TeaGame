@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
+
+    //[HideInInspector]
+    public string _currentScene;
     
     public enum State
     {
@@ -45,6 +48,10 @@ public class GameManager : MonoBehaviour
     public State currentState;
     // Start is called before the first frame update
 
+    private IEnumerator WaitBeforeRest()
+    {
+        yield return new WaitForSeconds(1.0f);
+    }
     private IEnumerator WaitBeforeTaste()
     {
         yield return new WaitForSeconds(5f);
@@ -58,6 +65,8 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        _currentScene = SceneManager.GetActiveScene().name;
+        //Debug.Log(_currentScene);
         TransitionState(State.Enter);
     }
 
@@ -83,7 +92,8 @@ public class GameManager : MonoBehaviour
         switch (newState)
         {
             case State.Enter:
-                TransitionState(State.Resting);
+                //StartCoroutine(WaitBeforeRest());
+                //(State.Resting);
                 break;
             case State.Resting:
                 break;

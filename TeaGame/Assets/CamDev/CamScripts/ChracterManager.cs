@@ -8,8 +8,12 @@ public class ChracterManager : MonoBehaviour
     public GameManager manager;
     public Cam_Steep_Manager steepManager;
 
+    [SerializeField]
+    private string locale;
+    private string _currentCharacter;
+
     #region Lombardo
-    [Header("Lambardo")]
+    [Header("Lombardo")]
     [Header("Animator")]
     [SerializeField] 
     private Animator lambAnim;
@@ -33,17 +37,23 @@ public class ChracterManager : MonoBehaviour
     #endregion
 
     public bool _sceneEnd = false;
-    
-    // Start is called before the first frame update
-    IEnumerator WaitToStart()
+
+    IEnumerator SetLocale(string scene)
+    {
+        locale = manager._currentScene; //sets locale to the current scene. 
+        SetCharacter(); //sets the character based on current scene.
+        manager.TransitionState(GameManager.State.Resting); //changes the state to resting. 
+        yield break;
+    }
+    IEnumerator LombardoWaitToStart()
     {
         Debug.Log("coroutine was called");
-        yield return new WaitForSeconds(0.2f);
-        lambAnim.Play("LombardoEnter", 0,0f);
-        lambPresent = true;
+        yield return new WaitForSeconds(0.2f);  //waits for a split second before entering. 
+        lambAnim.Play("LombardoEnter", 0,0f); //plays lombardo enter animation.
+        lambPresent = true; //sets lombardo to present. 
     }
 
-    IEnumerator WaitToExit()
+    IEnumerator LomWaitToExit()
     {
         lambPresent = false;
         Debug.Log("about to start");
@@ -54,29 +64,42 @@ public class ChracterManager : MonoBehaviour
     
     void Start()
     {
-        if (manager.currentState == GameManager.State.Enter)
-        {
-            Debug.Log("coroutine can be called");
-            StartCoroutine(WaitToStart());
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        //if the game's current state is start;
+        if (manager.currentState == GameManager.State.Enter)
+        {
+            StartCoroutine(SetLocale(manager._currentScene));
+            // SetCharacter();
+        }
         Drinking();
         Tasting();
         Exiting();
 
     }
 
+    void SetCharacter()
+    {
+        if (locale == "Goyo_Canyon")
+        {
+            _currentCharacter = "Lombardo";
+        }
+        StartCoroutine($"{_currentCharacter}WaitToStart");
+    }
+    
     void Drinking()
     {
         if (manager.currentState == GameManager.State.Drinking)
         {
-            _lambCurrentSprite = lambSip;
-            lambSpr.sprite = _lambCurrentSprite;
+            if (_currentCharacter == "Lombardo")
+            {
+                _lambCurrentSprite = lambSip;
+                lambSpr.sprite = _lambCurrentSprite;
+            }
         }
     }
 
@@ -115,7 +138,7 @@ public class ChracterManager : MonoBehaviour
         if (manager.currentState == GameManager.State.Exiting && lambPresent)
         {
             Debug.Log("leave me");
-            StartCoroutine(WaitToExit());
+            StartCoroutine(LomWaitToExit());
             //lambAnim.Play("LambardoExit", 0, 0);
         }
     }

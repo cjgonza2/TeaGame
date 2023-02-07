@@ -2631,12 +2631,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mySprite: {fileID: 1608201844}
+  mild: 0
+  sweet: 0
+  bitter: 0
+  sleep: 0
+  health: 0
+  energy: 0
+  bitterSleep: 0
+  bitterHealth: 0
+  bitterEnergy: 0
+  mildSleep: 0
+  mildHealth: 0
+  mildEnergy: 0
+  sweetSleep: 0
+  sweetHealth: 0
+  sweetEnergy: 0
+  teaBase: 0
+  teaIng: 0
   teaSprite: {fileID: 0}
   _finishedSteep: 0
   lowFlavor: 0
-  medFlavor: 0
   highFlavor: 0
-  maxTime: 45
+  maxTime: 16
   roundedTime: 0
   steepTime: 0
 --- !u!114 &1608201846
@@ -3088,6 +3104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1808856649}
   steepManager: {fileID: 1608201845}
+  locale: 
   lambAnim: {fileID: 750061844}
   lambSpr: {fileID: 750061847}
   lambIdle: {fileID: 21300000, guid: 3d716d61431233d4c8c552bbbeff81ce, type: 3}
@@ -3109,6 +3126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charMan: {fileID: 1808856648}
   cyclMan: {fileID: 0}
+  _currentScene: 
   currentState: 0
 --- !u!1 &1857015281
 GameObject:
