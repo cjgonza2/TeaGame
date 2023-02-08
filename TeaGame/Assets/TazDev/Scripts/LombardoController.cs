@@ -19,7 +19,7 @@ public class LombardoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.A))
+        /*if (Input.GetKey(KeyCode.A))
         {
             theSR.sprite = reactImage;
         }
@@ -32,6 +32,6 @@ public class LombardoController : MonoBehaviour
         else
         {
             theSR.sprite = idleImage;
-        }
+        }*/
     }
 }
