@@ -52,3 +52,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3036881185
+    locked: 0
+  - name: Garden
+    uniqueID: 3662875543
+    locked: 0
+  - name: Customer
+    uniqueID: 602894405
+    locked: 0
+  - name: Table
+    uniqueID: 1285743909
+    locked: 0
+  - name: Ingredients
+    uniqueID: 3392335525
+    locked: 0
+  - name: Tools
+    uniqueID: 103614393
+    locked: 0
+  - name: Clumps
+    uniqueID: 2256610933
+    locked: 0

@@ -6,6 +6,7 @@ public class TeaLeavesController : MonoBehaviour
 {
     public GameObject tea;
     GameObject teaClump;
+    private SpriteRenderer teaLayer;
     public bool clumpExists = false;
 
     Vector3 mousePosOffset;
@@ -28,12 +29,15 @@ public class TeaLeavesController : MonoBehaviour
 
     void OnMouseDown()
     {
+        Debug.Log("What the fuck");
         mouseZ = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
         mousePosOffset = gameObject.transform.position - GetMouseWorldPosition();
 
         if (clumpExists == false)
         {
-            teaClump = Instantiate(tea, GetMouseWorldPosition(), Quaternion.identity);
+            teaClump = Instantiate(tea, GetMouseWorldPosition(), Quaternion.identity); //instantiates clone of clump prefab.
+            teaLayer = teaClump.GetComponent<SpriteRenderer>(); //grabs the sprite renderer of cloned prefab.
+            teaLayer.sortingLayerName = "Clumps"; //sets the sorting layer of prefab clone.
             clumpExists = true;
         }
     

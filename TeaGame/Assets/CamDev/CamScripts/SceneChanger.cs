@@ -21,7 +21,7 @@ public class SceneChanger : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene("CamDev_TazBlockout");
+            SceneManager.LoadScene("Goyo_Canyon");
         }
     }
 }

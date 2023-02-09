@@ -9,6 +9,23 @@ using DG.Tweening;
 
 public class CameraMove : MonoBehaviour
 {
+
+    [SerializeField]
+    private float lookUpDistance;
+    [SerializeField]
+    private float lookLeftDistance;
+    [SerializeField] 
+    private float lookRightDistance;
+
+    private float _startPosX;
+    private float _startPosY;
+
+    private void Start()
+    {
+        _startPosX = transform.position.x;
+        _startPosY = transform.position.y;
+    }
+
     void Update()
     {
         //input checks.
@@ -33,13 +50,13 @@ public class CameraMove : MonoBehaviour
     private void UpLook()
     {
         //tweens the object up to the customer.
-        gameObject.transform.DOMoveY(9.5f, 0.5f).SetEase(Ease.InOutCubic);
+        gameObject.transform.DOMoveY(lookUpDistance, 0.5f).SetEase(Ease.InOutCubic);
     }
 
     private void UpReset()
     {
         //tweens the camera to start position.
-        gameObject.transform.DOMoveY(1, 0.5f).SetEase(Ease.InOutCubic);
+        gameObject.transform.DOMoveY(_startPosY, 0.5f).SetEase(Ease.InOutCubic);
     }
     #endregion
 
@@ -58,12 +75,12 @@ public class CameraMove : MonoBehaviour
     }
     private void LeftLook()
     {
-        
+        gameObject.transform.DOMoveX(lookLeftDistance, 0.5f).SetEase(Ease.InOutCubic);
     }
 
     private void LeftReset()
     {
-        
+        gameObject.transform.DOMoveX(_startPosX, 0.5f).SetEase(Ease.InOutCubic);
     }
     #endregion
 
@@ -82,12 +99,12 @@ public class CameraMove : MonoBehaviour
     }
     private void RightLook()
     {
-        
+        gameObject.transform.DOMoveX(lookRightDistance, 0.5f).SetEase(Ease.InOutCubic);
     }
 
     private void RightReset()
     {
-        
+        gameObject.transform.DOMoveX(_startPosX, 0.5f).SetEase(Ease.InOutCubic);
     }
     #endregion
 }
