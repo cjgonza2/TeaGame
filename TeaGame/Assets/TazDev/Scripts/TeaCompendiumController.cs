@@ -8,6 +8,8 @@ public class TeaCompendiumController : MonoBehaviour
     public GameObject icon;
     public GameObject compendium;
     public GameObject exitButton;
+    public GameObject leftButton;
+    public GameObject rightButton;
 
     private SpriteRenderer iconSR;
     private Collider2D iconCollider;
@@ -26,6 +28,9 @@ public class TeaCompendiumController : MonoBehaviour
         exitButton.SetActive(false);
         Button exitCompendium = exitButton.GetComponent<Button>();
         exitCompendium.onClick.AddListener(TaskOnClick);
+
+        leftButton.SetActive(false);
+        rightButton.SetActive(false);
 
 
         iconSR = icon.GetComponent<SpriteRenderer>();
@@ -54,7 +59,10 @@ public class TeaCompendiumController : MonoBehaviour
         iconCollider.enabled = false;
 
         exitButton.SetActive(true);
-        
+        leftButton.SetActive(true);
+        rightButton.SetActive(true);
+
+
     }
 
     void TaskOnClick()
@@ -62,6 +70,8 @@ public class TeaCompendiumController : MonoBehaviour
         Debug.Log("button press");
 
         exitButton.SetActive(false);
+        leftButton.SetActive(false);
+        rightButton.SetActive(false);
         compendium.SetActive(false);
 
         iconSR.enabled = true;
