@@ -73,7 +73,7 @@ public class TeaClump : MonoBehaviour
                     potSpr._steeping = true; //sets the teapot to steeping. Steeping counter starts.
                 }
                 Destroy(this);
-                //gameObject.transform.position = restPos;
+                gameObject.transform.position = restPos;
             }
             //potSpr._steeping = true;
         }

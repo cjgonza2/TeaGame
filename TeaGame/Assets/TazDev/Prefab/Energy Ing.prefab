@@ -166,4 +166,4 @@ MonoBehaviour:
   potSteep: {fileID: 0}
   teaPot: {fileID: 0}
   lid: {fileID: 0}
-  restPos: {x: 0, y: 0}
+  restPos: {x: 0, y: -7.5}
