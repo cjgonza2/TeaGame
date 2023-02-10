@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using DG.Tweening;
 
 public class Kettle_Move : CamMove
 {
+
+    //private Rigidbody2D myBody;
     
     [SerializeField]
     private ParticleSystem lowBoil;
@@ -22,29 +25,48 @@ public class Kettle_Move : CamMove
     [SerializeField]
     private bool boiling = false;
     
-    
     #region Boil Values
-    private float _boilCounter;
+    private float _boilCounter; //raw number to count how long kettle has been boiling.
+    [SerializeField]
+    private int boilTime; //rounded number for counting how long kettle has been boiling.
     
-    public int boilTime;
     #endregion
 
+    //this is only temporary until boiling sprite animation is done.
+    IEnumerator BeginBoil() //enables initial particle system for boiling.
+    {
+        var emission = lowBoil.emission;
+        emission.enabled = true;
+        Debug.Log("boil has started.");
+        yield break;
+    }
+    
     public override void Start()
     {
-        base.Start();
-        lowBoil.enableEmission = false;
+        base.Start(); //does everything parent function does.
+        //myBody = GetComponent<Rigidbody2D>();
+        StartCoroutine(BeginBoil());
+        transform.DORotate(new Vector3(0, 0, 120), 2f);
+
+        
         startpos = new Vector3(gameObject.transform.position.x, 
             gameObject.transform.position.y,
             gameObject.transform.position.z);
+
     }
 
-    private void Update()
+    /*public override void Update()
     {
-        if (_dragging == false)
+        base.Update();
+
+        /*if (_selected == false)
         {
             gameObject.transform.position = startpos;
-        }
+            gameObject.transform.DORotate(new Vector3(0, 0, -25), 0.5f, RotateMode.LocalAxisAdd);
+        }#1#
 
+
+        
         if (gameObject.transform.position == startpos)
         {
             _boilCounter += Time.deltaTime;
@@ -91,17 +113,17 @@ public class Kettle_Move : CamMove
         }
     }
 
-   public override void OnMouseDown()
+    //Here in case we need to use it.
+    public override void OnMouseDown()
    {
-       _dragging = true;
-       mouseZ = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-       mousePosOffset = gameObject.transform.position - GetMouseWorldPosition();
+       base.OnMouseDown();
    }
 
-   private void OnMouseUp()
-   {
-       _dragging = false;
-   }
+    //here in case we need to use it.
+    public override void OnMouseUp()
+    {
+        base.OnMouseUp();
+    }
 
    private void OnTriggerEnter2D(Collider2D col)
     {
@@ -109,7 +131,9 @@ public class Kettle_Move : CamMove
         {
             if (boiling)
             {
-                _myManager.TransitionState(PouringManager.State.KettlePour);
+                Debug.Log("Fuckiuty fuck");
+                
+                //_myManager.TransitionState(PouringManager.State.KettlePour);
                 _pouring = true;
             }
         }
@@ -119,8 +143,8 @@ public class Kettle_Move : CamMove
     {
         if (other.gameObject.CompareTag("TeaPot"))
         {
-            _myManager.TransitionState((PouringManager.State.KettleReset));
+            //_myManager.TransitionState((PouringManager.State.KettleReset));
             _pouring = false;
         }
-    }
+    }*/
 }

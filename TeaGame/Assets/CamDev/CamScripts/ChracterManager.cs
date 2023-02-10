@@ -47,7 +47,7 @@ public class ChracterManager : MonoBehaviour
     }
     IEnumerator LombardoWaitToStart()
     {
-        Debug.Log("coroutine was called");
+        //Debug.Log("coroutine was called");
         yield return new WaitForSeconds(0.2f);  //waits for a split second before entering. 
         lambAnim.Play("LombardoEnter", 0,0f); //plays lombardo enter animation.
         lambPresent = true; //sets lombardo to present. 

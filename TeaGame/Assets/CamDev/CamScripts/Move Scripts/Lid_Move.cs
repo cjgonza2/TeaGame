@@ -32,10 +32,9 @@ public class Lid_Move : CamMove
 
     public override void OnMouseDown()
     {
+        base.OnMouseDown();
         _dragging = true;
         _colliding = false;
-        mouseZ = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-        mousePosOffset = gameObject.transform.position - GetMouseWorldPosition();
     }
 
     private void OnMouseUp()

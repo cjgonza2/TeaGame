@@ -73,3 +73,6 @@ TagManager:
   - name: Clumps
     uniqueID: 2256610933
     locked: 0
+  - name: Compendium
+    uniqueID: 242358951
+    locked: 0

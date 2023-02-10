@@ -6,41 +6,43 @@ using UnityEngine;
 
 public class CamMove : MonoBehaviour
 {
-    //do tween - an extension for tweening that might be worth looking into.
-
-    [SerializeField]
-    public PouringManager _myManager;
-
+    //This script is complete. 
+    private Vector3 _mousePos; //vector 3 of the mouse. 
     [HideInInspector]
-    public Vector3 mousePosOffset;
-    [HideInInspector]
-    public float mouseZ;
+    public bool _selected = false; //bool that determines if an object has been selected.
+
 
     // Start is called before the first frame update
     public virtual void Start()
     {
-        _myManager = PouringManager.FindInstance();
+        
     }
 
-    #region Obj Movement
+    public virtual void Update()
+    {
+        if (_selected) //if the an object is selected. 
+        {
+            CalculateMousePos();
+        }
+    }
+
+    public virtual void CalculateMousePos() //calculates mouse position.
+    {
+
+        _mousePos = Input.mousePosition; //sets the mouse input position (mouse.x, mouse.y, 0)
+        _mousePos.z = Camera.main.WorldToScreenPoint(gameObject.transform.position).z; //sets the mouse z pos to the screen point of the selected gameobject's z position.
+        transform.position = Camera.main.ScreenToWorldPoint(_mousePos)
+                             - new Vector3(0, 0,
+                                 transform.position.z); //sets the selected game objects' position to the converted world coordinates of the mouse. and ballances it with a z offset.
+    }
+
     public virtual void OnMouseDown()
     {
-        //Debug.Log("click");
-        mouseZ = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-        mousePosOffset = gameObject.transform.position - GetMouseWorldPosition();
-    }
-    public virtual Vector3 GetMouseWorldPosition()
-    {
-        //capture mouse position and return world point
-        Vector3 mousePoint = Input.mousePosition;
-        mousePoint.z = mouseZ;
-        return Camera.main.ScreenToWorldPoint(mousePoint);
+        _selected = true;
     }
 
-    public virtual void OnMouseDrag()
+    public virtual void OnMouseUp()
     {
-        //Debug.Log("drag");
-        transform.position = GetMouseWorldPosition() + mousePosOffset;
+        _selected = false;
     }
-    #endregion
 }

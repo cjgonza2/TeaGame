@@ -18,6 +18,7 @@ public class TeaClump : MonoBehaviour
     public GameObject lid;
 
     public Vector2 restPos;
+    public Vector2 inPotPos;
 
     private void Awake()
     {
@@ -56,6 +57,7 @@ public class TeaClump : MonoBehaviour
                     if (potSteep.teaBase != true)
                     {
                         //sets the base based on the tag of the clump. 
+                        gameObject.transform.position = teaPot.transform.position;
                         SetBase(gameObject.tag);
                     }
                 } 
@@ -72,8 +74,8 @@ public class TeaClump : MonoBehaviour
                 {
                     potSpr._steeping = true; //sets the teapot to steeping. Steeping counter starts.
                 }
-                Destroy(this);
-                gameObject.transform.position = restPos;
+                //Destroy(this);
+                //gameObject.transform.position = restPos;
             }
             //potSpr._steeping = true;
         }
