@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using DG.Tweening;
 
 public class CamMove : MonoBehaviour
 {
@@ -11,11 +12,12 @@ public class CamMove : MonoBehaviour
     [HideInInspector]
     public bool _selected = false; //bool that determines if an object has been selected.
 
+    private Camera _mainCam;
 
     // Start is called before the first frame update
     public virtual void Start()
     {
-        
+        _mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
 
     public virtual void Update()
@@ -29,11 +31,16 @@ public class CamMove : MonoBehaviour
     public virtual void CalculateMousePos() //calculates mouse position.
     {
 
-        _mousePos = Input.mousePosition; //sets the mouse input position (mouse.x, mouse.y, 0)
+        transform.position = _mainCam.ScreenToWorldPoint(new Vector3(
+            Input.mousePosition.x,
+            Input.mousePosition.y,
+            10));
+        /*_mousePos = Input.mousePosition; //sets the mouse input position (mouse.x, mouse.y, 0)
         _mousePos.z = Camera.main.WorldToScreenPoint(gameObject.transform.position).z; //sets the mouse z pos to the screen point of the selected gameobject's z position.
         transform.position = Camera.main.ScreenToWorldPoint(_mousePos)
                              - new Vector3(0, 0,
-                                 transform.position.z); //sets the selected game objects' position to the converted world coordinates of the mouse. and ballances it with a z offset.
+                                 transform.position.z);*/
+        //sets the selected game objects' position to the converted world coordinates of the mouse. and ballances it with a z offset.
     }
 
     public virtual void OnMouseDown()

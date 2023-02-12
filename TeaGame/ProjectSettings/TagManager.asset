@@ -15,6 +15,7 @@ TagManager:
   - sleep
   - health
   - energy
+  - Burner
   layers:
   - Default
   - TransparentFX
