@@ -7,28 +7,32 @@ using DG.Tweening;
 
 public class Kettle_Move : CamMove
 {
-
-    //private Rigidbody2D myBody;
-    private Vector3 _burnerPos;
-
-    private Vector3 _startPos;
     
+    private Vector3 _startPos; //default position of the Kettle.
+
+    [SerializeField] private Animator kettleLiquid;
+    
+    //Thinking in the future instead of particle system we can just use different steam animations.
+    /*[SerializeField] private Sprite lowSteam;
+    [SerializeField] private Sprite medSteam;
+    [SerializeField] private Sprite highSteam;*/
+    
+    //probably won't need these in the future. but for now they work to simulate boiling.
     [SerializeField]
     private ParticleSystem lowBoil;
     [SerializeField]
     private ParticleSystem medBoil;
     [SerializeField] 
     private ParticleSystem highBoil;
-    [SerializeField]
-    private Vector3 startpos;
-    [SerializeField]
-    private bool _dragging = false;
-
+    
     public bool _pouring = false;
-    [SerializeField]
+    
+    [SerializeField] //tracks if the kettle is boiling.
     private bool boiling = false;
+    [SerializeField] //tracks if the kettle is boiled.
+    private bool boiled = false;
 
-    private bool _onBurner = false;
+    private bool _onBurner = false; //tracks if the kettle is on the burner.
     
     #region Boil Values
     private float _boilCounter; //raw number to count how long kettle has been boiling.
@@ -79,53 +83,8 @@ public class Kettle_Move : CamMove
             boiling = false; //kettle does not boil.
         }
 
-        Boiling();
-
-        /*
-        if (gameObject.transform.position == startpos)
-        {
-            _boilCounter += Time.deltaTime;
-            boilTime = (int)(_boilCounter % 60);
-        }
-
-        if (gameObject.transform.position != startpos)
-        {
-            _boilCounter -= Time.deltaTime;
-            boilTime = (int)(_boilCounter % 60);
-        }*/
-
-        if (_boilCounter < 0)
-        {
-            _boilCounter = 0;
-        }
-        
-        
-
-        if (boilTime > 5)
-        {
-            lowBoil.enableEmission = true;
-            
-        }
-
-        if (boilTime > 15)
-        {
-            medBoil.enableEmission = true;
-        }
-        else
-        {
-            medBoil.enableEmission = false;
-        }
-
-        if (boilTime > 20)
-        {
-            highBoil.enableEmission = true;
-            boiling = true;
-        }
-        else
-        {
-            highBoil.enableEmission = false;
-            boiling = false;
-        }
+        Boiling(); //calculates boiling time.
+        Steam(); //enables steam && determines if kettle is fully boiled. 
     }
 
     private void Boiling()
@@ -138,12 +97,45 @@ public class Kettle_Move : CamMove
             _boilCounter -= Time.deltaTime; //lowers the boil counter by rate of time between frames. 
         }
 
-        if (_boilCounter < 0)
+        if (_boilCounter < 0) //if boil counter is less than 0
         {
-            _boilCounter = 0;
+            _boilCounter = 0; //resets boil counter to 0.
         }
 
         boilTime = (int)(_boilCounter % 60); //converts boil counter into rounded whole number.
+    }
+    
+    public void Steam()
+    {
+        if (boilTime > 5) //if kettle's been boiling for 5 seconds or more, 
+        {
+            lowBoil.enableEmission = true; //enables low steam.
+        }
+        else
+        {
+            lowBoil.enableEmission = false; //otherwise disables.
+        }
+        
+        if (boilTime > 15) //if kettle's been boiling for 5 seconds
+        {
+            medBoil.enableEmission = true; //enables med steam.
+        }
+        else
+        {
+            medBoil.enableEmission = false; //otherwise disables.
+        }
+
+        if (boilTime > 20) //if kettle's been boiling for 5 seconds or more,
+        {
+            highBoil.enableEmission = true; //enables high steam.
+            boiled = true; //kettle is now boiled. 
+        }
+        else
+        {
+            highBoil.enableEmission = false; //otherwise disables. 
+            boiled = false; //kettle is no longer boiled.
+        }
+        
     }
 
     //Here in case we need to use it.
@@ -158,13 +150,27 @@ public class Kettle_Move : CamMove
         base.OnMouseUp();
     }
 
+    IEnumerator KettlePour()
+    {
+        Debug.Log("kettle is pouring now.");
+        transform.DORotate(new Vector3(0, 0, -25f), 0.5f).SetEase(Ease.InOutCubic);
+        kettleLiquid.Play("water_pour", 0, 0f);
+        yield return new WaitForSeconds(kettleLiquid.GetCurrentAnimatorClipInfo(0).Length);
+    }
+
+    IEnumerator KettleReset()
+    {
+        //gotta reset the kettle's posiiton. do tomorrow.
+        yield break;
+    }
    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("TeaPot"))
         {
-            if (boiling)
+            if (boiled)
             {
                 Debug.Log("Fuckiuty fuck");
+                StartCoroutine(KettlePour());
                 
                 //_myManager.TransitionState(PouringManager.State.KettlePour);
                 _pouring = true;

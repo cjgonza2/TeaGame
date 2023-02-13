@@ -6260,7 +6260,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867159614}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.89, y: -0.57, z: 0}
+  m_LocalPosition: {x: 3.037, y: -0.57, z: 0}
   m_LocalScale: {x: 1.5151515, y: 1.5151515, z: 1.5151515}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6307,7 +6307,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 103614393
   m_SortingLayer: 6
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6799,7 +6799,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1019151161}
-  m_LocalRotation: {x: 0, y: 0, z: 0.013089582, w: 0.99991435}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.55, y: -4.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -6809,7 +6809,7 @@ Transform:
   - {fileID: 1722235381}
   m_Father: {fileID: 1103998956}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.5}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1019151164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6823,13 +6823,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _selected: 0
+  kettleLiquid: {fileID: 867159617}
   lowBoil: {fileID: 1019151169}
   medBoil: {fileID: 795913396}
   highBoil: {fileID: 1722235383}
-  startpos: {x: 0, y: 0, z: 0}
-  _dragging: 0
   _pouring: 0
   boiling: 0
+  boiled: 0
   boilTime: 0
 --- !u!95 &1019151165
 Animator:
@@ -7201,7 +7201,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.28
       minScalar: 1
       maxCurve:
         serializedVersion: 2
