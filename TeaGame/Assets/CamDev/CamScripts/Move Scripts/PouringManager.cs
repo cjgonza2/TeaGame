@@ -32,6 +32,10 @@ public class PouringManager : MonoBehaviour
     [Header("GameObjects")]
     [SerializeField]
     private GameObject teaPot;
+    [SerializeField] 
+    private GameObject teaLid;
+    [SerializeField] 
+    private GameObject kettle;
     [SerializeField]
     private Rigidbody2D teaPot_RB;
     [SerializeField]
@@ -141,18 +145,19 @@ public class PouringManager : MonoBehaviour
                     break;
                 case State.KettlePour:
                     //plays kettle pouring animation.
-                    ketAnimator.Play("KettlePour", 0, 0f);
-                    KetLiqAnimator.Play("water_pour", 0, 0f);
+                    /*ketAnimator.Play("KettlePour", 0, 0f);
+                    KetLiqAnimator.Play("water_pour", 0, 0f);*/
                     
                     pouringsfx.Play();  //plays the pouring audio.
                     
+                    /*
                     StartCoroutine(KettleDone());
                     if (animationDone)
                     {
                         pouringsfx.Stop();
                         StartCoroutine(StateBuffer());
                         animationDone = false;
-                    }
+                    }*/
                     break;
                 case State.KettleReset:
                     ketAnimator.Play("KettleReset",0,0f);

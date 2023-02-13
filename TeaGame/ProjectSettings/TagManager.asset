@@ -16,6 +16,8 @@ TagManager:
   - health
   - energy
   - Burner
+  - TeaPotLid
+  - Kettle
   layers:
   - Default
   - TransparentFX

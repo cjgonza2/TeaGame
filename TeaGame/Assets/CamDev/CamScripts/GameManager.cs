@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -11,6 +12,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] 
     private CycleManager cyclMan;
+
+    [SerializeField]private GameObject TeapotLid;
+    [SerializeField]private GameObject Kettle;
+    public bool pouring;
+    public bool lidMoved;
 
     #region Singleton
     private static GameManager instance;
@@ -85,7 +91,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(WaitBeforeTransition());
         }
     }
-
+    
     public void TransitionState(State newState)
     {
         currentState = newState;

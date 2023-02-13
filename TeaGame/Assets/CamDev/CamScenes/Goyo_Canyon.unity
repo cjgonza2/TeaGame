@@ -671,6 +671,67 @@ Transform:
   m_Father: {fileID: 1723084492}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &143838140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 143838141}
+  - component: {fileID: 143838142}
+  - component: {fileID: 143838143}
+  m_Layer: 0
+  m_Name: LidCollider
+  m_TagString: TeaPotLid
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &143838141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143838140}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.71, y: 12.53, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1608201834}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &143838142
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143838140}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.54066914, y: -0.29854244}
+  serializedVersion: 2
+  m_Radius: 4.03674
+--- !u!114 &143838143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143838140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1082bea424f71964da10ad238549ad68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &174624271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,7 +1095,6 @@ GameObject:
   - component: {fileID: 644686396}
   - component: {fileID: 644686397}
   - component: {fileID: 644686399}
-  - component: {fileID: 644686398}
   m_Layer: 0
   m_Name: teapot_lid
   m_TagString: Untagged
@@ -1109,32 +1169,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &644686398
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644686395}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.12469053, y: 4.987651}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 30.009003, y: 18.36}
-    newSize: {x: 30.009003, y: 18.36}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 7.1489325, y: 4.3945775}
-  m_EdgeRadius: 0
 --- !u!114 &644686399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6733,6 +6767,7 @@ GameObject:
   - component: {fileID: 1019151169}
   - component: {fileID: 1019151168}
   - component: {fileID: 1019151170}
+  - component: {fileID: 1019151171}
   m_Layer: 0
   m_Name: kettle
   m_TagString: Untagged
@@ -6823,7 +6858,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _selected: 0
+  pourManager: {fileID: 1801081260}
   kettleLiquid: {fileID: 867159617}
+  myManager: {fileID: 0}
   lowBoil: {fileID: 1019151169}
   medBoil: {fileID: 795913396}
   highBoil: {fileID: 1722235383}
@@ -6831,6 +6868,8 @@ MonoBehaviour:
   boiling: 0
   boiled: 0
   boilTime: 0
+  teaPot: {fileID: 1608201833}
+  teaLid: {fileID: 644686395}
 --- !u!95 &1019151165
 Animator:
   serializedVersion: 4
@@ -6864,7 +6903,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.6749933, y: 0.056709766}
+  m_Offset: {x: -0.08685231, y: 0.056709766}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -6875,7 +6914,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.552549, y: 6.1336594}
+  m_Size: {x: 5.728831, y: 6.1336594}
   m_EdgeRadius: 0
 --- !u!199 &1019151168
 ParticleSystemRenderer:
@@ -11677,6 +11716,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &1019151171
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019151161}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.312018, y: -0.80277395}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.75, y: 5.8125}
+    newSize: {x: 30.009003, y: 18.36}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.7755041, y: 2.5876331}
+  m_EdgeRadius: 0
 --- !u!1 &1058195821
 GameObject:
   m_ObjectHideFlags: 0
@@ -13109,9 +13174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1608201834}
   - component: {fileID: 1608201835}
-  - component: {fileID: 1608201838}
   - component: {fileID: 1608201836}
-  - component: {fileID: 1608201843}
   - component: {fileID: 1608201841}
   - component: {fileID: 1608201847}
   - component: {fileID: 1608201845}
@@ -13138,6 +13201,7 @@ Transform:
   m_Children:
   - {fileID: 644686396}
   - {fileID: 1266466435}
+  - {fileID: 143838141}
   m_Father: {fileID: 1103998956}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13219,26 +13283,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 16.759233, y: 5.7902813}
   m_EdgeRadius: 0
---- !u!95 &1608201838
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1608201833}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 852ff5697f6d3ac48a76a2bd0c641d56, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &1608201841
 Rigidbody2D:
   serializedVersion: 4
@@ -13260,22 +13304,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &1608201843
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1608201833}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 11.7}
-  serializedVersion: 2
-  m_Radius: 3.5135114
 --- !u!114 &1608201844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13378,9 +13406,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _selected: 0
+  pourManager: {fileID: 1801081260}
   _steepManager: {fileID: 1608201845}
   sprTrack: {fileID: 1608201844}
-  teaPot: {fileID: 1608201841}
+  myManager: {fileID: 0}
   teaPotLid: {fileID: 0}
 --- !u!1 &1618086171
 GameObject:
@@ -18519,7 +18548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1752554503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18848,12 +18877,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioManager: {fileID: 1861810644}
   pouringsfx: {fileID: 0}
-  potAnimator: {fileID: 1608201838}
+  potAnimator: {fileID: 0}
   liqAnimator: {fileID: 1266466437}
   ketAnimator: {fileID: 1019151165}
   KetLiqAnimator: {fileID: 867159617}
   potSpr: {fileID: 0}
   teaPot: {fileID: 1608201833}
+  teaLid: {fileID: 0}
+  kettle: {fileID: 0}
   teaPot_RB: {fileID: 1608201841}
   teaLiquid: {fileID: 1266466434}
   changeSprite: 0
@@ -18942,6 +18973,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charMan: {fileID: 1808856648}
   cyclMan: {fileID: 0}
+  TeapotLid: {fileID: 0}
+  Kettle: {fileID: 0}
+  pouring: 0
+  lidMoved: 0
   _currentScene: 
   currentState: 0
 --- !u!1 &1820311159

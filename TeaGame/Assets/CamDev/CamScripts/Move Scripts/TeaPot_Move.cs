@@ -6,26 +6,21 @@ using UnityEngine;
 
 public class TeaPot_Move : CamMove
 {
-    /*[SerializeField]
-    //public PouringManager _myManager;*/
+    [SerializeField]
+    private PouringManager pourManager;
     [SerializeField] 
     private Cam_Steep_Manager _steepManager;
     [SerializeField] 
     private Pot_SpriteChanger sprTrack;
-    
-    [SerializeField] 
-    private Rigidbody2D teaPot;
 
-    /*[SerializeField]
-    private CircleCollider2D pourCollider; //reference to the collider the kettle will interact with.
-
-    [SerializeField] 
-    private Lid_Move lidscript;*/
-
-    
+    [SerializeField] private GameManager myManager;
 
     [SerializeField]private GameObject teaPotLid;
+    private bool _lidMoved = false;
 
+
+    // pot/lid position coordinates.
+    #region Lid Transform Position
     private float _teaLidXPos()
     {
         return teaPotLid.transform.position.x;
@@ -40,23 +35,59 @@ public class TeaPot_Move : CamMove
     {
         return teaPotLid.transform.position.z;
     }
+    #endregion
 
+    #region Pot Transform Position
+    private float _PotX()
+    {
+        return transform.position.x;
+    }
+
+    private float _PotY()
+    {
+        return transform.position.y;
+    }
+
+    private float _PotZ()
+    {
+        return transform.position.z;
+    }
+    #endregion
 
 
     public override void Start()
     {
-        base.Start();
-        teaPotLid = GameObject.Find("teapot_lid");
+        base.Start(); //does everything parent function does. 
+        myManager = GameObject.Find("GameManager").GetComponent<GameManager>(); //assigns game manager reference.
+        teaPotLid = GameObject.Find("teapot_lid"); //assigns teapot lid reference;
         //_myManager = PouringManager.FindInstance();
-        teaPot = gameObject.GetComponent<Rigidbody2D>();
-        //pourCollider.enabled = true;
     }
 
     public override void Update()
     {
         base.Update(); //Does everything parent script does.
 
-        TestLidInput();  //this is to test the lid tweening. Phasing out the animation system.
+        
+        /*if (pourManager.CurrentState == PouringManager.State.KettlePour && _lidMoved == false)
+        {
+            _lidMoved = true;
+            StartCoroutine(MoveLid());
+        }
+
+        if (pourManager.CurrentState == PouringManager.State.KettleReset) ;
+        {
+            StartCoroutine(ResetLidTest());
+        }*/
+
+        /*if (myManager.pouring == false && _lidMoved == true)
+        {
+            if (teaPotLid.transform.position != transform.position)
+            {
+                /*StartCoroutine(ResetLidTest());#1#
+            }
+        }*/
+        
+        //TestLidInput();  //this is to test the lid tweening. Phasing out the animation system.
 
 
         /*if (_myManager.CurrentState == PouringManager.State.Resting && sprTrack._filled || lid._colliding)
@@ -88,6 +119,8 @@ public class TeaPot_Move : CamMove
         //pourCollider.enabled = true; //enables pouring collider. 
     }
 
+
+
     public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("cup")) //if colliding with a cup;
@@ -114,44 +147,31 @@ public class TeaPot_Move : CamMove
 
     #region TweenTesting
 
-    private bool _spaceinput;
-    
-    IEnumerator MoveLidTest()
+    //private bool _spaceinput;
+    IEnumerator MoveLid()
     {
-        
+        Debug.Log(_lidMoved);
         teaPotLid.transform.DOMove(new Vector3(
-            _teaLidXPos() + 0.5f,
-            _teaLidYPos() + 0.5f,
+            _teaLidXPos() + 0.75f,
+            _teaLidYPos() + 0.75f,
             _teaLidZPos()), 1f).SetEase(Ease.InOutCubic);
-        yield return new WaitForSeconds(0.5f);
         teaPotLid.transform.DORotate(new Vector3(0, 0, -25), 1f);
-        _spaceinput = true;
+        yield return new WaitForSeconds(0.1f);
+        //myManager.lidMoved = true;
+        
+        //_spaceinput = true;
     }
-
     IEnumerator ResetLidTest()
     {
         yield return new WaitForSeconds(0.1f);
         teaPotLid.transform.DOMove(new Vector3(
-            transform.position.x,
-            transform.position.y,
-            transform.position.z), 1f).SetEase(Ease.InOutCubic);
+            _PotX(),
+            _PotY(),
+            _PotZ()), 1f).SetEase(Ease.InOutCubic);
         teaPotLid.transform.DORotate(new Vector3(0, 0, 0), 1f);
-        _spaceinput = false;
-    }
-    
-    private void TestLidInput()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && _spaceinput == false)
-        {
-            Debug.Log(KeyCode.Space);
-            StartCoroutine(MoveLidTest());
-        }
 
-        if (Input.GetKeyUp(KeyCode.Space)&&_spaceinput)
-        {
-            StartCoroutine(ResetLidTest());
-        }
     }
+
 
     #endregion
 }

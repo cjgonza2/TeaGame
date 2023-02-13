@@ -12,7 +12,8 @@ public class CamMove : MonoBehaviour
     [HideInInspector]
     public bool _selected = false; //bool that determines if an object has been selected.
 
-    private Camera _mainCam;
+    private Camera _mainCam; //reference to main camera;
+    
 
     // Start is called before the first frame update
     public virtual void Start()
