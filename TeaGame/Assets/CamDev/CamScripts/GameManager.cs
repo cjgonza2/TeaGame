@@ -12,10 +12,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] 
     private CycleManager cyclMan;
-
-    [SerializeField]private GameObject TeapotLid;
-    [SerializeField]private GameObject Kettle;
-    public bool pouring;
+    public bool finishedPouring;
     public bool lidMoved;
 
     #region Singleton

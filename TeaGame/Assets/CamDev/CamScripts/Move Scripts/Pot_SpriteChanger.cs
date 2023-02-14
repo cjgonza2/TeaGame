@@ -6,13 +6,16 @@ public class Pot_SpriteChanger : MonoBehaviour
 {
     [SerializeField] 
     public SpriteRenderer potSPR;
-    
+
+    [SerializeField]private GameManager myManager;
     
     [SerializeField] 
     private Sprite potEmpty;
     [SerializeField] 
     private Sprite potWater;
-    
+    //different tea sprite combinations no water
+    private Sprite _potBase;
+
     //Reference to the flavor of tea sprites
     public Sprite potTea;
     public Sprite teaMed;
@@ -33,18 +36,20 @@ public class Pot_SpriteChanger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       potSPR = GetComponent<SpriteRenderer>();        
+        myManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        potSPR = GetComponent<SpriteRenderer>();        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_kettle._pouring == false && _lid._colliding && _filled == false || _kettle._pouring && _lid._colliding && _filled ==false)
+        FillWithWater();
+        /*if (_kettle._pouring == false && _lid._colliding && _filled == false || _kettle._pouring && _lid._colliding && _filled ==false)
         {
             currentSprite = potEmpty;
             potSPR.sprite = currentSprite;
             //Debug.Log("You gotta remove the cover!");
-        }
+        }*/
 
         if (_kettle._pouring && _lid._colliding == false)
         {
@@ -58,5 +63,15 @@ public class Pot_SpriteChanger : MonoBehaviour
             //currentSprite = potTea;
             potSPR.sprite = currentSprite;
         }
+    }
+
+    private void FillWithWater()
+    {
+        if (!myManager.finishedPouring)
+        {
+            return;
+        }
+        currentSprite = potWater;
+        potSPR.sprite = currentSprite;
     }
 }

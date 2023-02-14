@@ -62,12 +62,12 @@ public class Kettle_Move : CamMove
 
     public GameObject teaLid;
 
-    public float lidX()
+    private float _lidX()
     {
         return teaLid.transform.position.x;
     }
 
-    public float lidY()
+    private float _lidY()
     {
         return teaLid.transform.position.y;
     }
@@ -183,32 +183,29 @@ public class Kettle_Move : CamMove
     }
 
     #region Kettle Tweening
-
-    
-
-        #endregion
     IEnumerator KettlePour()
     {
-        Debug.Log("kettle is pouring now.");
+        //Debug.Log("kettle is pouring now.");
         transform.DORotate(new Vector3(0, 0, -25f), 0.5f).SetEase(Ease.InOutCubic);
         kettleLiquid.Play("water_pour", 0, 0f);
         yield return new WaitForSeconds(kettleLiquid.GetCurrentAnimatorClipInfo(0).Length);
+        myManager.finishedPouring = true;
         //pourManager.TransitionState(PouringManager.State.KettleReset);
     }
 
     IEnumerator KettleReset()
     {
-        //gotta reset the kettle's posiiton. do tomorrow.
         yield return new WaitForSeconds(0.1f);
         transform.DORotate(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.InOutCubic);
     }
+    #endregion
 
     #region Lid Tweening
     private void MoveLid()
     {
         teaLid.transform.DOMove(new Vector3( //tweens lid up to the right. 
-            lidX() + 1f,
-            lidY() + 1f,
+            _lidX() + 1f,
+            _lidY() + 1f,
             lidZ()), 0.5f).SetEase(Ease.InOutCubic);
         teaLid.transform.DORotate(new Vector3(0, 0, -25), .5f); //rotates lid. 
     }
@@ -232,6 +229,7 @@ public class Kettle_Move : CamMove
     private void StartPouring(string tag)
     {
         //Debug.Log("kettle is supposed to start pouring.");
+        
         if (tag != "TeaPotLid") //if tag is not Tea Pot Lid;
         {
             return; //stops function.
@@ -240,16 +238,18 @@ public class Kettle_Move : CamMove
         {
             return; //stops the function.
         }
+        
         MoveLid(); //moves the tea lid.
         StartCoroutine(KettlePour()); //pours the kettle. 
     }
 
     private void KettleOnBurner(string tag)
     {
-        if (tag != "Burner")
+        if (tag != "Burner")//if tag is not Burner;
         {
             return;
         }
+        
         _onBurner = true; //Sets bool true.
     }
     #endregion
