@@ -12,6 +12,8 @@ public class TeaClump : MonoBehaviour
 
     [SerializeField] 
     private Cam_Steep_Manager potSteep; //lets us pass the flavor to steep manager.
+
+    private bool _holdingClump = false;
     
     public GameObject lid;
     private float _lidX()
@@ -41,7 +43,7 @@ public class TeaClump : MonoBehaviour
     }
     private float _potZ()
     {
-        return teaPot.transform.position.y;
+        return teaPot.transform.position.z;
     }
     #endregion
 
@@ -52,6 +54,7 @@ public class TeaClump : MonoBehaviour
     private void Awake()
     {
         //Debug.Log(gameObject.tag);
+        _holdingClump = true;
         restPos = new Vector2(0, -7.5f);
         teaPot = GameObject.Find("teapot");
         lid = GameObject.Find("teapot_lid");
@@ -87,6 +90,7 @@ public class TeaClump : MonoBehaviour
         
         SetBase(transform.tag);
         SetIngredient(transform.tag);
+        transform.position = restPos;
     }
     
     private void SetBase(string teaBase)
@@ -113,24 +117,6 @@ public class TeaClump : MonoBehaviour
                 Debug.Log("No base Detected");
                 break;
         }
-        
-        /*//Debug.Log("Function called");
-        //Debug.Log(teaBase);
-        //this checks the tag of the given leaf put in the pot.
-        if (teaBase == "bitter")
-        {
-            potSteep.bitter = true;
-        }
-        else if (teaBase == "mild")
-        {
-            potSteep.mild = true;
-        }
-        else if (teaBase == "sweet")
-        {
-            potSteep.sweet = true;
-        }
-        //tells the steep manager that there is a tea base in the pot.
-        potSteep.teaBase = true;*/
     }
 
     private void SetIngredient(string teaIng)
@@ -144,38 +130,38 @@ public class TeaClump : MonoBehaviour
         {
             case "sleep":
                 Debug.Log("sleep");
+                potSteep.sleep = true;
+                potSteep.teaIng = true;
                 break;
             case "energy":
                 Debug.Log("energy");
+                potSteep.energy = true;
+                potSteep.teaIng = true;
                 break;
             case "health":
                 Debug.Log("health");
+                potSteep.health = true;
+                potSteep.teaIng = true;
                 break;
             default:
                 Debug.Log("no ingredient detected.");
                 break;
         }
-        potSteep.teaIng = true;
-        /*//checks the tag of the given leaf put in the pot. 
-        if (teaIng == "sleep")
-        {
-            potSteep.sleep = true;
-        }
-        else if (teaIng == "energy")
-        {
-            potSteep.energy = true;
-        }
-        else if (teaIng == "health")
-        {
-            potSteep.health = true;
-        }
-        //tells the steep manager that there is a tea ingredient in the pto. 
-        potSteep.teaIng = true;*/
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         MoveLid(col.transform.tag);
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        /*if (!_holdingClump)
+        {
+            return;
+        }*/
+        
+        ResetLid();
     }
 
     private void MoveLid(string tag)
@@ -189,5 +175,17 @@ public class TeaClump : MonoBehaviour
             _lidY() + 1f,
             _lidZ()), 0.5f).SetEase(Ease.InOutCubic);
         lid.transform.DORotate(new Vector3(0, 0, -25), .5f); //rotates lid. 
+    }
+
+    private void ResetLid()
+    {
+        Debug.Log(_potX());
+        Debug.Log(_potY());
+        Debug.Log(_potZ());
+        lid.transform.DOMove(new Vector3(
+            _potX(),
+            _potY(),
+            _potZ()), 0.5f).SetEase(Ease.InOutCubic);
+        lid.transform.DORotate(Vector3.zero, .5f);
     }
 }

@@ -45,23 +45,24 @@ public class Kettle_Move : CamMove
 
     public GameObject teaPot;
 
-    public float potX()
+    private float _potX()
     {
         return teaPot.transform.position.x;
     }
 
-    public float potY()
+    private float _potY()
     {
         return teaPot.transform.position.y;
     }
 
-    public float potZ()
+    private float _potZ()
     {
         return teaPot.transform.position.z;
     }
 
-    public GameObject teaLid;
-
+    #region TeaLid Variables
+    [SerializeField]
+    private GameObject teaLid;
     private float _lidX()
     {
         return teaLid.transform.position.x;
@@ -72,10 +73,11 @@ public class Kettle_Move : CamMove
         return teaLid.transform.position.y;
     }
 
-    public float lidZ()
+    private float _lidZ()
     {
         return teaLid.transform.position.z;
     }
+    #endregion
 
     public override void Start()
     {
@@ -118,6 +120,11 @@ public class Kettle_Move : CamMove
         Steam(); //enables steam && determines if kettle is fully boiled. 
     }
 
+    IEnumerator WaitForBoilDecay()
+    {
+        yield return new WaitForSeconds((15 * Time.deltaTime) % 60);
+    }
+    
     private void Boiling() //tracks the kettle's boiling.
     {
         if (boiling) //if the kettle is boiling;
@@ -125,6 +132,7 @@ public class Kettle_Move : CamMove
             _boilCounter += Time.deltaTime; //adds to the boil counter by rate of time between frames.
         }else if (boiling == false) //otherwise;
         {
+            StartCoroutine(WaitForBoilDecay());
             _boilCounter -= Time.deltaTime; //lowers the boil counter by rate of time between frames. 
         }
 
@@ -206,15 +214,15 @@ public class Kettle_Move : CamMove
         teaLid.transform.DOMove(new Vector3( //tweens lid up to the right. 
             _lidX() + 1f,
             _lidY() + 1f,
-            lidZ()), 0.5f).SetEase(Ease.InOutCubic);
+            _lidZ()), 0.5f).SetEase(Ease.InOutCubic);
         teaLid.transform.DORotate(new Vector3(0, 0, -25), .5f); //rotates lid. 
     }
     private void ResetLid()
     {
         teaLid.transform.DOMove(new Vector3( //tweens lid back to pot position. 
-            potX(),
-            potY(),
-            potZ()), 0.5f).SetEase(Ease.InOutCubic);
+            _potX(),
+            _potY(),
+            _potZ()), 0.5f).SetEase(Ease.InOutCubic);
         teaLid.transform.DORotate(Vector3.zero, .5f); //rotates lid back to correct rotation.
     }
     #endregion

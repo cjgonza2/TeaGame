@@ -29,7 +29,7 @@ public class TeaLeavesController : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log("What the fuck");
+        //Debug.Log("What the fuck");
         mouseZ = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
         mousePosOffset = gameObject.transform.position - GetMouseWorldPosition();
 
