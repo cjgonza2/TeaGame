@@ -6,22 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    IEnumerator WaitToLoad()
-    {
-        yield return new WaitForSeconds(12f);
-        SceneManager.LoadScene("CamDev_TazBlockout");
-    }
+    private CycleManager _cycleManager;
 
     public void Start()
     {
-       // StartCoroutine(WaitToLoad());
+        _cycleManager = GameObject.Find("CycleManager").GetComponent<CycleManager>();
     }
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene("Goyo_Canyon");
+            return;
         }
+        SceneManager.LoadScene(_cycleManager.sceneIndex);
+        _cycleManager.sceneIndex++;
+        _cycleManager.cycleCount++;
     }
 }

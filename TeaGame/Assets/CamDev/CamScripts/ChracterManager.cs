@@ -62,10 +62,6 @@ public class ChracterManager : MonoBehaviour
         _sceneEnd = true;
     }
     
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -82,25 +78,72 @@ public class ChracterManager : MonoBehaviour
 
     }
 
-    void SetCharacter()
+    private void SetCharacter()
     {
-        if (locale == "Goyo_Canyon")
-        {
-            _currentCharacter = "Lombardo";
-        }
+        GoyoCanyon();
+        LilyBog();
+        ShangoliRiverlands();
+        UtalCliffs();
+
         StartCoroutine($"{_currentCharacter}WaitToStart");
     }
+
+    #region LocationSetting
+    private void GoyoCanyon()
+    {
+        if (locale != "Goyo_Canyon")
+        {
+            return;
+        }
+
+        _currentCharacter = "Lombardo";
+    }
+
+    private void LilyBog()
+    {
+        if (locale != "Lily_Bog")
+        {
+            return;
+        }
+
+        _currentCharacter = "";
+    }
+
+    private void ShangoliRiverlands()
+    {
+        if (locale != "Shangoli_Riverlands")
+        {
+            return;
+        }
+
+        _currentCharacter = "";
+    }
+
+    private void UtalCliffs()
+    {
+        if (locale != "Utal_Cliffs")
+        {
+            return;
+        }
+
+        _currentCharacter = "";
+    }
+    #endregion
     
     void Drinking()
     {
-        if (manager.currentState == GameManager.State.Drinking)
+        if (manager.currentState != GameManager.State.Drinking)
         {
-            if (_currentCharacter == "Lombardo")
-            {
-                _lambCurrentSprite = lambSip;
-                lambSpr.sprite = _lambCurrentSprite;
-            }
+            return;
         }
+        LombardoDrink();
+    }
+
+    private void LombardoDrink()
+    {
+        if (_currentCharacter != "Lombardo")return; //if the current character is not lombardo; breaks. 
+        _lambCurrentSprite = lambSip;
+        lambSpr.sprite = _lambCurrentSprite;
     }
 
     void Tasting()

@@ -1,44 +1,46 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CycleManager : MonoBehaviour
 {
     
     #region Singleton
-    private static CycleManager instance;
-
+    private static CycleManager _instance;
     public static CycleManager FindInstance()
     {
-        return instance;
+        return _instance;
     }
 
     void Awake()
     {
-        if (instance != null && instance != this)
+        if (_instance != null && _instance != this)
         {
             Destroy(this);
         }
-        else if (instance == null)
+        else 
         {
-            instance = this;
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
         }
+
+        Debug.Log("Current Loop: " + cycleCount);
+        Debug.Log("Current Index: " + sceneIndex);
     }
     #endregion
     
-    public int cycleCount = 0;
+    [HideInInspector]
+    public int cycleCount;
 
-    [SerializeField] 
-    private List<string> currentLocation = new List<string>() ;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //Tells game managers/scene changers which scene to load in a given context.
+    public int sceneIndex;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        Debug.Log("Current Loop: " + cycleCount);
+        Debug.Log("Current Index: " + sceneIndex);
     }
 }

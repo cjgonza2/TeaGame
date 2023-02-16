@@ -11,28 +11,33 @@ public class GameManager : MonoBehaviour
     private ChracterManager charMan;
 
     [SerializeField] 
-    private CycleManager cyclMan;
+    private CycleManager cycleManager;
+
     public bool finishedPouring;
     public bool lidMoved;
 
     #region Singleton
-    private static GameManager instance;
+    private static GameManager _instance;
 
     public static GameManager FindInstance()
     {
-        return instance;
+        return _instance;
     }
 
     void Awake()
     {
-        if (instance != null && instance != this)
+        if (_instance != null && _instance != this)
         {
             Destroy(this);
         }
-        else if (instance == null)
+        else
         {
-            instance = this;
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+            
         }
+        Debug.Log("Awake was called.");
+        _currentScene = SceneManager.GetActiveScene().name;
     }
     #endregion
 
@@ -49,12 +54,13 @@ public class GameManager : MonoBehaviour
     }
 
     public State currentState;
-    // Start is called before the first frame update
 
-    private IEnumerator WaitBeforeRest()
+    #region CoRoutines
+    /*private IEnumerator WaitBeforeRest()
     {
         yield return new WaitForSeconds(1.0f);
-    }
+    }*/
+    
     private IEnumerator WaitBeforeTaste()
     {
         yield return new WaitForSeconds(5f);
@@ -66,9 +72,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         TransitionState(State.Exiting);
     }
+    #endregion
+    
     void Start()
     {
-        _currentScene = SceneManager.GetActiveScene().name;
+        cycleManager = GameObject.Find("CycleManager").GetComponent<CycleManager>();
+        //_currentScene = SceneManager.GetActiveScene().name;
         //Debug.Log(_currentScene);
         TransitionState(State.Enter);
     }
@@ -76,18 +85,31 @@ public class GameManager : MonoBehaviour
     IEnumerator WaitBeforeTransition()
     {
         yield return new WaitForSeconds(3f);
-        cyclMan.cycleCount++;
-        NextCycle();
+        NextLocation();
         
     }
 
     private void Update()
     {
+        /*//checks if scene transitioning works.
+        if (Input.GetKey(KeyCode.Space))
+        {
+            NextLocation();
+        }*/
+
+        SetScene(); //sets the current scene for reference purposes.
+
         if (charMan._sceneEnd)
         {
             StartCoroutine(WaitBeforeTransition());
         }
     }
+
+    private void SetScene()
+    {
+        _currentScene = SceneManager.GetActiveScene().name;
+    }
+    
     
     public void TransitionState(State newState)
     {
@@ -107,13 +129,21 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(WaitBeforeExit());
                 break;
             case State.Exiting:
+                NextLocation();
                 break;
         }
     }
 
-    private void NextCycle()
+    private void NextLocation()
     {
         Debug.Log("I am in the process of changing scenes");
-        SceneManager.LoadScene(0);
+        cycleManager.sceneIndex++;
+        if (cycleManager.sceneIndex > 5)
+        {
+            cycleManager.sceneIndex = 2;
+            cycleManager.cycleCount++;
+        }
+        SceneManager.LoadScene(cycleManager.sceneIndex);
+        TransitionState(State.Enter);
     }
 }

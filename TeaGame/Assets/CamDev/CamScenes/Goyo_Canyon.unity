@@ -154,9 +154,8 @@ Transform:
   - {fileID: 1186038011}
   - {fileID: 1801081261}
   - {fileID: 1752554504}
-  - {fileID: 1808856647}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &28786486
 GameObject:
@@ -1082,7 +1081,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &547870266
 GameObject:
@@ -1166,7 +1165,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &644686395
 GameObject:
@@ -6698,7 +6697,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &978151747
 GameObject:
@@ -11844,7 +11843,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1058195824
 BoxCollider2D:
@@ -12115,7 +12114,7 @@ Transform:
   - {fileID: 306131752}
   - {fileID: 1019151163}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1129268011
 GameObject:
@@ -12231,7 +12230,7 @@ GameObject:
   - component: {fileID: 1186038011}
   - component: {fileID: 1186038012}
   m_Layer: 0
-  m_Name: Cycle Manager
+  m_Name: CycleManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12265,8 +12264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cycleCount: 0
-  currentLocation:
-  - Goyo Canyon
+  sceneIndex: 0
 --- !u!1 &1234685126
 GameObject:
   m_ObjectHideFlags: 0
@@ -12487,7 +12485,7 @@ Transform:
   - {fileID: 1487009742}
   - {fileID: 1003557342}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1345974642
 GameObject:
@@ -13461,7 +13459,7 @@ Transform:
   m_Children:
   - {fileID: 750061843}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1645038036
 GameObject:
@@ -13701,7 +13699,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1722235380
 GameObject:
@@ -18550,7 +18548,7 @@ Transform:
   - {fileID: 1129268015}
   - {fileID: 1960983375}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1752554502
 GameObject:
@@ -18950,11 +18948,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808856646}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 50, z: 0}
+  m_LocalPosition: {x: 7.6974325, y: 57.416996, z: 0.099353254}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 16339410}
+  m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1808856648
@@ -18992,7 +18990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charMan: {fileID: 1808856648}
-  cyclMan: {fileID: 0}
+  cycleManager: {fileID: 0}
   finishedPouring: 0
   lidMoved: 0
   _currentScene: 
@@ -19157,7 +19155,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1927162660
 GameObject:
@@ -19241,7 +19239,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1960983372
 GameObject:
