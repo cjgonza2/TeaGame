@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9177992891017396831}
   - component: {fileID: 5396620959066101216}
   m_Layer: 0
-  m_Name: Sleep Leaf
+  m_Name: Sleep Plot
   m_TagString: sleep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

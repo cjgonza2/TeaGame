@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5987955380805367625}
   - component: {fileID: 7577705670570100733}
   m_Layer: 0
-  m_Name: Health Ing
+  m_Name: Aile
   m_TagString: health
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,9 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874170f390d4edb4e955ed49966b3152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myManager: {fileID: 0}
-  mousePosOffset: {x: 0, y: 0, z: 0}
-  mouseZ: 0
+  _selected: 0
 --- !u!114 &7577705670570100733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   potSpr: {fileID: 0}
   potSteep: {fileID: 0}
-  teaPot: {fileID: 0}
   lid: {fileID: 0}
+  teaPot: {fileID: 0}
   restPos: {x: 0, y: -7.5}
+  inPotPos: {x: 0, y: 0}

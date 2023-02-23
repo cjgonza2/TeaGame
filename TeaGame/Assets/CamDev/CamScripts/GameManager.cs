@@ -43,7 +43,14 @@ public class GameManager : MonoBehaviour
 
     //[HideInInspector]
     public string _currentScene;
-    
+
+    public int hakaCount;
+    public int tallowCount;
+    public int bombomCount;
+    public int aileCount;
+    public int shnootCount;
+    public int poffCount;
+
     public enum State
     {
         Enter,

@@ -38,12 +38,14 @@ public class CameraMove : MonoBehaviour
         UpInput();
         LeftInput();
         RightInput();
+
         /*if (_input == false && gameObject.transform.position != _startPos)
         {
             
         }*/
     }
 
+    
     #region Up Input
     private void UpInput()
     {

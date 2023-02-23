@@ -13,6 +13,8 @@ public class TeaClump : MonoBehaviour
     [SerializeField] 
     private Cam_Steep_Manager potSteep; //lets us pass the flavor to steep manager.
 
+    [SerializeField] private GameManager inventoryManager;
+
     private bool _holdingClump = false;
     
     public GameObject lid;
@@ -60,6 +62,7 @@ public class TeaClump : MonoBehaviour
         lid = GameObject.Find("teapot_lid");
         potSpr = teaPot.GetComponent<Pot_SpriteChanger>();
         potSteep = teaPot.GetComponent<Cam_Steep_Manager>();
+        inventoryManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void Update()
@@ -90,6 +93,7 @@ public class TeaClump : MonoBehaviour
         
         SetBase(transform.tag);
         SetIngredient(transform.tag);
+        InventoryCheck(transform.tag);
         transform.position = restPos;
     }
     
@@ -145,6 +149,33 @@ public class TeaClump : MonoBehaviour
                 break;
             default:
                 Debug.Log("no ingredient detected.");
+                break;
+        }
+    }
+
+    private void InventoryCheck(string clumpName)
+    {
+        switch (clumpName)
+        {
+            case "bitter":
+                inventoryManager.hakaCount--;
+                break;
+            case "mild":
+                inventoryManager.tallowCount--;
+                break;
+            case "sweet":
+                inventoryManager.bombomCount--;
+                break;
+            case "sleep":
+                inventoryManager.shnootCount--;
+                break;
+            case "energy":
+                inventoryManager.poffCount--;
+                break;
+            case "health":
+                inventoryManager.poffCount--;
+                break;
+            default:
                 break;
         }
     }
