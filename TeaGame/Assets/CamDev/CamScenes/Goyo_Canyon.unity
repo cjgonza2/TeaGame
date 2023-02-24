@@ -257,7 +257,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 0}
   tea: {fileID: 8041832864052992740, guid: c5dc233a5d96e06459d1b99c68939dcc, type: 3}
+  leafName: Shnoot
   clumpExists: 0
+  enoughClumps: 0
+  selected: 0
 --- !u!61 &28786490
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -384,7 +387,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 0}
   tea: {fileID: 5798671141735087650, guid: 81f4b1c15358d854daeca38ee0a13579, type: 3}
+  leafName: Tallow
   clumpExists: 0
+  enoughClumps: 0
+  selected: 0
 --- !u!61 &82247353
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1269,7 +1275,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 0}
   tea: {fileID: 6685805166792971333, guid: 874f53bf4c9febf439de2b19c5ae2af1, type: 3}
+  leafName: BomBom
   clumpExists: 0
+  enoughClumps: 0
+  selected: 0
 --- !u!61 &686849437
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11890,7 +11899,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 0}
   tea: {fileID: 3463905922791520080, guid: 162f7b6fa001faa46b68d258a6c56003, type: 3}
+  leafName: Poff
   clumpExists: 0
+  enoughClumps: 0
+  selected: 0
 --- !u!61 &1064140003
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12418,7 +12430,7 @@ GameObject:
   - component: {fileID: 1345974644}
   - component: {fileID: 1345974643}
   - component: {fileID: 1345974646}
-  - component: {fileID: 1345974645}
+  - component: {fileID: 1345974647}
   m_Layer: 0
   m_Name: Haka (Bitter)
   m_TagString: Untagged
@@ -12493,21 +12505,6 @@ Transform:
   m_Father: {fileID: 1487009742}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
---- !u!114 &1345974645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345974642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56c48997899e2a14d9652b1cafe11e7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventoryManager: {fileID: 0}
-  tea: {fileID: 2511771901951824603, guid: 308127526eee579449114b7e82f561ec, type: 3}
-  clumpExists: 0
 --- !u!61 &1345974646
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12534,6 +12531,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1345974647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345974642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56c48997899e2a14d9652b1cafe11e7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryManager: {fileID: 1808856649}
+  tea: {fileID: 2511771901951824603, guid: 308127526eee579449114b7e82f561ec, type: 3}
+  leafName: Haka
+  clumpExists: 0
+  enoughClumps: 0
+  selected: 0
 --- !u!1 &1358698224
 GameObject:
   m_ObjectHideFlags: 0
@@ -13076,7 +13091,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 0}
   tea: {fileID: 8256131796517067444, guid: d4b51fb87825c3b4e83f9e693689d8a7, type: 3}
+  leafName: Aile
   clumpExists: 0
+  enoughClumps: 0
+  selected: 0
 --- !u!61 &1516162194
 BoxCollider2D:
   m_ObjectHideFlags: 0

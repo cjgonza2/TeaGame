@@ -90,7 +90,9 @@ public class TeaClump : MonoBehaviour
         {
             return;
         }
-        
+        //hakachekc
+        //tallow
+        //
         SetBase(transform.tag);
         SetIngredient(transform.tag);
         InventoryCheck(transform.tag);
@@ -210,9 +212,9 @@ public class TeaClump : MonoBehaviour
 
     private void ResetLid()
     {
-        Debug.Log(_potX());
+        /*Debug.Log(_potX());
         Debug.Log(_potY());
-        Debug.Log(_potZ());
+        Debug.Log(_potZ());*/
         lid.transform.DOMove(new Vector3(
             _potX(),
             _potY(),
