@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Serialization;
 
 public class Kettle_Move : CamMove
 {
@@ -12,12 +13,20 @@ public class Kettle_Move : CamMove
     private Vector3 _startPos; //default position of the Kettle.
 
     [SerializeField] private Animator kettleLiquid;
+    [SerializeField] private Animation kettleBoil;
     [SerializeField] private GameManager myManager;
 
+    [SerializeField] private GameObject boilingWater;
+    
     //Thinking in the future instead of particle system we can just use different steam animations.
     /*[SerializeField] private Sprite lowSteam;
     [SerializeField] private Sprite medSteam;
     [SerializeField] private Sprite highSteam;*/
+
+    [SerializeField] private SpriteRenderer kettleSprite;
+    [SerializeField] private Sprite emptyKettle;
+    [SerializeField] private Sprite fullKettle;
+    private Sprite _currentSprite;
     
     //probably won't need these in the future. but for now they work to simulate boiling.
     [SerializeField]
@@ -28,7 +37,7 @@ public class Kettle_Move : CamMove
     private ParticleSystem highBoil;
     
     public bool _pouring = false;
-    
+    public bool fill; //tells the game whether to fill the kettle or not. 
     [SerializeField] //tracks if the kettle is boiling.
     private bool boiling = false;
     [SerializeField] //tracks if the kettle is boiled.
@@ -61,8 +70,7 @@ public class Kettle_Move : CamMove
     }
 
     #region TeaLid Variables
-    [SerializeField]
-    private GameObject teaLid;
+    [SerializeField] private GameObject teaLid;
     private float _lidX()
     {
         return teaLid.transform.position.x;
@@ -104,8 +112,10 @@ public class Kettle_Move : CamMove
         //Debug.Log("Boiling:" + boiling  );
         //Debug.Log("Selected:" + _selected);
 
+        FillCheck();
+        
         #region Boiiling on/off
-        if (_onBurner && _selected == false) //if kettle is on the burner, and it's not selected;
+        if (_onBurner && _currentSprite == fullKettle  && _selected == false) //if kettle is on the burner, and it's not selected;
         {
             transform.DOMove(_startPos, 0.1f).SetEase(Ease.Linear); //moves the kettle to the burner.
             boiling = true; //kettle starts boiling.
@@ -116,10 +126,24 @@ public class Kettle_Move : CamMove
         }
         #endregion
 
+        
+        
         Boiling(); //calculates boiling time.
         Steam(); //enables steam && determines if kettle is fully boiled. 
     }
 
+    private void FillCheck()
+    {
+        if (!fill) //if we don't have to fill the kettle;
+        {
+            return; //return. 
+        }
+        //Debug.Log("check check");
+        _currentSprite = fullKettle; //sets the currentsprite to the full kettle sprite.
+        kettleSprite.sprite = _currentSprite; //sets the kettle's currentsprite to the currentsprite variable.
+        fill = false; //tells the game it no longer has to fill the kettle. 
+    }
+    
     IEnumerator WaitForBoilDecay()
     {
         yield return new WaitForSeconds((15 * Time.deltaTime) % 60);
@@ -132,6 +156,7 @@ public class Kettle_Move : CamMove
             _boilCounter += Time.deltaTime; //adds to the boil counter by rate of time between frames.
         }else if (boiling == false) //otherwise;
         {
+            
             StartCoroutine(WaitForBoilDecay());
             _boilCounter -= Time.deltaTime; //lowers the boil counter by rate of time between frames. 
         }
@@ -167,11 +192,13 @@ public class Kettle_Move : CamMove
 
         if (boilTime > 20) //if kettle's been boiling for 5 seconds or more,
         {
+            boilingWater.SetActive(true);
             highBoil.enableEmission = true; //enables high steam.
             boiled = true; //kettle is now boiled. 
         }
         else
         {
+            boilingWater.SetActive(false);
             highBoil.enableEmission = false; //otherwise disables. 
             boiled = false; //kettle is no longer boiled.
         }
