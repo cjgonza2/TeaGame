@@ -78,9 +78,144 @@ public class Cam_Steep_Manager : MonoBehaviour
     
     #endregion
 
+    #region BitterChecks
+    private void BitterCheck()
+    {
+        if (!bitter)
+        {
+            return;
+        }
+
+        BitterSleepCheck();
+        BitterHealthCheck();
+        BitterEnergyCheck();
+
+    }
+    private void BitterSleepCheck()
+    {
+        if (!sleep)
+        {
+            return;
+        }
+
+        bitterSleep = true;
+    }
+    private void BitterHealthCheck()
+    {
+        if (!health)
+        {
+            return;
+        }
+
+        bitterHealth = true;
+    }
+
+    private void BitterEnergyCheck()
+    {
+        if (!energy)
+        {
+            return;
+        }
+
+        bitterEnergy = true;
+    }
+    #endregion
+
+    #region MildChecks
+    private void MildCheck()
+    {
+        if (!mild)
+        {
+            return;
+        }
+        MildSleepCheck();
+        MildHealthCheck();
+        MildEnergyCheck();
+    }
+    private void MildSleepCheck()
+    {
+        if (!sleep)
+        {
+            return;
+        }
+
+        mildSleep = true;
+    }
+
+    private void MildHealthCheck()
+    {
+        if (!health)
+        {
+            return;
+        }
+
+        mildHealth = true;
+    }
+
+    private void MildEnergyCheck()
+    {
+        if (!energy)
+        {
+            return;
+        }
+
+        mildEnergy = true;
+    }
+
+    
+
+    #endregion
+
+    #region SweetChecks
+    private void SweetCheck()
+    {
+        if (!sweet)
+        {
+            return;
+        }
+        SweetSleepCheck();
+        SweetHealthCheck();
+        SweetEnergyCheck();
+    }
+
+    private void SweetSleepCheck()
+    {
+        if (!sleep)
+        {
+            return;
+        }
+
+        sweetSleep = true;
+    }
+
+    private void SweetHealthCheck()
+    {
+        if (!health)
+        {
+            return;
+        }
+
+        sweetHealth = true;
+    }
+
+    private void SweetEnergyCheck()
+    {
+        if (!energy)
+        {
+            return;
+        }
+
+        sweetEnergy = true;
+    }
+    #endregion
+    
     private IEnumerator FlavorCheck()
     {
-        if (bitter) //if the tea base is bitter:
+        
+        BitterCheck();
+        MildCheck();
+        SweetCheck();
+        /*if (bitter) //if the tea base is bitter:
         {
             if (sleep) //and if the tea ingredient is sleep:
             {
@@ -118,8 +253,8 @@ public class Cam_Steep_Manager : MonoBehaviour
             {
                 sweetEnergy = true;
             }
-        }
-        yield return null;
+        }*/
+        yield break;
     }
     
     // Update is called once per frame

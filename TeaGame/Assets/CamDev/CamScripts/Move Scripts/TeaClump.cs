@@ -58,8 +58,8 @@ public class TeaClump : MonoBehaviour
         //Debug.Log(gameObject.tag);
         _holdingClump = true;
         restPos = new Vector2(0, -7.5f);
-        teaPot = GameObject.Find("teapot");
-        lid = GameObject.Find("teapot_lid");
+        teaPot = GameObject.Find("TeaPot");
+        lid = GameObject.Find("TeaPotLid");
         potSpr = teaPot.GetComponent<Pot_SpriteChanger>();
         potSteep = teaPot.GetComponent<Cam_Steep_Manager>();
         inventoryManager = GameObject.Find("GameManager").GetComponent<GameManager>();

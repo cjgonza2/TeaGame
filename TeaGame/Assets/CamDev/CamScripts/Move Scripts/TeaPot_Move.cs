@@ -6,15 +6,14 @@ using UnityEngine;
 
 public class TeaPot_Move : CamMove
 {
-    [SerializeField]
-    private PouringManager pourManager;
-    [SerializeField] 
-    private Cam_Steep_Manager _steepManager;
+    [Header("Managers")]
+    [SerializeField] private GameManager myManager;
+    [SerializeField] private PouringManager pourManager;
+    [SerializeField] private Cam_Steep_Manager _steepManager;
+    [Header("Sprite Changer")]
     [SerializeField] 
     private Pot_SpriteChanger sprTrack;
-
-    [SerializeField] private GameManager myManager;
-
+    [Header("TeaPot Lid")]
     [SerializeField]private GameObject teaPotLid;
     private bool _lidMoved = false;
 

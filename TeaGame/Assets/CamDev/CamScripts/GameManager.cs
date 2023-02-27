@@ -7,11 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] 
-    private ChracterManager charMan;
-
-    [SerializeField] 
-    private CycleManager cycleManager;
+    [SerializeField] private ChracterManager charMan;
+    [SerializeField] private CycleManager cycleManager;
 
     public bool finishedPouring;
     public bool lidMoved;

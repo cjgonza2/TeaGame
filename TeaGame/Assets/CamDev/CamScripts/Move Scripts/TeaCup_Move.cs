@@ -34,6 +34,11 @@ public class TeaCup_Move : CamMove
     {
         if (col.gameObject.CompareTag("Character"))
         {
+            Debug.Log("cheese;");
+        }
+        
+        /*if (col.gameObject.CompareTag("Character"))
+        {
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             gameObject.transform.position = sipPos;
             
@@ -42,6 +47,6 @@ public class TeaCup_Move : CamMove
                 manager.TransitionState(GameManager.State.Drinking);
             }
             Debug.Log("You gave tea");
-        }
+        }*/
     }
 }

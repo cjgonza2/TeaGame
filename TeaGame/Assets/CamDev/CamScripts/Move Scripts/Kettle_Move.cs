@@ -8,12 +8,11 @@ using UnityEngine.Serialization;
 
 public class Kettle_Move : CamMove
 {
-    [SerializeField] private PouringManager pourManager;
+    //[SerializeField] private PouringManager pourManager;
     
     private Vector3 _startPos; //default position of the Kettle.
 
     [SerializeField] private Animator kettleLiquid;
-    [SerializeField] private Animation kettleBoil;
     [SerializeField] private GameManager myManager;
 
     [SerializeField] private GameObject boilingWater;
@@ -115,7 +114,7 @@ public class Kettle_Move : CamMove
         FillCheck();
         
         #region Boiiling on/off
-        if (_onBurner && _currentSprite == fullKettle  && _selected == false) //if kettle is on the burner, and it's not selected;
+        if (_onBurner && _selected == false) //if kettle is on the burner, and it's not selected;
         {
             transform.DOMove(_startPos, 0.1f).SetEase(Ease.Linear); //moves the kettle to the burner.
             boiling = true; //kettle starts boiling.
