@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class TeaPot_Move : CamMove
 {
@@ -13,11 +14,13 @@ public class TeaPot_Move : CamMove
     [Header("Sprite Changer")]
     [SerializeField] 
     private Pot_SpriteChanger sprTrack;
+    [SerializeField] private SpriteController cupSprite;
 
     [Header("Animator")] 
     [SerializeField] private Animator teaPourAnim;
     [Header("TeaPot Lid")]
     [SerializeField]private GameObject teaPotLid;
+    [SerializeField] private GameObject lidPouringCollider;
     private bool _lidMoved = false;
 
 
@@ -107,7 +110,7 @@ public class TeaPot_Move : CamMove
     {
         base.OnMouseDown(); //Does everything parent function does. 
         //pourCollider.enabled = false; //disables pouring collider. 
-        
+        lidPouringCollider.SetActive(false);
         if (sprTrack._steeping && _steepManager._finishedSteep == false)
         {
             //Debug.Log("you've clicekd me");
@@ -118,6 +121,7 @@ public class TeaPot_Move : CamMove
     public override void OnMouseUp()
     {
         base.OnMouseUp(); //Does everything parent function does.
+        lidPouringCollider.SetActive(true);
         //pourCollider.enabled = true; //enables pouring collider. 
     }
 
@@ -132,6 +136,7 @@ public class TeaPot_Move : CamMove
                 transform.DORotate(new Vector3(0, 0, 25f), 0.5f).SetEase(Ease.InOutCubic);
                 teaPourAnim.Play("pour_animation");
                 _steepManager._finishedSteep = true;
+                cupSprite.fillCup = true;
             }
             //teaPot.constraints = RigidbodyConstraints2D.FreezePosition;
         }

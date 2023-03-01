@@ -14,17 +14,20 @@ public class TeaCup_Move : CamMove
     [SerializeField] private GameObject pourCollider;
 
     public Vector3 sipPos;
+
+    public override void Update()
+    {
+        base.Update();
+        if (cupSpr.fillCup)
+        {
+            pourCollider.SetActive(false);
+        }
+    }
+
     public override void OnMouseDown()
     {
         base.OnMouseDown();
         pourCollider.SetActive(false);
-
-        /*
-        //if the tea is not finished steeping, on mouse click the tea will stop steeping.
-        if (steepManager._finishedSteep == false) //if it's false
-        {
-            steepManager._finishedSteep = true; //stops the steeping.
-        }*/
     }
 
     public override void OnMouseUp()
@@ -35,9 +38,11 @@ public class TeaCup_Move : CamMove
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Character"))
-        {
-            Debug.Log("cheese;");
-        }
+        if (!col.gameObject.CompareTag("Character")) return;
+        if (cupSpr.currentSprite != cupSpr.changedImage) return;
+        _selected = false;
+        gameObject.transform.position = sipPos;
+        manager.TransitionState(GameManager.State.Drinking);
+        Debug.Log("cheese;");
     }
 }

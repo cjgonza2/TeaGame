@@ -9,18 +9,28 @@ public class SpriteController : MonoBehaviour
     public Sprite changedImage;
     public Sprite currentSprite;
 
-    private PouringManager boolCheck;
+    //[SerializeField] private PouringManager boolCheck;
+    public bool fillCup;
     
     // Start is called before the first frame update
     void Start()
     {
         theSR = GetComponent<SpriteRenderer>();
-        boolCheck = PouringManager.FindInstance();
+        currentSprite = defaultImage;
+        //boolCheck = PouringManager.FindInstance();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        
+        ChangeSprite();
+        theSR.sprite = currentSprite;
+
+        /*if (currentSprite == changedImage)
+        {
+            
+        }
         if (boolCheck.changeSprite)
         {
             currentSprite = changedImage;
@@ -36,8 +46,14 @@ public class SpriteController : MonoBehaviour
         if (gameObject.transform.rotation.z < -25)
         {
             gameObject.transform.rotation = Quaternion.Euler(0, 0, -25);
-        }
+        }*/
     }
-    
+
+    private void ChangeSprite()
+    {
+        if (!fillCup) return;
+
+        currentSprite = changedImage;
+    }
     
 }
