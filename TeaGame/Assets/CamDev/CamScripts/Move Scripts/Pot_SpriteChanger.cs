@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Pot_SpriteChanger : MonoBehaviour
@@ -8,6 +9,7 @@ public class Pot_SpriteChanger : MonoBehaviour
     public SpriteRenderer potSPR;
 
     [SerializeField]private GameManager myManager;
+    [SerializeField] private Cam_Steep_Manager steepManager;
     
     [SerializeField] 
     private Sprite potWater;
@@ -22,6 +24,9 @@ public class Pot_SpriteChanger : MonoBehaviour
     [SerializeField] private Sprite baseNoIngFilled;
     [SerializeField] private Sprite ingNoBaseFilled;
     [SerializeField] private Sprite baseIngFilled;
+    [SerializeField] private Sprite steepingTea;
+
+    public Sprite mySprite;
     
     public Sprite currentSprite;
 
@@ -46,42 +51,72 @@ public class Pot_SpriteChanger : MonoBehaviour
     void Start()
     {
         myManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        potSPR = GetComponent<SpriteRenderer>();        
+        potSPR = GetComponent<SpriteRenderer>();
+        steepManager = GetComponent<Cam_Steep_Manager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        FillWithWater();
-        
-        /*if (_kettle._pouring == false && _lid._colliding && _filled == false || _kettle._pouring && _lid._colliding && _filled ==false)
-        {
-            currentSprite = potEmpty;
-            potSPR.sprite = currentSprite;
-            //Debug.Log("You gotta remove the cover!");
-        }*/
-
-        if (_kettle._pouring && _lid._colliding == false)
-        {
-            currentSprite = potWater;
-            potSPR.sprite = currentSprite;
-            _filled = true;
-        }
-
-        if (_filled && _steeping)
-        {
-            //currentSprite = potTea;
-            potSPR.sprite = currentSprite;
-        }
+        CheckIfFilled();
+        PotFilledFirst();
+        PotNotFilled();
+        Steep();
+        potSPR.sprite = mySprite;
     }
 
-    private void FillWithWater()
+    private void Steep()
     {
-        if (!myManager.finishedPouring)
+        if (steepManager.teaBase && steepManager.teaIng && _filled)
+        {
+            mySprite = steepingTea;
+        }
+    }
+    
+    private void CheckIfFilled()
+    {
+        if (!myManager.finishedPouring) //Unless the manager is finished pouring;
+        {
+            return; //breaks the function
+        }
+
+        _filled = true; //sets the kettle to be filled.
+    }
+    
+    private void PotFilledFirst()
+    {
+        if (!_filled)//unless the pot is not filled, 
         {
             return;
         }
-        currentSprite = potWater;
-        potSPR.sprite = currentSprite;
+
+        if (steepManager.teaBase) //if the there is a tea base in the pot;
+        {
+            mySprite = steepManager.teaIng ? baseIngFilled : baseNoIngFilled; //changes the sprite based on if there is an ingredient or not. 
+        }
+        
+        if (!steepManager.teaBase)
+        {
+            mySprite = steepManager.teaIng ? ingNoBaseFilled : potWater;
+        }
     }
+
+    private void PotNotFilled()
+    {
+        if (_filled)
+        {
+            return;
+        }
+
+        if (steepManager.teaBase)
+        {
+            mySprite = steepManager.teaIng ? baseIngDry : baseNoIngDry;
+        }
+        
+        if (!steepManager.teaBase)
+        {
+            mySprite = steepManager.teaIng ? ingNoBaseDry : potEmpty;
+        }
+    }
+    
 }

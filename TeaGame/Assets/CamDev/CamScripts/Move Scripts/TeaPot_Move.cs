@@ -13,6 +13,9 @@ public class TeaPot_Move : CamMove
     [Header("Sprite Changer")]
     [SerializeField] 
     private Pot_SpriteChanger sprTrack;
+
+    [Header("Animator")] 
+    [SerializeField] private Animator teaPourAnim;
     [Header("TeaPot Lid")]
     [SerializeField]private GameObject teaPotLid;
     private bool _lidMoved = false;
@@ -126,7 +129,8 @@ public class TeaPot_Move : CamMove
         {
             if (sprTrack._steeping)
             {
-                //_myManager.TransitionState(PouringManager.State.Pouring);
+                transform.DORotate(new Vector3(0, 0, 25f), 0.5f).SetEase(Ease.InOutCubic);
+                teaPourAnim.Play("pour_animation");
                 _steepManager._finishedSteep = true;
             }
             //teaPot.constraints = RigidbodyConstraints2D.FreezePosition;
@@ -135,12 +139,10 @@ public class TeaPot_Move : CamMove
 
     public void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("cup"))
+        if (!other.gameObject.CompareTag("cup")) return;
+        if (sprTrack._steeping)
         {
-            if (sprTrack._steeping)
-            {
-                //_myManager.TransitionState(PouringManager.State.Reset);
-            }
+            transform.DORotate(new Vector3(0, 0, 0f), 0.5f).SetEase(Ease.InOutCubic);
         }
     }
 

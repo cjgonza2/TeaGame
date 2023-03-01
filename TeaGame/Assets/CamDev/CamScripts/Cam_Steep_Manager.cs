@@ -11,6 +11,8 @@ public class Cam_Steep_Manager : MonoBehaviour
     private Pot_SpriteChanger mySprite;
     #endregion
 
+    [SerializeField] private GameObject lidCollider;
+    
     #region Bases and Ingredients
     [Header("Tea Bases")]
     public bool mild = false;
@@ -68,7 +70,7 @@ public class Cam_Steep_Manager : MonoBehaviour
     [Header("Tea Flavors")]
     public bool lowFlavor = false;
     public bool highFlavor = false;
-    #endregion
+     #endregion
 
     #region Values
     [Header("Time Ints")]
@@ -211,49 +213,9 @@ public class Cam_Steep_Manager : MonoBehaviour
     
     private IEnumerator FlavorCheck()
     {
-        
         BitterCheck();
         MildCheck();
         SweetCheck();
-        /*if (bitter) //if the tea base is bitter:
-        {
-            if (sleep) //and if the tea ingredient is sleep:
-            {
-                bitterSleep = true; //sets blend to bitterSleep.
-            }  else if (health) //and if the tea ingredient is health:
-            {
-                bitterHealth = true; //sets blend to bitterHealth.
-            }   else if (energy) //and if the tea ingredient is energy:
-            {
-                bitterEnergy = true; //sets blend to bitterEnergy.
-            }
-        }
-        else if(mild)
-        {
-            if (sleep)
-            {
-                mildSleep = true;
-            }  else if (health)
-            {
-                mildHealth = true;
-            }   else if (energy)
-            {
-                mildEnergy = true;
-            }
-        }
-        else if (sweet)
-        {
-            if (sleep)
-            {
-                sweetSleep = true;
-            }  else if (health)
-            {
-                sweetHealth = true;
-            }   else if (energy)
-            {
-                sweetEnergy = true;
-            }
-        }*/
         yield break;
     }
     
@@ -285,7 +247,13 @@ public class Cam_Steep_Manager : MonoBehaviour
             mySprite.currentSprite = mySprite.teaHigh;
         }
 
-
+        if (teaBase && teaIng && mySprite._filled)
+        {
+            mySprite._steeping = true;//sets the teapot to steeping. Steeping counter starts.
+            lidCollider.SetActive(false);
+        }
+        
+        
         //if the pot has finished steeping:
         if (_finishedSteep)
         {

@@ -16,6 +16,8 @@ public class Kettle_Move : CamMove
     [SerializeField] private GameManager myManager;
 
     [SerializeField] private GameObject boilingWater;
+
+    [SerializeField] private Pot_SpriteChanger potSpriteChanger;
     
     //Thinking in the future instead of particle system we can just use different steam animations.
     /*[SerializeField] private Sprite lowSteam;
@@ -36,13 +38,14 @@ public class Kettle_Move : CamMove
     private ParticleSystem highBoil;
     
     public bool _pouring = false;
-    public bool fill; //tells the game whether to fill the kettle or not. 
+    public bool fill; //tells the game whether to fill the kettle or not.
+    [SerializeField] private bool _filled;
     [SerializeField] //tracks if the kettle is boiling.
     private bool boiling = false;
     [SerializeField] //tracks if the kettle is boiled.
     private bool boiled = false;
 
-    private bool _onBurner = false; //tracks if the kettle is on the burner.
+    [SerializeField] private bool _onBurner = false; //tracks if the kettle is on the burner.
     
     #region Boil Values
     private float _boilCounter; //raw number to count how long kettle has been boiling.
@@ -51,8 +54,9 @@ public class Kettle_Move : CamMove
     
     #endregion
 
+    #region TeaPot Variables
+    [Header("TeaPot")]
     public GameObject teaPot;
-
     private float _potX()
     {
         return teaPot.transform.position.x;
@@ -67,8 +71,10 @@ public class Kettle_Move : CamMove
     {
         return teaPot.transform.position.z;
     }
+    #endregion
 
     #region TeaLid Variables
+    [Header("TeaLid")]
     [SerializeField] private GameObject teaLid;
     private float _lidX()
     {
@@ -114,7 +120,44 @@ public class Kettle_Move : CamMove
         FillCheck();
         
         #region Boiiling on/off
-        if (_onBurner && _selected == false) //if kettle is on the burner, and it's not selected;
+
+        /*if (_onBurner && _filled && !_selected)
+        {
+            transform.DOMove(_startPos, 0.1f).SetEase(Ease.Linear); //moves the kettle to the burner.
+            boiling = true;
+        }
+        else
+        {
+            boiling = false;
+        }
+        
+        if (_onBurner && !_filled && !_selected)
+        {
+            transform.DOMove(_startPos, 0.1f).SetEase(Ease.Linear); //moves the kettle to the burner.
+        }*/
+
+        if (_onBurner)
+        {
+            switch (_filled)
+            {
+                case true when !_selected:
+                    transform.DOMove(_startPos, 0.1f).SetEase(Ease.Linear);
+                    boiling = true;
+                    break;
+                case false when !_selected:
+                    transform.DOMove(_startPos, 0.1f).SetEase(Ease.Linear);
+                    boiling = false;
+                    break;
+            }
+        }
+        else
+        {
+            boiling = false;
+        }
+
+        /*
+        if (_onBurner && _filled && !_selected ||
+            _onBurner && !_filled && !_selected) //if kettle is on the burner, and it's not selected;
         {
             transform.DOMove(_startPos, 0.1f).SetEase(Ease.Linear); //moves the kettle to the burner.
             boiling = true; //kettle starts boiling.
@@ -122,7 +165,7 @@ public class Kettle_Move : CamMove
         else //otherwise;
         {
             boiling = false; //kettle does not boil.
-        }
+        }*/
         #endregion
 
         
@@ -141,6 +184,7 @@ public class Kettle_Move : CamMove
         _currentSprite = fullKettle; //sets the currentsprite to the full kettle sprite.
         kettleSprite.sprite = _currentSprite; //sets the kettle's currentsprite to the currentsprite variable.
         fill = false; //tells the game it no longer has to fill the kettle. 
+        _filled = true;
     }
     
     IEnumerator WaitForBoilDecay()
@@ -224,7 +268,7 @@ public class Kettle_Move : CamMove
         kettleLiquid.Play("water_pour", 0, 0f);
         yield return new WaitForSeconds(kettleLiquid.GetCurrentAnimatorClipInfo(0).Length);
         myManager.finishedPouring = true;
-        //pourManager.TransitionState(PouringManager.State.KettleReset);
+        //potSpriteChanger._filled = true;
     }
 
     IEnumerator KettleReset()

@@ -77,10 +77,10 @@ public class TeaClump : MonoBehaviour
     {
         TeaPotCollision(col.transform.tag);
         
-        if (potSteep.teaBase && potSteep.teaIng)
+        /*if (potSteep.teaBase && potSteep.teaIng  && potSpr._filled)
         {
             potSpr._steeping = true; //sets the teapot to steeping. Steeping counter starts.
-        }
+        }*/
 
     }
 
