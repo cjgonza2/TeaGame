@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
-        cycleManager = GameObject.Find("CycleManager").GetComponent<CycleManager>();
+        //lcycleManager = GameObject.Find("CycleManager").GetComponent<CycleManager>();
         //_currentScene = SceneManager.GetActiveScene().name;
         //Debug.Log(_currentScene);
         TransitionState(State.Enter);
@@ -140,6 +140,7 @@ public class GameManager : MonoBehaviour
 
     private void NextLocation()
     {
+        finishedPouring = false;
         Debug.Log("I am in the process of changing scenes");
         cycleManager.sceneIndex++;
         if (cycleManager.sceneIndex > 5)
