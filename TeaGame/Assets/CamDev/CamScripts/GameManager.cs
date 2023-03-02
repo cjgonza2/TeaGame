@@ -148,7 +148,14 @@ public class GameManager : MonoBehaviour
             cycleManager.sceneIndex = 2;
             cycleManager.cycleCount++;
         }
+
+        StartCoroutine(WaitForCharExit());
         SceneManager.LoadScene(cycleManager.sceneIndex);
         TransitionState(State.Enter);
+    }
+
+    IEnumerator WaitForCharExit()
+    {
+        yield return new WaitForSeconds(1f);
     }
 }

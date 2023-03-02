@@ -246,7 +246,7 @@ public class ChracterManager : MonoBehaviour
     private void RanaTasting()
     {
         if(!ranaPresent)return;
-        if (steepManager.bitterHealth)
+        if (steepManager.bitterHealth) //if the tea flavor is bitter health
         {
             if (steepManager.lowFlavor)
             {
