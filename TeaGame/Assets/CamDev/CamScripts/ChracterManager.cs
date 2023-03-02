@@ -186,6 +186,7 @@ public class ChracterManager : MonoBehaviour
         LombardoTasting();
         RanaTasting();
         
+        /*
         if (manager.currentState == GameManager.State.Tasting)
         {
             //if the tea blend is made of bitter and health.
@@ -211,7 +212,7 @@ public class ChracterManager : MonoBehaviour
                 _lambCurrentSprite = lambReact;
                 lambSpr.sprite = _lambCurrentSprite;
             }
-        }
+        }*/
     }
 
     private void LombardoTasting()

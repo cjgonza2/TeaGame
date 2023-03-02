@@ -15,6 +15,12 @@ public class TeaCup_Move : CamMove
 
     public Vector3 sipPos;
 
+    public override void Start()
+    {
+        base.Start();
+        manager = GameManager.FindInstance();
+    }
+
     public override void Update()
     {
         base.Update();
