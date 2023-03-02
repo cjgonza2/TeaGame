@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/CamDev/CamScenes/Goyo_Canyon.unity
     guid: d360a9e4bd1e2144ea365f1aa76aed60
   - enabled: 1
+    path: Assets/CamDev/CamScenes/Goyo_LIly_Transition.unity
+    guid: 45b1554e0c385264980d48b33b823557
+  - enabled: 1
     path: Assets/CamDev/CamScenes/Lily_Bog.unity
     guid: 4ee9bc0735416d64186bf3dedc1a4430
   m_configObjects: {}

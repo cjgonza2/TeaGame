@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -65,6 +66,12 @@ public class ChracterManager : MonoBehaviour
         manager.TransitionState(GameManager.State.Resting); //changes the state to resting. 
         yield break;
     }
+
+    private void Start()
+    {
+        
+    }
+
     private IEnumerator LombardoWaitToStart()
     {
         //Debug.Log("coroutine was called");
@@ -251,7 +258,7 @@ public class ChracterManager : MonoBehaviour
             if (steepManager.lowFlavor)
             {
                 _ranaCurrentSprite = ranaSmile;
-                ranaSpr.sprite = _lambCurrentSprite;
+                ranaSpr.sprite = _ranaCurrentSprite;
             }
             else
             {

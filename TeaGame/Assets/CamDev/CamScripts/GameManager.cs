@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public bool finishedPouring;
     public bool lidMoved;
 
-    #region Singleton
+    /*#region Singleton
     private static GameManager _instance;
 
     public static GameManager FindInstance()
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Awake was called.");
         _currentScene = SceneManager.GetActiveScene().name;
     }
-    #endregion
+    #endregion*/
 
     //[HideInInspector]
     public string _currentScene;
@@ -83,6 +83,8 @@ public class GameManager : MonoBehaviour
         //lcycleManager = GameObject.Find("CycleManager").GetComponent<CycleManager>();
         //_currentScene = SceneManager.GetActiveScene().name;
         //Debug.Log(_currentScene);
+        SetScene();
+        cycleManager = CycleManager.FindInstance();
         TransitionState(State.Enter);
     }
 
@@ -164,6 +166,5 @@ public class GameManager : MonoBehaviour
         }
         //once its true it will load the next scene and changes the state.
         SceneManager.LoadScene(cycleManager.sceneIndex);
-        TransitionState(State.Enter);
     }
 }

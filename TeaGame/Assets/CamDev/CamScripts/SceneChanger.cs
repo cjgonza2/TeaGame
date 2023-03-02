@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
     private CycleManager _cycleManager;
+    private GameManager _gameManager;
 
     public void Start()
     {
@@ -19,8 +20,8 @@ public class SceneChanger : MonoBehaviour
         {
             return;
         }
-        SceneManager.LoadScene(_cycleManager.sceneIndex);
         _cycleManager.sceneIndex++;
+        SceneManager.LoadScene(_cycleManager.sceneIndex);
         _cycleManager.cycleCount++;
     }
 }

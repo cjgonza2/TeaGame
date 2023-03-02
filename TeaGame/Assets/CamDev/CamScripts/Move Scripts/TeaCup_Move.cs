@@ -18,7 +18,7 @@ public class TeaCup_Move : CamMove
     public override void Start()
     {
         base.Start();
-        manager = GameManager.FindInstance();
+        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public override void Update()

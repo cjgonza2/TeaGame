@@ -30,7 +30,7 @@ public class TeaLeavesController : MonoBehaviour
     #region Start/Update
     public virtual void Start()
     {
-        inventoryManager = GameManager.FindInstance(); //finds the instance of the gameManager.
+        inventoryManager = GameObject.Find("GameManager").GetComponent<GameManager>();//finds the instance of the gameManager.
         _mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
 

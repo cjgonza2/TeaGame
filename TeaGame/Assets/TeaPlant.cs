@@ -18,7 +18,7 @@ public class TeaPlant : MonoBehaviour
 
     private void Awake()
     {
-        inventoryManager = GameManager.FindInstance();
+        inventoryManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         spriteColor = mySpriteRenderer.material.color;
         _plantName = transform.tag;
