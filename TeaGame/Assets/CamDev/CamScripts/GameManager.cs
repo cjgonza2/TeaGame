@@ -150,12 +150,20 @@ public class GameManager : MonoBehaviour
         }
 
         StartCoroutine(WaitForCharExit());
+
+        /*StartCoroutine(WaitForCharExit());
         SceneManager.LoadScene(cycleManager.sceneIndex);
-        TransitionState(State.Enter);
+        TransitionState(State.Enter);*/
     }
 
-    IEnumerator WaitForCharExit()
+    private IEnumerator WaitForCharExit()
     {
-        yield return new WaitForSeconds(1f);
+        while (!charMan._sceneEnd) //while scene end bool is falls, it will return.
+        {
+            yield return null;
+        }
+        //once its true it will load the next scene and changes the state.
+        SceneManager.LoadScene(cycleManager.sceneIndex);
+        TransitionState(State.Enter);
     }
 }
