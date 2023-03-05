@@ -279,6 +279,8 @@ public class ChracterManager : MonoBehaviour
     {
         LombardoExit();
         RanaExit();
+        if (!_sceneEnd) return;
+        cycleManager.NextScene();
     }
 
     private void LombardoExit()
@@ -293,7 +295,9 @@ public class ChracterManager : MonoBehaviour
     private void RanaExit()
     {
         if (manager.currentState != GameManager.State.Exiting) return;
-        if (!lambPresent) return;
+        
+        if (!ranaPresent) return;
+        
         StartCoroutine(RanaWaitToExit());
     }
     

@@ -143,6 +143,7 @@ public class GameManager : MonoBehaviour
     private void NextLocation()
     {
         finishedPouring = false;
+        /*
         Debug.Log("I am in the process of changing scenes");
         cycleManager.sceneIndex++;
         if (cycleManager.sceneIndex > 5)
@@ -152,6 +153,7 @@ public class GameManager : MonoBehaviour
         }
 
         StartCoroutine(WaitForCharExit());
+        */
 
         /*StartCoroutine(WaitForCharExit());
         SceneManager.LoadScene(cycleManager.sceneIndex);

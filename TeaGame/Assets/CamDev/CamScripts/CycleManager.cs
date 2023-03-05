@@ -43,4 +43,14 @@ public class CycleManager : MonoBehaviour
         Debug.Log("Current Loop: " + cycleCount);
         Debug.Log("Current Index: " + sceneIndex);
     }
+
+    public void NextScene()
+    {
+        sceneIndex++;
+        if (sceneIndex >= 4)
+        {
+            sceneIndex = 0;
+        }
+        SceneManager.LoadScene(sceneIndex);
+    }
 }
