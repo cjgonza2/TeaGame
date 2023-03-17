@@ -69,7 +69,7 @@ public class ChracterManager : MonoBehaviour
 
     private void Start()
     {
-        
+        cycleManager = CycleManager.FindInstance();
     }
 
     private IEnumerator LombardoWaitToStart()
@@ -88,7 +88,8 @@ public class ChracterManager : MonoBehaviour
         ranaPresent = true;
     }
 
-
+    
+    
     // Update is called once per frame
     void Update()
     {

@@ -47,9 +47,9 @@ public class CycleManager : MonoBehaviour
     public void NextScene()
     {
         sceneIndex++;
-        if (sceneIndex >= 4)
+        if (sceneIndex >= 5)
         {
-            sceneIndex = 0;
+            sceneIndex = 1;
         }
         SceneManager.LoadScene(sceneIndex);
     }

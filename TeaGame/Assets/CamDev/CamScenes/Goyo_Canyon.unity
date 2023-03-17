@@ -18894,12 +18894,12 @@ MonoBehaviour:
   finishedPouring: 0
   lidMoved: 0
   _currentScene: 
-  hakaCount: 5
-  tallowCount: 5
-  bombomCount: 5
-  aileCount: 5
-  shnootCount: 5
-  poffCount: 5
+  hakaCount: 2
+  tallowCount: 2
+  bombomCount: 2
+  aileCount: 2
+  shnootCount: 2
+  poffCount: 2
   currentState: 0
 --- !u!114 &1808856650
 MonoBehaviour:

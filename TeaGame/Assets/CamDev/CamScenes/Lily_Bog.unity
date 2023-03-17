@@ -349,7 +349,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 222185252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.56, y: 0.11, z: 0}
+  m_LocalPosition: {x: -4.56, y: -0.6669965, z: 0}
   m_LocalScale: {x: 0.34, y: 0.34, z: 0.34}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -372,7 +372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &227016108
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -518,7 +518,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310215900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.6, y: 4.44, z: -0.19903468}
+  m_LocalPosition: {x: 19.6, y: 5.3, z: -0.19903468}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1720,6 +1720,90 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &731909416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 731909418}
+  - component: {fileID: 731909417}
+  m_Layer: 0
+  m_Name: full table
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &731909417
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731909416}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 1285743909
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: d11af1ccf2b4f294e8946ee7cce744f0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 59.125, y: 6.03125}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &731909418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731909416}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &740440805
 GameObject:
   m_ObjectHideFlags: 0
@@ -2125,7 +2209,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147819430}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.362568, y: 2.6869965, z: 0}
+  m_LocalPosition: {x: -4.362568, y: 1.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2162,7 +2246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1151943493}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.09, y: -2.31, z: 0}
+  m_LocalPosition: {x: 6.89, y: -2.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3164,10 +3248,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: 
   teaPlants:
-  - {fileID: 5172989732441561196, guid: ee5a31f427c24de48a0a0a618b7b61bb, type: 3}
-  - {fileID: 5172989732441561196, guid: ee5a31f427c24de48a0a0a618b7b61bb, type: 3}
+  - {fileID: 5323876602004565332, guid: 3dfeb6e8e8b91d246a8e0d66f0c89984, type: 3}
+  - {fileID: 5323876602004565332, guid: 3dfeb6e8e8b91d246a8e0d66f0c89984, type: 3}
   - {fileID: 6829157538418146786, guid: f8cebe0986be2054fa67ab301b89d63b, type: 3}
-  - {fileID: 5506009871814658653, guid: 55964d52cc342934a8a1cf97d99d2159, type: 3}
+  - {fileID: 1010541003776490416, guid: d2a01246df9ccc7499811a1a8fac7af5, type: 3}
   gardenPositions:
   - {x: 16.1, y: -2.9, z: 0}
   - {x: 18.8, y: -0.99, z: 0}
@@ -3746,7 +3830,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695877219}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.16, y: 2.66, z: 0}
+  m_LocalPosition: {x: -15.16, y: 1.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13719,7 +13803,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769955710}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.8525677, y: 3.2769966, z: 0.099353254}
+  m_LocalPosition: {x: -3.8525677, y: 2.5, z: 0.099353254}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -13892,7 +13976,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819018977}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.6325674, y: -2.6630034, z: -0.000046744943}
+  m_LocalPosition: {x: -0.81, y: -2.91, z: -0.000046744943}
   m_LocalScale: {x: 0.3444, y: 0.3444, z: 0.3444}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -19002,8 +19086,8 @@ MonoBehaviour:
   ranaSmile: {fileID: 21300000, guid: 428bb6520b6b29e4cb7afe387789299e, type: 3}
   ranaReact: {fileID: 21300000, guid: 2d88b4fa90ab5a84991e46cbb3dcc4db, type: 3}
   ranaPresent: 0
-  entrancePos: {x: 1, y: 6.73, z: 0}
-  exitPos: {x: -38.1, y: 6.73, z: 0}
+  entrancePos: {x: 1, y: 5.3, z: 0}
+  exitPos: {x: -38.1, y: 5.3, z: 0}
   _sceneEnd: 0
 --- !u!114 &1952468312
 MonoBehaviour:
@@ -19022,12 +19106,12 @@ MonoBehaviour:
   finishedPouring: 0
   lidMoved: 0
   _currentScene: 
-  hakaCount: 5
-  tallowCount: 5
-  bombomCount: 5
-  aileCount: 5
-  shnootCount: 5
-  poffCount: 5
+  hakaCount: 2
+  tallowCount: 2
+  bombomCount: 2
+  aileCount: 2
+  shnootCount: 2
+  poffCount: 2
   currentState: 0
 --- !u!4 &1952468313
 Transform:
