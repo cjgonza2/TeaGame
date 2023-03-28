@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cycleCount: 0
-  sceneIndex: 0
+  sceneIndex: 1
 --- !u!4 &644334118
 Transform:
   m_ObjectHideFlags: 0
@@ -1163,7 +1163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8e27570bec92c40838f476544ff593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fader: {fileID: 964862479}
 --- !u!4 &1738897037
 Transform:
   m_ObjectHideFlags: 0
