@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -18894,12 +18894,12 @@ MonoBehaviour:
   finishedPouring: 0
   lidMoved: 0
   _currentScene: 
-  hakaCount: 5
-  tallowCount: 5
-  bombomCount: 5
-  aileCount: 5
-  shnootCount: 5
-  poffCount: 5
+  hakaCount: 0
+  tallowCount: 0
+  bombomCount: 0
+  aileCount: 0
+  shnootCount: 0
+  poffCount: 0
   currentState: 0
 --- !u!114 &1808856650
 MonoBehaviour:
