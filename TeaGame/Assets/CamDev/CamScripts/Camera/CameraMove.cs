@@ -35,18 +35,13 @@ public class CameraMove : MonoBehaviour
         myManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    void Update()
+    private void Update()
     {
-        
         //input checks.
+        if (myManager.compendiumOpen) return;
         UpInput();
         LeftInput();
         RightInput();
-
-        /*if (_input == false && gameObject.transform.position != _startPos)
-        {
-            
-        }*/
     }
 
     

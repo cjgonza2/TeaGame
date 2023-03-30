@@ -5,27 +5,34 @@ using UnityEngine.UI;
 
 public class TeaCompendiumController : MonoBehaviour
 {
+    [Header("Game Manager")]
+    [SerializeField] private GameManager manager;
+    
+    [Header("Buttons")]
     public GameObject icon;
     public GameObject compendium;
     public GameObject exitButton;
     public GameObject leftButton;
     public GameObject rightButton;
 
-    private SpriteRenderer iconSR;
-    private Collider2D iconCollider;
+    [Header("Sprites")]
     public Sprite iconDefault;
     public Sprite iconSelect;
+    private SpriteRenderer iconSR;
+    private Collider2D iconCollider;
 
-    public bool isOver = false;
+    [Header("Bools")]
+    [SerializeField]private bool isOver = false;
+    public bool isOpen;
 
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
 
-        compendium.SetActive(false);
-
+        compendium.SetActive(false); //sets the Compendium pages to not active.
         exitButton.SetActive(false);
+        
         Button exitCompendium = exitButton.GetComponent<Button>();
         exitCompendium.onClick.AddListener(TaskOnClick);
 
@@ -52,35 +59,28 @@ public class TeaCompendiumController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //Instantiate(compendium);
-
+        isOpen = true;
         compendium.SetActive(true);
-        iconSR.enabled = false;
-        iconCollider.enabled = false;
+        iconSR.enabled = false; //disables the small icon spriterenderer.
+        iconCollider.enabled = false; //disables the collider of the small icon.
 
+        //Activates the exit, left and right button
         exitButton.SetActive(true);
         leftButton.SetActive(true);
         rightButton.SetActive(true);
-
-
     }
 
-    void TaskOnClick()
+    private void TaskOnClick()
     {
-        Debug.Log("button press");
-
+        //sets the exit, left, and right buttons to inactive.
+        //sets the compendium pages to inactive.
+        isOpen = false;
         exitButton.SetActive(false);
         leftButton.SetActive(false);
         rightButton.SetActive(false);
         compendium.SetActive(false);
 
-        iconSR.enabled = true;
-        iconCollider.enabled = true;
+        iconSR.enabled = true; //enables sprite renderer of the small icon.
+        iconCollider.enabled = true; //enables collider of small icon.
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
 }

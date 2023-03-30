@@ -30,6 +30,10 @@ public class GameManager : MonoBehaviour
     public int aileCount;
     public int shnootCount;
     public int poffCount;
+
+    [Header("Compendium Check")]
+    [SerializeField] private TeaCompendiumController teaCompendium;
+    public bool compendiumOpen;
     
     [Header("Current Game State")]
     public State currentState;
@@ -78,6 +82,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         gamePaused = cycleManager.gameIsPaused;
+        compendiumOpen = teaCompendium.isOpen;
         
         PauseGame();
         UnPauseGame();

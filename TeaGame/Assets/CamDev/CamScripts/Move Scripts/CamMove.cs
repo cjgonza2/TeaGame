@@ -54,6 +54,7 @@ public class CamMove : MonoBehaviour
     public virtual void OnMouseDown()
     {
         if (myManager.gamePaused) return;
+        if(myManager.compendiumOpen)return;
         _selected = true;
     }
 

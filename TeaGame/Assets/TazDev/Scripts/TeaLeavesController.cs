@@ -135,6 +135,7 @@ public class TeaLeavesController : MonoBehaviour
     public virtual void OnMouseDown()
     {
         if (inventoryManager.gamePaused) return;
+        if (inventoryManager.compendiumOpen) return;
         
         //based on whatever leaf name there is, starts the appropriate check.
         StartCoroutine($"{leafName}Check");
