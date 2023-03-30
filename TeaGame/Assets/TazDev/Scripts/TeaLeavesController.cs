@@ -36,6 +36,11 @@ public class TeaLeavesController : MonoBehaviour
 
     public virtual void Update()
     {
+        if (inventoryManager.gamePaused)
+        {
+            selected = false;
+        }
+        
         if (!selected)
         {
             return;
@@ -129,6 +134,8 @@ public class TeaLeavesController : MonoBehaviour
 
     public virtual void OnMouseDown()
     {
+        if (inventoryManager.gamePaused) return;
+        
         //based on whatever leaf name there is, starts the appropriate check.
         StartCoroutine($"{leafName}Check");
 

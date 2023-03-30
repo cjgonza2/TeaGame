@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+    
     private CycleManager _cycleManager;
     private GameManager _gameManager;
 
@@ -16,10 +17,10 @@ public class SceneChanger : MonoBehaviour
 
     public void Update()
     {
-        if (!Input.GetKeyDown(KeyCode.Space))
-        {
-            return;
-        }
+        if (_cycleManager.gameIsPaused) return;
+
+        if (!Input.GetKeyDown(KeyCode.Space)) return;
+
         _cycleManager.sceneIndex++;
         SceneManager.LoadScene(_cycleManager.sceneIndex);
         _cycleManager.cycleCount++;

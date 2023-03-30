@@ -31,6 +31,8 @@ public class CycleManager : MonoBehaviour
         Debug.Log("Current Index: " + sceneIndex);
     }
     #endregion
+
+    public bool gameIsPaused;
     
     [HideInInspector]
     public int cycleCount;
@@ -42,6 +44,28 @@ public class CycleManager : MonoBehaviour
     {
         Debug.Log("Current Loop: " + cycleCount);
         Debug.Log("Current Index: " + sceneIndex);
+    }
+
+    private void Update()
+    {
+        PauseInput();
+        /*PauseGame();
+        UnPauseGame();*/
+    }
+
+    private void PauseInput()
+    {
+        if (!Input.GetKeyDown(KeyCode.Escape)) return; //if there is no escape input return.
+        
+        if (!gameIsPaused) //if the game is not paused;
+        {
+            gameIsPaused = true;
+        } else if (gameIsPaused)
+        {
+            gameIsPaused = false;
+        }
+
+        //Debug.Log(gameIsPaused);
     }
 
     public void NextScene()

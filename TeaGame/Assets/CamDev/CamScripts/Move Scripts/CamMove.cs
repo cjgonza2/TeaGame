@@ -7,7 +7,8 @@ using DG.Tweening;
 
 public class CamMove : MonoBehaviour
 {
-    //This script is complete. 
+    public GameManager myManager;
+
     private Vector3 _mousePos; //vector 3 of the mouse. 
     [HideInInspector]
     public bool _selected = false; //bool that determines if an object has been selected.
@@ -19,10 +20,16 @@ public class CamMove : MonoBehaviour
     public virtual void Start()
     {
         _mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        myManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public virtual void Update()
     {
+        if (myManager.gamePaused)
+        {
+            _selected = false;
+        }
+        
         if (_selected) //if the an object is selected. 
         {
             CalculateMousePos();
@@ -46,6 +53,7 @@ public class CamMove : MonoBehaviour
 
     public virtual void OnMouseDown()
     {
+        if (myManager.gamePaused) return;
         _selected = true;
     }
 

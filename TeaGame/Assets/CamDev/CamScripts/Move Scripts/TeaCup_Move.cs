@@ -6,8 +6,8 @@ using UnityEngine.Assertions.Must;
 
 public class TeaCup_Move : CamMove
 {
-    [SerializeField] 
-    private GameManager manager;
+    /*SerializeField] 
+    private GameManager myManager;*/
     [SerializeField]
     private SpriteController cupSpr;
 
@@ -18,7 +18,7 @@ public class TeaCup_Move : CamMove
     public override void Start()
     {
         base.Start();
-        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        myManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public override void Update()
@@ -48,7 +48,7 @@ public class TeaCup_Move : CamMove
         if (cupSpr.currentSprite != cupSpr.changedImage) return;
         _selected = false;
         gameObject.transform.position = sipPos;
-        manager.TransitionState(GameManager.State.Drinking);
+        myManager.TransitionState(GameManager.State.Drinking);
         Debug.Log("cheese;");
     }
 }

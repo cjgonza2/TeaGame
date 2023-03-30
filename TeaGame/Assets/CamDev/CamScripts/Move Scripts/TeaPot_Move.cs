@@ -8,7 +8,7 @@ using UnityEngine.TextCore.Text;
 public class TeaPot_Move : CamMove
 {
     [Header("Managers")]
-    [SerializeField] private GameManager myManager;
+    //[SerializeField] private GameManager myManager;
     [SerializeField] private PouringManager pourManager;
     [SerializeField] private Cam_Steep_Manager _steepManager;
     [Header("Sprite Changer")]

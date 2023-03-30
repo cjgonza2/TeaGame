@@ -7,46 +7,32 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Managers")]
     [SerializeField] private ChracterManager charMan;
     [SerializeField] private CycleManager cycleManager;
+   
+    [Header("Pause Menu")]
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject resumeButton;
+    [SerializeField] private GameObject quitButton;
+    public bool gamePaused;
 
-    public bool finishedPouring;
-    public bool lidMoved;
-
-    /*#region Singleton
-    private static GameManager _instance;
-
-    public static GameManager FindInstance()
-    {
-        return _instance;
-    }
-
-    void Awake()
-    {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-            
-        }
-        Debug.Log("Awake was called.");
-        _currentScene = SceneManager.GetActiveScene().name;
-    }
-    #endregion*/
-
-    //[HideInInspector]
+    [Header("Current Scene Info")]
     public string _currentScene;
 
+    [Header("Pouring Check")]
+    public bool finishedPouring;
+    
+    [Header("Inventory Counts")]
     public int hakaCount;
     public int tallowCount;
     public int bombomCount;
     public int aileCount;
     public int shnootCount;
     public int poffCount;
+    
+    [Header("Current Game State")]
+    public State currentState;
 
     public enum State
     {
@@ -56,15 +42,9 @@ public class GameManager : MonoBehaviour
         Tasting,
         Exiting
     }
-
-    public State currentState;
-
-    #region CoRoutines
-    /*private IEnumerator WaitBeforeRest()
-    {
-        yield return new WaitForSeconds(1.0f);
-    }*/
     
+    #region CoRoutines
+
     private IEnumerator WaitBeforeTaste()
     {
         yield return new WaitForSeconds(5f);
@@ -97,11 +77,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        /*//checks if scene transitioning works.
-        if (Input.GetKey(KeyCode.Space))
-        {
-            NextLocation();
-        }*/
+        gamePaused = cycleManager.gameIsPaused;
+        
+        PauseGame();
+        UnPauseGame();
 
         SetScene(); //sets the current scene for reference purposes.
 
@@ -111,6 +90,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void PauseGame()
+    {
+        if (!gamePaused) return; //if the game is not paused, returns.
+        pausePanel.SetActive(true);
+        resumeButton.SetActive(true);
+        quitButton.SetActive(true);
+        gamePaused = true;
+        //Time.timeScale = 0f;
+    }
+
+    private void UnPauseGame()
+    {
+        if (gamePaused) return; //if game is paused, returns
+        pausePanel.SetActive(false);
+        resumeButton.SetActive(false);
+        quitButton.SetActive(false);
+        gamePaused = false;
+        //Time.timeScale = 1f;
+    }
+    
     private void SetScene()
     {
         _currentScene = SceneManager.GetActiveScene().name;

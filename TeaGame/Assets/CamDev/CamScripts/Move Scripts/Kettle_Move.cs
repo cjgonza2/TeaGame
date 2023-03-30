@@ -13,7 +13,7 @@ public class Kettle_Move : CamMove
     private Vector3 _startPos; //default position of the Kettle.
 
     [SerializeField] private Animator kettleLiquid;
-    [SerializeField] private GameManager myManager;
+    //[SerializeField] private GameManager myManager;
 
     [SerializeField] private GameObject boilingWater;
 

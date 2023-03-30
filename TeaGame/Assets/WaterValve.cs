@@ -9,6 +9,7 @@ public class WaterValve : MonoBehaviour
 
     [SerializeField] private Animator pourAnimation;
     [SerializeField] private Kettle_Move kettle;
+    [SerializeField] private GameManager myManager; //gamemanager reference
 
     private IEnumerator PourWater()
     {
@@ -20,6 +21,7 @@ public class WaterValve : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (myManager.gamePaused) return;
         Debug.Log("Pour water");
         StartCoroutine(PourWater());
 

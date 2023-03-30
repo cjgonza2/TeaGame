@@ -10,6 +10,8 @@ using DG.Tweening;
 public class CameraMove : MonoBehaviour
 {
 
+    [SerializeField] private GameManager myManager;
+    
     private Vector3 _startPos;
     
     [SerializeField]
@@ -30,10 +32,12 @@ public class CameraMove : MonoBehaviour
         _startPos = gameObject.transform.position;
         _startPosX = transform.position.x;
         _startPosY = transform.position.y;
+        myManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update()
     {
+        
         //input checks.
         UpInput();
         LeftInput();

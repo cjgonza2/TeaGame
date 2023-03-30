@@ -85,3 +85,9 @@ TagManager:
   - name: Compendium
     uniqueID: 242358951
     locked: 0
+  - name: Pause Screen
+    uniqueID: 2361160653
+    locked: 0
+  - name: Cart Animation
+    uniqueID: 1253394505
+    locked: 0
