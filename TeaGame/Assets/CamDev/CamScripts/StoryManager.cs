@@ -23,6 +23,22 @@ public class StoryManager : MonoBehaviour
     [SerializeField] private Animator LineFour_Animator;
     [Header("Line Five")]
     [SerializeField] private Animator lineFive_Animator;
+    [Header("Line Six")]
+    [SerializeField]private Animator lineSix_Animator;
+    [Header("Line Seven")]
+    [SerializeField]private Animator lineSeven_Animator;
+    [Header("Line Eight")]
+    [SerializeField]private Animator lineEight_Animator;
+    [Header("Line Nine")]
+    [SerializeField]private Animator lineNine_Animator;
+    [Header("Line Ten")]
+    [SerializeField]private Animator lineTen_Animator;
+    [Header("Line Eleven")]
+    [SerializeField]private Animator lineEleven_Animator;
+    [Header("Line Twelve")]
+    [SerializeField]private Animator lineTwelve_Animator;
+    [Header("Panel")] 
+    [SerializeField] private Animator SceneFade;
 
     [SerializeField] private List<TMP_Text> _text;
 
@@ -41,43 +57,85 @@ public class StoryManager : MonoBehaviour
         for (int i = 0; i < 4; i++) //adds 4 lines to string list.
         {
             _lines.Add(_inkStory.Continue()); //adds each line of the story
-            //Debug.Log(_lines[i]);               //to string list.
+            _text[i].text = _lines[i];           //to string list.
+            //Debug.Log(_text[i].text);
         }
 
-        foreach (TMP_Text line in _text)
-        {
-            for (int i = 0; i < 4; i++)
-            {
-                _text[i].text = _lines[i];
-                Debug.Log(_text[i].text);
-            }
-        }
-
+        StartCoroutine(FadeInLineOne());
         yield break;
     }
 
-    private IEnumerator SetLines()
-    {
-        yield break;
-    }
+    #region SceneOne
 
+    #region Line One
     private IEnumerator FadeInLineOne()
     {
+        lineOne_Animator.Play("LineOne_fadeIn");
+        yield return new WaitForSeconds(4f);
+        StartCoroutine(FadeInLineTwo());
+    }
+
+    private IEnumerator FadeOutLineOne()
+    {
+        lineOne_Animator.Play("LineOne_FadeOut");
+        yield return new WaitForSeconds(lineOne_Animator.GetCurrentAnimatorClipInfo(0).Length);
+    }
+    #endregion
+
+    private IEnumerator FadeInLineTwo()
+    {
+        lineTwo_Animator.Play("LineTwo_FadeIn");
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(FadeInLineThree());
+    }
+
+    private IEnumerator FadeOutLineTwo()
+    {
+        lineTwo_Animator.Play("LineTwo_FadeOut");
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(FadeOutLineOne());
+    }
+
+    private IEnumerator FadeInLineThree()
+    {
+        lineThree_Animator.Play("LineThree_FadeIn");
+        yield return new WaitForSeconds(3f);
+        StartCoroutine(FadeInLineFour());
+    }
+
+    private IEnumerator FadeOutLineThree()
+    {
+        lineThree_Animator.Play("LineThree_FadeOut");
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(FadeOutLineTwo());
         yield break;
     }
 
-    /*private void Start()
+    private IEnumerator FadeInLineFour()
     {
-        lineOne_Animator.SetTrigger("Active");
+        LineFour_Animator.Play("LineFour_FadeIn");
+        yield return new WaitForSeconds(5f);
+        StartCoroutine(FadeInLineFive());
     }
-    
-    
 
-    void Update()
+    private IEnumerator FadeOutLineFour()
     {
-        if (Input.GetMouseButtonDown(0))
-            lineOne_Animator.SetTrigger("Active");
-    }*/
+        LineFour_Animator.Play("LineFour_FadeOut");
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(FadeOutLineThree());
+    }
 
+    private IEnumerator FadeInLineFive()
+    {
+        StartCoroutine(FadeOutLineFour());
+        lineFive_Animator.Play("LineFive_FadeIn");
+        yield break;
+    }
+
+    private IEnumerator FadeOutLineFive()
+    {
+        yield break;
+    }
+    #endregion
 
 }
