@@ -64,9 +64,6 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
-        //lcycleManager = GameObject.Find("CycleManager").GetComponent<CycleManager>();
-        //_currentScene = SceneManager.GetActiveScene().name;
-        //Debug.Log(_currentScene);
         SetScene();
         cycleManager = CycleManager.FindInstance();
         TransitionState(State.Enter);
