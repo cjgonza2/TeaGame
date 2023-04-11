@@ -113,10 +113,7 @@ public class Kettle_Move : CamMove
     public override void Update()
     {
         base.Update(); //does everything parent function does.
-
-        //Debug.Log("Boiling:" + boiling  );
-        //Debug.Log("Selected:" + _selected);
-
+        
         FillCheck();
         
         #region Boiiling on/off
@@ -138,18 +135,6 @@ public class Kettle_Move : CamMove
         {
             boiling = false;
         }
-
-        /*
-        if (_onBurner && _filled && !_selected ||
-            _onBurner && !_filled && !_selected) //if kettle is on the burner, and it's not selected;
-        {
-            transform.DOMove(_startPos, 0.1f).SetEase(Ease.Linear); //moves the kettle to the burner.
-            boiling = true; //kettle starts boiling.
-        }
-        else //otherwise;
-        {
-            boiling = false; //kettle does not boil.
-        }*/
         #endregion
 
         
@@ -173,19 +158,23 @@ public class Kettle_Move : CamMove
     
     IEnumerator WaitForBoilDecay()
     {
-        yield return new WaitForSeconds((15 * Time.deltaTime) % 60);
+        yield return new WaitForSeconds(10f);
     }
     
     private void Boiling() //tracks the kettle's boiling.
     {
-        if (boiling) //if the kettle is boiling;
+        switch (boiling)
         {
-            _boilCounter += Time.deltaTime; //adds to the boil counter by rate of time between frames.
-        }else if (boiling == false) //otherwise;
-        {
-            
-            StartCoroutine(WaitForBoilDecay());
-            _boilCounter -= Time.deltaTime; //lowers the boil counter by rate of time between frames. 
+            //if the kettle is boiling;
+            case true:
+                if (boilTime >= 25) return; //if the boil time reaches a certain threshold, stops boiling and holds. 
+                _boilCounter += Time.deltaTime; //adds to the boil counter by rate of time between frames.
+                break;
+            //otherwise;
+            case false:
+                StartCoroutine(WaitForBoilDecay());
+                _boilCounter -= Time.deltaTime; //lowers the boil counter by rate of time between frames. 
+                break;
         }
 
         if (_boilCounter < 0) //if boil counter is less than 0
@@ -193,7 +182,8 @@ public class Kettle_Move : CamMove
             _boilCounter = 0; //resets boil counter to 0.
         }
 
-        boilTime = (int)(_boilCounter % 60); //converts boil counter into rounded whole number.
+        //boilTime = (int)(_boilCounter % 60); //converts boil counter into rounded whole number.
+        boilTime = Mathf.FloorToInt(_boilCounter % 60);
     }
     
     //again this will change when we have boiling animations. 

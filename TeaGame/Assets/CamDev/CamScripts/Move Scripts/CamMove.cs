@@ -43,11 +43,6 @@ public class CamMove : MonoBehaviour
             Input.mousePosition.x,
             Input.mousePosition.y,
             10));
-        /*_mousePos = Input.mousePosition; //sets the mouse input position (mouse.x, mouse.y, 0)
-        _mousePos.z = Camera.main.WorldToScreenPoint(gameObject.transform.position).z; //sets the mouse z pos to the screen point of the selected gameobject's z position.
-        transform.position = Camera.main.ScreenToWorldPoint(_mousePos)
-                             - new Vector3(0, 0,
-                                 transform.position.z);*/
         //sets the selected game objects' position to the converted world coordinates of the mouse. and ballances it with a z offset.
     }
 
