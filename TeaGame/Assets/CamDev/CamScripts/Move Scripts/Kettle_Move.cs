@@ -120,22 +120,6 @@ public class Kettle_Move : CamMove
         FillCheck();
         
         #region Boiiling on/off
-
-        /*if (_onBurner && _filled && !_selected)
-        {
-            transform.DOMove(_startPos, 0.1f).SetEase(Ease.Linear); //moves the kettle to the burner.
-            boiling = true;
-        }
-        else
-        {
-            boiling = false;
-        }
-        
-        if (_onBurner && !_filled && !_selected)
-        {
-            transform.DOMove(_startPos, 0.1f).SetEase(Ease.Linear); //moves the kettle to the burner.
-        }*/
-
         if (_onBurner)
         {
             switch (_filled)
