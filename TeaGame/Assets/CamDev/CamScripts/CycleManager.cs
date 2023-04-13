@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class CycleManager : MonoBehaviour
 {
-    
+
     #region Singleton
+
     private static CycleManager _instance;
+
     public static CycleManager FindInstance()
     {
         return _instance;
@@ -21,7 +23,7 @@ public class CycleManager : MonoBehaviour
         {
             Destroy(this);
         }
-        else 
+        else
         {
             _instance = this;
             DontDestroyOnLoad(gameObject);
@@ -30,12 +32,12 @@ public class CycleManager : MonoBehaviour
         Debug.Log("Current Loop: " + cycleCount);
         Debug.Log("Current Index: " + sceneIndex);
     }
+
     #endregion
 
     public bool gameIsPaused;
-    
-    [HideInInspector]
-    public int cycleCount;
+
+    [HideInInspector] public int cycleCount;
 
     //Tells game managers/scene changers which scene to load in a given context.
     public int sceneIndex;
@@ -56,11 +58,12 @@ public class CycleManager : MonoBehaviour
     private void PauseInput()
     {
         if (!Input.GetKeyDown(KeyCode.Escape)) return; //if there is no escape input return.
-        
+
         if (!gameIsPaused) //if the game is not paused;
         {
             gameIsPaused = true;
-        } else if (gameIsPaused)
+        }
+        else if (gameIsPaused)
         {
             gameIsPaused = false;
         }
@@ -71,10 +74,17 @@ public class CycleManager : MonoBehaviour
     public void NextScene()
     {
         sceneIndex++;
-        if (sceneIndex >= 6)
+        if (sceneIndex >= 7)
         {
-            sceneIndex = 1;
+            sceneIndex = 2;
         }
+
+        SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void InitialStart()
+    {
+        sceneIndex = 3;
         SceneManager.LoadScene(sceneIndex);
     }
 }

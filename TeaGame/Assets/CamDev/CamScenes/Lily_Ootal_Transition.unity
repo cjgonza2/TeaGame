@@ -205,7 +205,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -258, y: 107}
+  m_AnchoredPosition: {x: -258, y: 171}
   m_SizeDelta: {x: 119.9079, y: 82.7214}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &326704800
@@ -228,11 +228,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "It\u2019s been a long journey through mud and marsh, but the water lilies
-    of Lily Bog are now in sight! I\u2019m looking forward to serving tea again,
-    though I\u2019m not sure my blends are getting better. The old man in Goyo Canyon
-    didn\u2019t seem to like the blend I made for him using their local ingredients.
-    Maybe I\u2019ll have better chances here\u2026"
+  m_text: "How to avoid the absolute sorrow of the universe: A guide. Step 1: before
+    leaving home to be a traveling tea merchant make sure you know how to actually
+    make tea. Step 2: bring an umbrella for when you pass through the Ootal Cliffs.
+    Not my finest moments\u2026 but then again, since I left its been nothing but
+    low points. \r\n\r\nFirst it was not picking the right ingredients, then it was
+    not letting the steep way to long or not long enough. The disgusted faces of
+    That woman from Lily Bog and the old man from the Canyon are not leaving me any
+    time soon. But you know what, this time\u2019s the one. It\u2019s gonna go great.
+    Third time\u2019s the charm right?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1129,8 +1133,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -223, y: -56}
-  m_SizeDelta: {x: 332.3856, y: 50}
+  m_AnchoredPosition: {x: -215, y: -149.79}
+  m_SizeDelta: {x: 332.3856, y: 150.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1777101207
 MonoBehaviour:
@@ -1190,8 +1194,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

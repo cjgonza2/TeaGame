@@ -49,11 +49,14 @@ public class StoryManager : MonoBehaviour
 
     private List<string> _lines;
 
+    [SerializeField] private CycleManager cycleManager;
+
     //YOU CAN NOT USE START/UPDATE IN THE SCRIPT THAT'S PARSING THE INK FILE.
     private void Awake()
     {
         _inkStory = new Story(inkAsset.text);
         _lines = new List<string>();
+        //cycleManager = CycleManager.FindInstance();
         StartCoroutine(InitialLines());
     }
 
@@ -191,6 +194,7 @@ public class StoryManager : MonoBehaviour
         lineFourteen_Animator.Play("LineFourteen_FadeIn");
         yield return new WaitForSeconds(5f);
         lineFourteen_Animator.Play("LineFourteen_FadeOut");
+        cycleManager.InitialStart();
     }
     #endregion
 }
