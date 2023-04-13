@@ -74,7 +74,7 @@ public class CycleManager : MonoBehaviour
     public void NextScene()
     {
         sceneIndex++;
-        if (sceneIndex >= 7)
+        if (sceneIndex >= 8)
         {
             sceneIndex = 2;
         }

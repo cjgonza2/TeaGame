@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameIsPaused: 0
   cycleCount: 0
-  sceneIndex: 4
+  sceneIndex: 6
 --- !u!4 &163082278
 Transform:
   m_ObjectHideFlags: 0

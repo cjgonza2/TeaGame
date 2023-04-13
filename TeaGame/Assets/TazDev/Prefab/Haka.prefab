@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2511771901951824603
+--- !u!1 &2337735361097190598
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,12 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2511771901951824605}
-  - component: {fileID: 2511771901951824604}
-  - component: {fileID: 8668938030059770175}
-  - component: {fileID: -6585588933935312348}
-  - component: {fileID: 8477961920527747160}
-  - component: {fileID: 5686922451693401634}
+  - component: {fileID: 2337735361097190597}
+  - component: {fileID: 2337735361097190596}
+  - component: {fileID: 303943331967960416}
+  - component: {fileID: 5654311997999405344}
+  - component: {fileID: 6007942486494676821}
+  - component: {fileID: 2719895558570048983}
   m_Layer: 0
   m_Name: Haka
   m_TagString: bitter
@@ -21,28 +21,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2511771901951824605
+--- !u!4 &2337735361097190597
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2511771901951824603}
-  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: -0.12580013, y: 4.6794, z: 0}
-  m_LocalScale: {x: 0.7701638, y: 0.7434522, z: 1.2424}
+  m_GameObject: {fileID: 2337735361097190598}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
---- !u!212 &2511771901951824604
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &2337735361097190596
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2511771901951824603}
+  m_GameObject: {fileID: 2337735361097190598}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -77,24 +77,24 @@ SpriteRenderer:
   m_SortingLayerID: -2038356363
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.51265574, g: 0.7830189, b: 0.5234608, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 8c05eed96c7f2df4a9057aa6d03d39e1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.1, y: 0.95}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &8668938030059770175
+--- !u!61 &303943331967960416
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2511771901951824603}
+  m_GameObject: {fileID: 2337735361097190598}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -105,23 +105,23 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 1.1, y: 0.95}
+    newSize: {x: 1.1, y: 0.95}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.1, y: 0.95}
   m_EdgeRadius: 0
---- !u!50 &-6585588933935312348
+--- !u!50 &5654311997999405344
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2511771901951824603}
+  m_GameObject: {fileID: 2337735361097190598}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -135,26 +135,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8477961920527747160
+--- !u!114 &6007942486494676821
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2511771901951824603}
+  m_GameObject: {fileID: 2337735361097190598}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 874170f390d4edb4e955ed49966b3152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myManager: {fileID: 0}
   _selected: 0
---- !u!114 &5686922451693401634
+--- !u!114 &2719895558570048983
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2511771901951824603}
+  m_GameObject: {fileID: 2337735361097190598}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b39d33f4db48c1a419c4c1fedd39330c, type: 3}
@@ -162,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   potSpr: {fileID: 0}
   potSteep: {fileID: 0}
+  inventoryManager: {fileID: 0}
   lid: {fileID: 0}
   teaPot: {fileID: 0}
   restPos: {x: 0, y: -7.5}

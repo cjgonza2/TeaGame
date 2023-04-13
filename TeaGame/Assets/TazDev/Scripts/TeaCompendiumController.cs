@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,8 @@ public class TeaCompendiumController : MonoBehaviour
     public GameObject exitButtonObj; //Exit button obj reference
     public GameObject leftButton;
     public GameObject rightButton;
+
+    public GameObject guide;
     private Button ExitButton()
     {
         //returns the button component connected to the exit button object.
@@ -64,6 +67,7 @@ public class TeaCompendiumController : MonoBehaviour
         exitButtonObj.SetActive(false); 
         leftButton.SetActive(false);
         rightButton.SetActive(false);
+        guide.SetActive(false);
 
         //creates button to add listener too. 
         Button exitCompendium = ExitButton();
@@ -101,11 +105,13 @@ public class TeaCompendiumController : MonoBehaviour
     private void OnMouseDown()
     {
         isSelected = true;
+        guide.SetActive(true);
     }
 
     private void OnMouseUp()
     {
         isSelected = false;
+        guide.SetActive(false);
     }
 
     private void CalculateMousePos()
