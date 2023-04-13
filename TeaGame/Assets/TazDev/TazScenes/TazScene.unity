@@ -386,16 +386,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bea2c23916014be498d36a72676623b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  icon: {fileID: 56232917}
+  _mainCam: {fileID: 0}
   compendium: {fileID: 1617551442}
-  exitButton: {fileID: 860032005}
+  compendiumSpr: {fileID: 0}
+  openCompendium: {fileID: 0}
+  openCompendiumSpr: {fileID: 0}
+  exitButtonObj: {fileID: 0}
   leftButton: {fileID: 41579188}
   rightButton: {fileID: 870982012}
-  iconDefault: {fileID: 21300000, guid: 865a7c63e39ec1d49bfff9f9f9502e02, type: 3}
-  iconSelect: {fileID: 21300000, guid: 4ff670ecb308525448adca4c29d9c627, type: 3}
+  compendiumDefault: {fileID: 0}
+  compendiumSelect: {fileID: 0}
+  iconCollider: {fileID: 0}
   isOver: 0
+  isSelected: 0
   isOpen: 0
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!4 &56232921
 Transform:
   m_ObjectHideFlags: 0
