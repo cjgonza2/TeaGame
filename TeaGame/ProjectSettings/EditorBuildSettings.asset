@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/CamDev/CamScenes/Title Screen.unity
     guid: 053ec37247f49684aa105286de8041cf
   - enabled: 1
+    path: Assets/CamDev/CamScenes/Intro.unity
+    guid: 2316ad99abda275428f03b441290fb64
+  - enabled: 1
     path: Assets/CamDev/CamScenes/Cam_Taz_TransitionScreen.unity
     guid: b6eade6c228316d4f810d1478be73094
   - enabled: 1
@@ -20,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/CamDev/CamScenes/Lily_Bog.unity
     guid: 4ee9bc0735416d64186bf3dedc1a4430
+  - enabled: 1
+    path: Assets/CamDev/CamScenes/Ootal_Cliffs.unity
+    guid: 3791a098f3b58904e8ff2301155efa5d
   m_configObjects: {}
