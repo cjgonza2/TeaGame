@@ -8,26 +8,25 @@ using UnityEngine.Serialization;
 
 public class Kettle_Move : CamMove
 {
-    //[SerializeField] private PouringManager pourManager;
     
-    private Vector3 _startPos; //default position of the Kettle.
-
     [SerializeField] private Animator kettleLiquid;
-    //[SerializeField] private GameManager myManager;
-
     [SerializeField] private GameObject boilingWater;
 
-    [SerializeField] private Pot_SpriteChanger potSpriteChanger;
-    
+
+    [SerializeField] private Vector3 pouringPos;
+    private Vector3 _startPos; //default position of the Kettle.
     //Thinking in the future instead of particle system we can just use different steam animations.
     /*[SerializeField] private Sprite lowSteam;
     [SerializeField] private Sprite medSteam;
     [SerializeField] private Sprite highSteam;*/
-
-    [SerializeField] private SpriteRenderer kettleSprite;
-    [SerializeField] private Sprite emptyKettle;
-    [SerializeField] private Sprite fullKettle;
-    private Sprite _currentSprite;
+    
+    #region Sprite Variables
+    [SerializeField] private Pot_SpriteChanger potSpriteChanger; //reference to sprite changer script.
+    [SerializeField] private SpriteRenderer kettleSprite; //reference to GameObject Sprite Renderer.
+    [SerializeField] private Sprite emptyKettle; //Empty kettle Sprite.
+    [SerializeField] private Sprite fullKettle; //Full Kettle Sprite.
+    private Sprite _currentSprite; //Current Sprite of the Kettle
+    #endregion
     
     //probably won't need these in the future. but for now they work to simulate boiling.
     [SerializeField]
@@ -48,26 +47,24 @@ public class Kettle_Move : CamMove
     [SerializeField] private bool _onBurner = false; //tracks if the kettle is on the burner.
     
     #region Boil Values
+    [SerializeField] private int boilTime; //rounded number for counting how long kettle has been boiling.
     private float _boilCounter; //raw number to count how long kettle has been boiling.
-    [SerializeField]
-    private int boilTime; //rounded number for counting how long kettle has been boiling.
-    
     #endregion
 
     #region TeaPot Variables
     [Header("TeaPot")]
-    public GameObject teaPot;
-    private float _potX()
+    public GameObject teaPot; //Tea Pot Game Object.
+    private float _potX() //returns the tea pots x pos.
     {
         return teaPot.transform.position.x;
     }
 
-    private float _potY()
+    private float _potY() //returns the tea pots y pos.
     {
         return teaPot.transform.position.y;
     }
 
-    private float _potZ()
+    private float _potZ() //returns the tea pots z pos.
     {
         return teaPot.transform.position.z;
     }
@@ -75,95 +72,79 @@ public class Kettle_Move : CamMove
 
     #region TeaLid Variables
     [Header("TeaLid")]
-    [SerializeField] private GameObject teaLid;
-    private float _lidX()
+    [SerializeField] private GameObject teaLid; //Tea Pot Lid Game Object.
+    private float _lidX() //returns lid's x pos.
     {
         return teaLid.transform.position.x;
     }
 
-    private float _lidY()
+    private float _lidY() //returns lid's y pos.
     {
         return teaLid.transform.position.y;
     }
 
-    private float _lidZ()
+    private float _lidZ() //returns lid's z pos.
     {
         return teaLid.transform.position.z;
     }
     #endregion
-
+    
     public override void Start()
     {
         base.Start(); //does everything parent function does.
-        myManager = GameObject.Find("GameManager").GetComponent<GameManager>(); //assigns Gamemanager reference.
-        //Debug.Log(_startPos);
+        
         _startPos = gameObject.transform.position; //sets the startpos to the current kettle position.
-        StartCoroutine(BeginBoil()); //starts the kettle boiling.
     }
 
-    //this is only temporary until boiling sprite animation is done.
-    IEnumerator BeginBoil() //enables initial particle system for boiling.
-    {
-        var emission = lowBoil.emission;
-        emission.enabled = true;
-        Debug.Log("boil has started.");
-        yield break;
-    }
-    
     public override void Update()
     {
         base.Update(); //does everything parent function does.
         
-        FillCheck();
+        FillCheck(); //checks if the kettle is filled.
         
-        #region Boiiling on/off
-        if (_onBurner)
-        {
-            switch (_filled)
-            {
-                case true when !_selected:
-                    transform.DOMove(_startPos, 0.1f).SetEase(Ease.Linear);
-                    boiling = true;
-                    break;
-                case false when !_selected:
-                    transform.DOMove(_startPos, 0.1f).SetEase(Ease.Linear);
-                    boiling = false;
-                    break;
-            }
-        }
-        else
-        {
-            boiling = false;
-        }
-        #endregion
+        MoveKettleToBurner(); //moves the kettle if it's on the burner.
 
-        
-        
         Boiling(); //calculates boiling time.
+        
         Steam(); //enables steam && determines if kettle is fully boiled. 
+        
     }
 
     private void FillCheck()
     {
-        if (!fill) //if we don't have to fill the kettle;
-        {
-            return; //return. 
-        }
-        //Debug.Log("check check");
-        _currentSprite = fullKettle; //sets the currentsprite to the full kettle sprite.
-        kettleSprite.sprite = _currentSprite; //sets the kettle's currentsprite to the currentsprite variable.
-        fill = false; //tells the game it no longer has to fill the kettle. 
-        _filled = true;
+        if (!fill) return; //if we don't have to fill the kettle; breaks
+        
+        _currentSprite = fullKettle; //sets the current sprite to the full kettle sprite.
+        
+        kettleSprite.sprite = _currentSprite; //Updates kettle's sprite to current sprite.
+        
+        fill = false; //tells the game it no longer has to fill the kettle.  
+        
+        _filled = true; //the kettle is now filled.
     }
-    
-    IEnumerator WaitForBoilDecay()
+
+    private void MoveKettleToBurner()
     {
-        yield return new WaitForSeconds(10f);
+        if (!_onBurner) //if the kettle is not the burner;
+        {
+            boiling = false; //boiling is set to false,
+            return; //breaks.
+        }
+
+        if (_selected) return; //if the kettle is selected; breaks. 
+
+        transform.DOMove(_startPos, 0.1f).SetEase(Ease.Linear); //tweens kettle to start pos. 
+
+        boiling = _filled switch //boiled is set to true if Kettle is filled, false if kettle is not filled.
+        {
+            true => true,
+            false => false
+        };
     }
     
     private void Boiling() //tracks the kettle's boiling.
     {
-        switch (boiling)
+        switch (boiling) 
         {
             //if the kettle is boiling;
             case true:
@@ -172,7 +153,6 @@ public class Kettle_Move : CamMove
                 break;
             //otherwise;
             case false:
-                StartCoroutine(WaitForBoilDecay());
                 _boilCounter -= Time.deltaTime; //lowers the boil counter by rate of time between frames. 
                 break;
         }
@@ -221,23 +201,31 @@ public class Kettle_Move : CamMove
         }
         
     }
-
-    //Here in case we need to use it.
-    public override void OnMouseDown()
-   {
-       base.OnMouseDown();
-   }
-
-    //here in case we need to use it.
-    public override void OnMouseUp()
+    private void OnTriggerEnter2D(Collider2D col) //when entering a trigger.
     {
-        base.OnMouseUp();
+        StartPouring(col.transform.tag); //Calls Start Pouring function and passes trigger object tag. 
+        KettleOnBurner(col.transform.tag); //Calls kettle resetting function and passes trigger object tag.
     }
+    
+    private void StartPouring(string tag)
+    {
+        if (tag != "TeaPotLid") return; //if tag is not Tea Pot Lid; breaks.
 
-    #region Kettle Tweening
+        if (!boiled) return; //if the kettle is not boiled; breaks.
+        StartCoroutine(MoveLid());
+        StartCoroutine(KettlePour()); //pours the kettle.
+    }
+    private IEnumerator MoveLid()
+    {
+        teaLid.transform.DOMove(new Vector3(
+            _lidX() + 1f,
+            _lidY() + 1f,
+            _lidZ()), 0.5f).SetEase(Ease.InOutCubic);
+        teaLid.transform.DORotate(new Vector3(0, 0, -25),0.5f);
+        yield break;
+    }
     IEnumerator KettlePour()
     {
-        //Debug.Log("kettle is pouring now.");
         transform.DORotate(new Vector3(0, 0, -25f), 0.5f).SetEase(Ease.InOutCubic);
         kettleLiquid.Play("water_pour", 0, 0f);
         yield return new WaitForSeconds(kettleLiquid.GetCurrentAnimatorClipInfo(0).Length);
@@ -245,22 +233,7 @@ public class Kettle_Move : CamMove
         //potSpriteChanger._filled = true;
     }
 
-    IEnumerator KettleReset()
-    {
-        yield return new WaitForSeconds(0.1f);
-        transform.DORotate(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.InOutCubic);
-    }
-    #endregion
-
     #region Lid Tweening
-    private void MoveLid()
-    {
-        teaLid.transform.DOMove(new Vector3( //tweens lid up to the right. 
-            _lidX() + 1f,
-            _lidY() + 1f,
-            _lidZ()), 0.5f).SetEase(Ease.InOutCubic);
-        teaLid.transform.DORotate(new Vector3(0, 0, -25), .5f); //rotates lid. 
-    }
     private void ResetLid()
     {
         teaLid.transform.DOMove(new Vector3( //tweens lid back to pot position. 
@@ -268,32 +241,21 @@ public class Kettle_Move : CamMove
             _potY(),
             _potZ()), 0.5f).SetEase(Ease.InOutCubic);
         teaLid.transform.DORotate(Vector3.zero, .5f); //rotates lid back to correct rotation.
+        
     }
     #endregion
 
     #region On Trigger Enter Events
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        StartPouring(col.transform.tag);
-        KettleOnBurner(col.transform.tag);
-    }
 
-    private void StartPouring(string tag)
+    #region Kettle Tweening
+
+
+    IEnumerator KettleReset()
     {
-        //Debug.Log("kettle is supposed to start pouring.");
-        
-        if (tag != "TeaPotLid") //if tag is not Tea Pot Lid;
-        {
-            return; //stops function.
-        }
-        if (!boiled) //if the tag is correct but the kettle is not boiled;
-        {
-            return; //stops the function.
-        }
-        
-        MoveLid(); //moves the tea lid.
-        StartCoroutine(KettlePour()); //pours the kettle. 
+        transform.DORotate(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.InOutCubic);
+        yield break;
     }
+    #endregion
 
     private void KettleOnBurner(string tag)
     {
@@ -305,6 +267,11 @@ public class Kettle_Move : CamMove
         _onBurner = true; //Sets bool true.
     }
     #endregion
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        //StartPouring(other.transform.tag);
+    }
 
     #region On Trigger Exit Events
    private void OnTriggerExit2D(Collider2D other)

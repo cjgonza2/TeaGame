@@ -71,39 +71,6 @@ public class TeaPot_Move : CamMove
     public override void Update()
     {
         base.Update(); //Does everything parent script does.
-
-        
-        /*if (pourManager.CurrentState == PouringManager.State.KettlePour && _lidMoved == false)
-        {
-            _lidMoved = true;
-            StartCoroutine(MoveLid());
-        }
-
-        if (pourManager.CurrentState == PouringManager.State.KettleReset) ;
-        {
-            StartCoroutine(ResetLidTest());
-        }*/
-
-        /*if (myManager.pouring == false && _lidMoved == true)
-        {
-            if (teaPotLid.transform.position != transform.position)
-            {
-                /*StartCoroutine(ResetLidTest());#1#
-            }
-        }*/
-        
-        //TestLidInput();  //this is to test the lid tweening. Phasing out the animation system.
-
-
-        /*if (_myManager.CurrentState == PouringManager.State.Resting && sprTrack._filled || lid._colliding)
-        {
-            gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        }
-
-        if (sprTrack._filled == false && lid._colliding == false)
-        {
-            gameObject.GetComponent<CircleCollider2D>().enabled = true;
-        }*/
     }
 
     public override void OnMouseDown()

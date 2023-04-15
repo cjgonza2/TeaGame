@@ -6,14 +6,16 @@ using UnityEngine;
 public class Cam_Steep_Manager : MonoBehaviour
 {
     #region Script References
-    [SerializeField] 
-    //reference to pot sprite changer.
-    private Pot_SpriteChanger mySprite;
+    [SerializeField]private Pot_SpriteChanger mySprite;//reference to pot sprite changer.
     #endregion
 
-    [SerializeField] private GameObject lidCollider;
+    [SerializeField] private GameObject lidCollider; //collider for the lid. 
     
-    #region Bases and Ingredients
+    #region Bases, Ingredients, and Blends
+    [Header("Component Checks")]
+    public bool teaBase = false; //Checks if there is a tea base in the pot.
+    public bool teaIng = false; //Checks if there is a tea ingredient in pot.
+    
     [Header("Tea Bases")]
     public bool mild = false;
     public bool sweet = false;
@@ -23,10 +25,7 @@ public class Cam_Steep_Manager : MonoBehaviour
     public bool sleep = false;
     public bool health = false;
     public bool energy = false;
-    #endregion
-
-    #region Tea Blends
-
+    
     [Header("Bitter Blends")]
     public bool bitterSleep = false;
     public bool bitterHealth = false;
@@ -41,21 +40,12 @@ public class Cam_Steep_Manager : MonoBehaviour
     public bool sweetSleep = false;
     public bool sweetHealth = false;
     public bool sweetEnergy = false;
-
     #endregion
 
-    [Header("Component Checks")]
-    #region Ingredient Checks
-    //Checks if there is a tea base in the mix.
-    public bool teaBase = false;
-    //Checks if there is a tea ingredient in mix.
-    public bool teaIng = false;
-    #endregion
-    
     #region Objects
 
-    //reference to teacup.
-    private GameObject teaCup;
+    
+    private GameObject teaCup; //reference to teacup.
 
     //reference to tea sprite renderer. 
     [SerializeField]
@@ -77,180 +67,35 @@ public class Cam_Steep_Manager : MonoBehaviour
     public int maxTime;
     public int roundedTime;
     public float steepTime;
-    
     #endregion
 
-    #region BitterChecks
-    private void BitterCheck()
-    {
-        if (!bitter)
-        {
-            return;
-        }
-
-        BitterSleepCheck();
-        BitterHealthCheck();
-        BitterEnergyCheck();
-
-    }
-    private void BitterSleepCheck()
-    {
-        if (!sleep)
-        {
-            return;
-        }
-
-        bitterSleep = true;
-    }
-    private void BitterHealthCheck()
-    {
-        if (!health)
-        {
-            return;
-        }
-
-        bitterHealth = true;
-    }
-
-    private void BitterEnergyCheck()
-    {
-        if (!energy)
-        {
-            return;
-        }
-
-        bitterEnergy = true;
-    }
-    #endregion
-
-    #region MildChecks
-    private void MildCheck()
-    {
-        if (!mild)
-        {
-            return;
-        }
-        MildSleepCheck();
-        MildHealthCheck();
-        MildEnergyCheck();
-    }
-    private void MildSleepCheck()
-    {
-        if (!sleep)
-        {
-            return;
-        }
-
-        mildSleep = true;
-    }
-
-    private void MildHealthCheck()
-    {
-        if (!health)
-        {
-            return;
-        }
-
-        mildHealth = true;
-    }
-
-    private void MildEnergyCheck()
-    {
-        if (!energy)
-        {
-            return;
-        }
-
-        mildEnergy = true;
-    }
 
     
 
-    #endregion
-
-    #region SweetChecks
-    private void SweetCheck()
-    {
-        if (!sweet)
-        {
-            return;
-        }
-        SweetSleepCheck();
-        SweetHealthCheck();
-        SweetEnergyCheck();
-    }
-
-    private void SweetSleepCheck()
-    {
-        if (!sleep)
-        {
-            return;
-        }
-
-        sweetSleep = true;
-    }
-
-    private void SweetHealthCheck()
-    {
-        if (!health)
-        {
-            return;
-        }
-
-        sweetHealth = true;
-    }
-
-    private void SweetEnergyCheck()
-    {
-        if (!energy)
-        {
-            return;
-        }
-
-        sweetEnergy = true;
-    }
-    #endregion
     
-    private IEnumerator FlavorCheck()
+    private void Update()
     {
-        BitterCheck();
-        MildCheck();
-        SweetCheck();
-        yield break;
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
-        //if the tea has a base and an ingredient:
-        if (teaBase && teaIng)
+        MixCheck();
+
+        //if the teapot has water and tea, and it is not steeped yet;
+        if (mySprite._steeping && !_finishedSteep)
         {
-            //begins flavor check.
-            StartCoroutine(FlavorCheck());
+            Steeping(); //begins steeping. 
         }
         
-        //if the teapot has water and tea, and it is not steeped yet;
-        if (mySprite._steeping && _finishedSteep == false)
+        /*switch (roundedTime)
         {
-            //begins steeping. 
-            Steeping();
-        }
-
-        //if the rounded steep time is less than 15;
-        if (roundedTime < 15)
-        {
-            //sets the pot sprite to default filled sprite.
-            mySprite.currentSprite = mySprite.potTea;
-        }else if (roundedTime >= 15) //otherwise if it's greater than 15;
-        {
-            //sets sprite to darker fill. 
-            mySprite.currentSprite = mySprite.teaHigh;
-        }
+            case < 15:
+                mySprite.currentSprite = mySprite.potTea; //sets the pot sprite to default filled sprite.
+                break;
+            case >= 15:
+                mySprite.currentSprite = mySprite.teaHigh; //sets sprite to darker fill. 
+                break;
+        }*/
 
         if (teaBase && teaIng && mySprite._filled)
         {
             mySprite._steeping = true;//sets the teapot to steeping. Steeping counter starts.
-            lidCollider.SetActive(false);
         }
         
         
@@ -271,6 +116,116 @@ public class Cam_Steep_Manager : MonoBehaviour
         } ;
     }
 
+    private void MixCheck()
+    {
+        //if the tea has a base and an ingredient:
+        if (!teaBase) return;
+        if (!teaIng) return;
+        StartCoroutine(FlavorCheck()); //begins flavor check.
+    }
+    
+    private IEnumerator FlavorCheck()
+    {
+        BitterCheck(); //calls bitter check.
+        MildCheck(); //calls mild check.
+        SweetCheck(); //calls sweet check.
+        yield break; //breaks. 
+    }
+
+    #region BitterChecks
+    private void BitterCheck()
+    {
+        if (!bitter) return; //if bitter base isn't in the pot; breaks.
+
+        BitterSleepCheck();
+        BitterHealthCheck();
+        BitterEnergyCheck();
+
+    }
+    private void BitterSleepCheck()
+    {
+        if (!sleep) return; //if sleep ing isn't in the pot; breaks. 
+
+        bitterSleep = true;
+    }
+    private void BitterHealthCheck()
+    {
+        if (!health) return; //if health ing isn't in the pot; breaks.
+
+        bitterHealth = true;
+    }
+
+    private void BitterEnergyCheck()
+    {
+        if (!energy) return; //if energy ing isn't in the pot; breaks.\
+
+        bitterEnergy = true;
+    }
+    #endregion
+
+    #region MildChecks
+    private void MildCheck()
+    {
+        if (!mild) return; //if mild base isn't in the pot; breaks.
+        
+        MildSleepCheck();
+        MildHealthCheck();
+        MildEnergyCheck();
+    }
+    private void MildSleepCheck()
+    {
+        if (!sleep) return; //if sleep ing isn't in the pot; breaks. 
+
+        mildSleep = true;
+    }
+
+    private void MildHealthCheck()
+    {
+        if (!health) return; //if health ing isn't in the pot; breaks. 
+
+        mildHealth = true;
+    }
+
+    private void MildEnergyCheck()
+    {
+        if (!energy) return; //if energy ing isn't in the pot; breaks.
+
+        mildEnergy = true;
+    }
+    #endregion
+
+    #region SweetChecks
+    private void SweetCheck()
+    {
+        if (!sweet) return; //if sweet base isn't in the pot; breaks. 
+        
+        SweetSleepCheck();
+        SweetHealthCheck();
+        SweetEnergyCheck();
+    }
+
+    private void SweetSleepCheck()
+    {
+        if (!sleep) return; //if sleep ing isn't in the pot; breaks.
+
+        sweetSleep = true;
+    }
+
+    private void SweetHealthCheck()
+    {
+        if (!health) return; //if health ing isn't in the pot; breaks. 
+
+        sweetHealth = true;
+    }
+
+    private void SweetEnergyCheck()
+    {
+        if (!energy) return; //if energy ing isn't in the pot; breaks. 
+
+        sweetEnergy = true;
+    }
+    #endregion
+    
     void Steeping()
     {
         //if pot has not finished steeping;
