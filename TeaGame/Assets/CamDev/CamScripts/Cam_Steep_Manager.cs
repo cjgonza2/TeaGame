@@ -70,9 +70,14 @@ public class Cam_Steep_Manager : MonoBehaviour
     #endregion
 
 
-    
+    public SpriteRenderer mainPotSpr;
 
-    
+    [Header("Dry Sprites")]
+    [SerializeField] private List<Sprite> dryBaseSprites = new List<Sprite>();
+    [SerializeField] private List<Sprite> dryIngSprites = new List<Sprite>();
+    [SerializeField] private List<Sprite> dryTisaneSprites = new List<Sprite>();
+
+
     private void Update()
     {
         MixCheck();
@@ -82,36 +87,27 @@ public class Cam_Steep_Manager : MonoBehaviour
         {
             Steeping(); //begins steeping. 
         }
-        
-        /*switch (roundedTime)
-        {
-            case < 15:
-                mySprite.currentSprite = mySprite.potTea; //sets the pot sprite to default filled sprite.
-                break;
-            case >= 15:
-                mySprite.currentSprite = mySprite.teaHigh; //sets sprite to darker fill. 
-                break;
-        }*/
 
         if (teaBase && teaIng && mySprite._filled)
         {
             mySprite._steeping = true;//sets the teapot to steeping. Steeping counter starts.
         }
-        
-        
+
         //if the pot has finished steeping:
         if (_finishedSteep)
         {
-            //if the rounded time is less than 15;
-            if (roundedTime < 15)
+            switch (roundedTime)
             {
-                //sets the flavor to low. 
-                lowFlavor = true;
-            }
-            else if (roundedTime >= 15) //otherwise:
-            {
-                //sets flavor to high. 
-                highFlavor = true;
+                //if the rounded time is less than 15;
+                case < 16:
+                    //sets the flavor to low. 
+                    lowFlavor = true;
+                    break;
+                //otherwise:
+                case >= 16:
+                    //sets flavor to high. 
+                    highFlavor = true;
+                    break;
             }
         } ;
     }

@@ -96,17 +96,14 @@ public class TeaPot_Move : CamMove
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("cup")) //if colliding with a cup;
-        {
-            if (sprTrack._steeping)
-            {
-                transform.DORotate(new Vector3(0, 0, 25f), 0.5f).SetEase(Ease.InOutCubic);
-                teaPourAnim.Play("pour_animation");
-                _steepManager._finishedSteep = true;
-                cupSprite.fillCup = true;
-            }
-            //teaPot.constraints = RigidbodyConstraints2D.FreezePosition;
-        }
+        if (!col.gameObject.CompareTag("cup")) return; //unless the pot is colliding with the cup, breaks.
+
+        if (!sprTrack._steeping) return;
+        
+        transform.DORotate(new Vector3(0, 0, 25f), 0.5f).SetEase(Ease.InOutCubic);
+        teaPourAnim.Play("pour_animation"); 
+        _steepManager._finishedSteep = true;
+        cupSprite.fillCup = true;
     }
 
     public void OnTriggerExit2D(Collider2D other)

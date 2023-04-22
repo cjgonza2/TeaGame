@@ -315,7 +315,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1285743909
   m_SortingLayer: 4
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: c4d316ac08841624cab87916c09a4c4b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -375,9 +375,12 @@ MonoBehaviour:
   leftButton: {fileID: 2044877570}
   rightButton: {fileID: 1799907854}
   pages:
-  - {fileID: 21300000, guid: 2caf0fb96e8aac744bef5a9476cd9d37, type: 3}
-  - {fileID: 21300000, guid: 3b660358c5a2040459aaa1ca8dec82b1, type: 3}
-  - {fileID: 21300000, guid: 36ce6ac2942b16a4a95986e35eb88964, type: 3}
+  - {fileID: 21300000, guid: b21cf4c14818a33418a8011ce4c8be42, type: 3}
+  - {fileID: 21300000, guid: eb6ab3b797b2fce4fb49eab691b8a2cb, type: 3}
+  - {fileID: 21300000, guid: e535e5bd45fd8674e8a280c99eeb7a39, type: 3}
+  - {fileID: 21300000, guid: 265e8764427c18a47bc542f2f31186bd, type: 3}
+  - {fileID: 21300000, guid: 9134019fabc89534797d0847ed70601a, type: 3}
+  - {fileID: 21300000, guid: a270754c6d4e716468a2a2290482f7db, type: 3}
   currentIndex: 0
 --- !u!212 &137614758
 SpriteRenderer:
@@ -420,7 +423,7 @@ SpriteRenderer:
   m_SortingLayerID: 242358951
   m_SortingLayer: 8
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 2caf0fb96e8aac744bef5a9476cd9d37, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b21cf4c14818a33418a8011ce4c8be42, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -641,6 +644,90 @@ CapsuleCollider2D:
   m_Offset: {x: -1.0138279, y: -1.5677577}
   m_Size: {x: 11.185129, y: 7.6751575}
   m_Direction: 1
+--- !u!1 &173591451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 173591452}
+  - component: {fileID: 173591453}
+  m_Layer: 0
+  m_Name: PotLowSteep
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &173591452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173591451}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 699752853}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &173591453
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173591451}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 103614393
+  m_SortingLayer: 6
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &204074187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1152,7 +1239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306131749}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.17256737, y: -2.7230039, z: -0.000046744943}
+  m_LocalPosition: {x: -11.7, y: -2.25, z: -0.000046744943}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1479,6 +1566,12 @@ MonoBehaviour:
   gameIsPaused: 0
   cycleCount: 0
   sceneIndex: 3
+  hakaCount: 0
+  tallowCount: 0
+  bombomCount: 0
+  aileCount: 0
+  shnootCount: 0
+  poffCount: 0
 --- !u!4 &437281050
 Transform:
   m_ObjectHideFlags: 0
@@ -1658,7 +1751,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452534583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.12, y: -1.79, z: 0}
+  m_LocalPosition: {x: 11.95, y: -1.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1811,25 +1904,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae60d6d07df14e43b8867e019546607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  potSPR: {fileID: 699752852}
   myManager: {fileID: 0}
   steepManager: {fileID: 0}
-  potWater: {fileID: 21300000, guid: 684c9dd9ddc44ef40bc784d0034d5ebf, type: 3}
+  mainPotSpr: {fileID: 0}
+  mainColor: {r: 1, g: 1, b: 1, a: 1}
+  lowSteepSpr: {fileID: 173591453}
+  lowColor: {r: 1, g: 1, b: 1, a: 1}
+  highSteepSpr: {fileID: 1224634217}
+  highColor: {r: 1, g: 1, b: 1, a: 1}
   potEmpty: {fileID: 21300000, guid: d371e9593a9abed4a96d2714d57ef2b2, type: 3}
-  baseNoIngDry: {fileID: 21300000, guid: 2eee8792111a93e43ade72a7d60db756, type: 3}
-  ingNoBaseDry: {fileID: 21300000, guid: 9366279c90f973a4183a99979aeda36c, type: 3}
-  baseIngDry: {fileID: 21300000, guid: 993481ba1ffba5a49aec278678b048d5, type: 3}
-  baseNoIngFilled: {fileID: 21300000, guid: 7b694508a73adc049bc73efb01a436b8, type: 3}
-  ingNoBaseFilled: {fileID: 21300000, guid: 8b09814b7930e19438d8d29f9f236c5f, type: 3}
-  baseIngFilled: {fileID: 21300000, guid: 0bcde5f4fe7b8a74fbc29495c1263c23, type: 3}
-  steepingTea: {fileID: 21300000, guid: bc6bbdb3c417bf148b38b1f6930b56ed, type: 3}
+  potFilled: {fileID: 21300000, guid: 684c9dd9ddc44ef40bc784d0034d5ebf, type: 3}
+  dryBaseSprites:
+  - {fileID: 21300000, guid: b29236b6daa5aa843aa059a783d27535, type: 3}
+  - {fileID: 21300000, guid: c315c976e5f3b8e4f891f3e8ae578ee8, type: 3}
+  - {fileID: 21300000, guid: 27e9faecf00fa6d4a96708b66e3e8148, type: 3}
+  dryIngSprites:
+  - {fileID: 21300000, guid: bcbb6204efb483e49bb50fa44b8910d6, type: 3}
+  - {fileID: 21300000, guid: 7086644978b9e804aaf0251a074a3186, type: 3}
+  - {fileID: 21300000, guid: 133fbeff382533d498fec33baec1868a, type: 3}
+  dryTisaneSprites:
+  - {fileID: 21300000, guid: cde5b19392e4270449873f68a4dfe171, type: 3}
+  - {fileID: 21300000, guid: 9796c384dc2ee34488561c1234eefeba, type: 3}
+  - {fileID: 21300000, guid: 839206ac4bbffee43816d040478ae545, type: 3}
+  - {fileID: 21300000, guid: 2a3cb8ac310d6a040babc2b449920ee3, type: 3}
+  - {fileID: 21300000, guid: 6c01a46dd2a501d42a61634915dd664d, type: 3}
+  - {fileID: 21300000, guid: bffcfa00e9d4cfb4d808faff4ae38602, type: 3}
+  - {fileID: 21300000, guid: 00ad476b80dc98f4b83ad34ed28caf3d, type: 3}
+  - {fileID: 21300000, guid: 037c3ea9f5545b74aa592cdff5106835, type: 3}
+  - {fileID: 21300000, guid: 3eddcae77b6da364f84574705e6f2d36, type: 3}
+  filledBaseSprites:
+  - {fileID: 21300000, guid: 7b4816d2298f6b5488f8f43e86874054, type: 3}
+  - {fileID: 21300000, guid: a45a3adbc2532ab489a325db4f898bd2, type: 3}
+  - {fileID: 21300000, guid: e73247880c9b1214d970254a9f8c566c, type: 3}
+  filledIngSprites:
+  - {fileID: 21300000, guid: e85c9b068bac8a446b266aead48b65c0, type: 3}
+  - {fileID: 21300000, guid: c075360db8b7f274f99abfba90d50eab, type: 3}
+  - {fileID: 21300000, guid: 9ab5bd77f812c4d47a5a2c513646843e, type: 3}
+  filledTisaneSprites:
+  - {fileID: 21300000, guid: fdf68916d1f7e0c49ae828aa6730c629, type: 3}
+  - {fileID: 21300000, guid: 2baac84f899a22f4b9555381f441b07d, type: 3}
+  - {fileID: 21300000, guid: b281dbc79a5288548846699ddade4fcf, type: 3}
+  - {fileID: 21300000, guid: b99d9604369b2184f92267e70ac7cece, type: 3}
+  - {fileID: 21300000, guid: af4b4ecd00d64d943a2bc5720cc25c14, type: 3}
+  - {fileID: 21300000, guid: ed7403fdd2a76484e90b9b535e22cbf1, type: 3}
+  - {fileID: 21300000, guid: 3ee42937c26eaf140a7082772d5518f3, type: 3}
+  - {fileID: 21300000, guid: 1c97b0f14211a854ba15dd5b980eb140, type: 3}
+  - {fileID: 21300000, guid: 5c16e882c92fbb049b901d7169bfe733, type: 3}
+  filledLowSteepSprites:
+  - {fileID: 21300000, guid: e7e2681b81ca08543aa04e715e47f38d, type: 3}
+  - {fileID: 21300000, guid: 87af1c107bd66e04c9a84884c2839efd, type: 3}
+  - {fileID: 21300000, guid: 55bc2dfb72e2f574cb92808173cfbcd3, type: 3}
+  - {fileID: 21300000, guid: 91c53208525fc82448a50470591db114, type: 3}
+  - {fileID: 21300000, guid: fddaec1acd4d71b4cbb1e48f9e319b40, type: 3}
+  - {fileID: 21300000, guid: 8c1f47f5f2fd59f4a95b91c62d2c8237, type: 3}
+  - {fileID: 21300000, guid: b2b094a13f35799499d7c779a0626812, type: 3}
+  - {fileID: 21300000, guid: 2353e0fd029ce6a45be48cb44044f8d8, type: 3}
+  - {fileID: 21300000, guid: edbcba6fb0597b5499d4727208deadf4, type: 3}
+  filledHighSteepSprites:
+  - {fileID: 21300000, guid: 30d2b985eb645334aacb739efefe7c20, type: 3}
+  - {fileID: 21300000, guid: 38a9f622ba217ce4b81604ed52b83bc2, type: 3}
+  - {fileID: 21300000, guid: 114a1c52be5ffc5428d19d673333496b, type: 3}
+  - {fileID: 21300000, guid: b2f983dd31835c54bad8b54fc796da13, type: 3}
+  - {fileID: 21300000, guid: 527a7d16c1cbf6343a3b95add9017c12, type: 3}
+  - {fileID: 21300000, guid: 4c641a80f7a01824eace814e97013135, type: 3}
+  - {fileID: 21300000, guid: 1d4ca7f27e43bf44b932d18cf74b0f17, type: 3}
+  - {fileID: 21300000, guid: 5c653a2f9ac44b848b88d4df0fa4cbeb, type: 3}
+  - {fileID: 21300000, guid: 19e4c17a505bf6b4e9fbdc1e46c1d546, type: 3}
   mySprite: {fileID: 0}
-  currentSprite: {fileID: 0}
-  potTea: {fileID: 21300000, guid: bc6bbdb3c417bf148b38b1f6930b56ed, type: 3}
-  teaMed: {fileID: 0}
-  teaHigh: {fileID: 0}
-  _lid: {fileID: 0}
-  _kettle: {fileID: 1019151164}
   _filled: 0
   _steeping: 0
 --- !u!114 &699752848
@@ -1846,6 +1987,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mySprite: {fileID: 699752847}
   lidCollider: {fileID: 143838140}
+  teaBase: 0
+  teaIng: 0
   mild: 0
   sweet: 0
   bitter: 0
@@ -1861,8 +2004,6 @@ MonoBehaviour:
   sweetSleep: 0
   sweetHealth: 0
   sweetEnergy: 0
-  teaBase: 0
-  teaIng: 0
   teaSprite: {fileID: 0}
   _finishedSteep: 0
   lowFlavor: 0
@@ -1870,6 +2011,25 @@ MonoBehaviour:
   maxTime: 16
   roundedTime: 0
   steepTime: 0
+  mainPotSpr: {fileID: 0}
+  dryBaseSprites:
+  - {fileID: 21300000, guid: b29236b6daa5aa843aa059a783d27535, type: 3}
+  - {fileID: 21300000, guid: 27e9faecf00fa6d4a96708b66e3e8148, type: 3}
+  - {fileID: 21300000, guid: c315c976e5f3b8e4f891f3e8ae578ee8, type: 3}
+  dryIngSprites:
+  - {fileID: 21300000, guid: bcbb6204efb483e49bb50fa44b8910d6, type: 3}
+  - {fileID: 21300000, guid: 7086644978b9e804aaf0251a074a3186, type: 3}
+  - {fileID: 21300000, guid: 133fbeff382533d498fec33baec1868a, type: 3}
+  dryTisaneSprites:
+  - {fileID: 21300000, guid: cde5b19392e4270449873f68a4dfe171, type: 3}
+  - {fileID: 21300000, guid: 9796c384dc2ee34488561c1234eefeba, type: 3}
+  - {fileID: 21300000, guid: 839206ac4bbffee43816d040478ae545, type: 3}
+  - {fileID: 21300000, guid: 00ad476b80dc98f4b83ad34ed28caf3d, type: 3}
+  - {fileID: 21300000, guid: 037c3ea9f5545b74aa592cdff5106835, type: 3}
+  - {fileID: 21300000, guid: 3eddcae77b6da364f84574705e6f2d36, type: 3}
+  - {fileID: 21300000, guid: 2a3cb8ac310d6a040babc2b449920ee3, type: 3}
+  - {fileID: 21300000, guid: 6c01a46dd2a501d42a61634915dd664d, type: 3}
+  - {fileID: 21300000, guid: bffcfa00e9d4cfb4d808faff4ae38602, type: 3}
 --- !u!114 &699752849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1978,7 +2138,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 103614393
   m_SortingLayer: 6
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: d371e9593a9abed4a96d2714d57ef2b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1998,7 +2158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 699752845}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.1374326, y: -2.1930032, z: 0}
+  m_LocalPosition: {x: 4.75, y: -1.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2006,6 +2166,8 @@ Transform:
   - {fileID: 315432569}
   - {fileID: 1096485908}
   - {fileID: 143838141}
+  - {fileID: 173591452}
+  - {fileID: 1224634216}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7590,6 +7752,7 @@ MonoBehaviour:
   _selected: 0
   kettleLiquid: {fileID: 867159617}
   boilingWater: {fileID: 1991028844}
+  pouringPos: {x: 0, y: 0, z: 0}
   potSpriteChanger: {fileID: 0}
   kettleSprite: {fileID: 1019151162}
   emptyKettle: {fileID: 21300000, guid: 34dd895698872634a9fa1fb616b144fc, type: 3}
@@ -13187,6 +13350,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142018457}
   m_CullTransparentMesh: 1
+--- !u!1 &1224634215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1224634216}
+  - component: {fileID: 1224634217}
+  m_Layer: 0
+  m_Name: PotHighSteep
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1224634216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224634215}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 699752853}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1224634217
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224634215}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 103614393
+  m_SortingLayer: 6
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1253120751
 GameObject:
   m_ObjectHideFlags: 0
@@ -19979,7 +20226,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 0
-  orthographic size: 16.875
+  orthographic size: 6.02
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

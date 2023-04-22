@@ -105,6 +105,7 @@ public class TeaClump : MonoBehaviour
         {
             return;
         }
+        
         switch (teaBase)
         {
             case "bitter":
@@ -120,7 +121,7 @@ public class TeaClump : MonoBehaviour
                 potSteep.teaBase = true;
                 break;
             default:
-                Debug.Log("No base Detected");
+                //Debug.Log("No base Detected");
                 break;
         }
     }
@@ -131,7 +132,6 @@ public class TeaClump : MonoBehaviour
         {
             return;
         }
-
         switch (teaIng)
         {
             case "sleep":
