@@ -15,11 +15,7 @@ public class Kettle_Move : CamMove
 
     [SerializeField] private Vector3 pouringPos;
     private Vector3 _startPos; //default position of the Kettle.
-    //Thinking in the future instead of particle system we can just use different steam animations.
-    /*[SerializeField] private Sprite lowSteam;
-    [SerializeField] private Sprite medSteam;
-    [SerializeField] private Sprite highSteam;*/
-    
+
     #region Sprite Variables
     [SerializeField] private Pot_SpriteChanger potSpriteChanger; //reference to sprite changer script.
     [SerializeField] private SpriteRenderer kettleSprite; //reference to GameObject Sprite Renderer.
@@ -27,15 +23,13 @@ public class Kettle_Move : CamMove
     [SerializeField] private Sprite fullKettle; //Full Kettle Sprite.
     private Sprite _currentSprite; //Current Sprite of the Kettle
     #endregion
-    
-    //probably won't need these in the future. but for now they work to simulate boiling.
-    [SerializeField]
-    private ParticleSystem lowBoil;
-    [SerializeField]
-    private ParticleSystem medBoil;
-    [SerializeField] 
-    private ParticleSystem highBoil;
-    
+
+
+    [Header("Steam Animators")] 
+    [SerializeField] private GameObject lowSteam;
+    [SerializeField] private GameObject medSteam;
+    [SerializeField] private GameObject highSteam;
+
     public bool _pouring = false;
     public bool fill; //tells the game whether to fill the kettle or not.
     [SerializeField] private bool _filled;
@@ -169,37 +163,24 @@ public class Kettle_Move : CamMove
     //again this will change when we have boiling animations. 
     private void Steam()
     {
-        if (boilTime > 5) //if kettle's been boiling for 5 seconds or more, 
+        //this is a ternary conditional operator, ultimately it returns a true or false bool, but we can put conditions in place of the bool as long as it adheres to "this or that"
+        lowSteam.SetActive(boilTime > 5); //sets the low steam active based on the boil time.
+        medSteam.SetActive(boilTime > 15); //sets the med steam active based on the boil time.
+
+        switch (boilTime) 
         {
-            lowBoil.enableEmission = true; //enables low steam.
-        }
-        else
-        {
-            lowBoil.enableEmission = false; //otherwise disables.
-        }
-        
-        if (boilTime > 15) //if kettle's been boiling for 5 seconds
-        {
-            medBoil.enableEmission = true; //enables med steam.
-        }
-        else
-        {
-            medBoil.enableEmission = false; //otherwise disables.
+            case > 20: //if boiltime is greater than 20;
+                highSteam.SetActive(true); //sets high steam to active.
+                boilingWater.SetActive(true); //sets the boiling water animation to active.
+                boiled = true; //marks the kettle as boiled.
+                break;
+            default: //otherwise;
+                highSteam.SetActive(false); //high steam is inactive
+                boilingWater.SetActive(false); //boiling water anim is inactive.
+                boiled = false; //kettle is not boiled.
+                break;
         }
 
-        if (boilTime > 20) //if kettle's been boiling for 5 seconds or more,
-        {
-            boilingWater.SetActive(true);
-            highBoil.enableEmission = true; //enables high steam.
-            boiled = true; //kettle is now boiled. 
-        }
-        else
-        {
-            boilingWater.SetActive(false);
-            highBoil.enableEmission = false; //otherwise disables. 
-            boiled = false; //kettle is no longer boiled.
-        }
-        
     }
     private void OnTriggerEnter2D(Collider2D col) //when entering a trigger.
     {
