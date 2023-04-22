@@ -42,6 +42,7 @@ public class Pot_SpriteChanger : MonoBehaviour
         [Header("Bools")]
     public bool _filled = false;
     public bool _steeping = false;
+    private bool _fadeStarted;
     
     
     // Start is called before the first frame update
@@ -298,22 +299,24 @@ public class Pot_SpriteChanger : MonoBehaviour
         StartCoroutine(FadeToLowSteep());
         if (steepManager._finishedSteep) return;
         if (steepManager.roundedTime < 8) return;
+        if (_fadeStarted) return;
         StartCoroutine(FadeToHighSteepOne());
 
 
     }
     private IEnumerator FadeToLowSteep()
     {
-        if (steepManager.roundedTime <= 2)
+        if (steepManager.roundedTime >= 2 && steepManager.roundedTime <= 6)
         {
-            mainPotSpr.DOFade(0, 3);
+            mainPotSpr.DOFade(0, 6f);
         }
         yield break;
     }
 
     private IEnumerator FadeToHighSteepOne()
     {
-        Debug.Log("fade to high started.");
+        //Debug.Log("fade to high started.");
+        _fadeStarted = true;
         lowSteepSpr.DOFade(0, 11f);
         yield break;
 

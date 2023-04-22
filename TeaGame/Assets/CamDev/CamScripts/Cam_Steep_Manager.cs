@@ -47,10 +47,6 @@ public class Cam_Steep_Manager : MonoBehaviour
     
     private GameObject teaCup; //reference to teacup.
 
-    //reference to tea sprite renderer. 
-    [SerializeField]
-    private SpriteRenderer teaSprite;
-
     #endregion
     
     #region Bools
