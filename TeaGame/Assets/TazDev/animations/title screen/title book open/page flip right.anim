@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: title book open
+  m_Name: page flip right
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: eab39a9bd51600b4ea3acdbe82756c11, type: 3}
+      value: {fileID: 21300000, guid: 20e58035db5f5734e8d0f4d318bb5991, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: c26d389e232911844a82d3eba8989775, type: 3}
+      value: {fileID: 21300000, guid: 8127de04c695d7840a1086b42c18bb49, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: 39bb8bed937d00440aa153be71ed87ce, type: 3}
+      value: {fileID: 21300000, guid: de331e1ad7606c84c9d1b9e55c70d954, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: 1064d213bb91d224aa60a6c2bdb15fd4, type: 3}
+      value: {fileID: 21300000, guid: d090f2ad48aa9c641b04c424cc2d7ff9, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,10 +46,10 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: eab39a9bd51600b4ea3acdbe82756c11, type: 3}
-    - {fileID: 21300000, guid: c26d389e232911844a82d3eba8989775, type: 3}
-    - {fileID: 21300000, guid: 39bb8bed937d00440aa153be71ed87ce, type: 3}
-    - {fileID: 21300000, guid: 1064d213bb91d224aa60a6c2bdb15fd4, type: 3}
+    - {fileID: 21300000, guid: 20e58035db5f5734e8d0f4d318bb5991, type: 3}
+    - {fileID: 21300000, guid: 8127de04c695d7840a1086b42c18bb49, type: 3}
+    - {fileID: 21300000, guid: de331e1ad7606c84c9d1b9e55c70d954, type: 3}
+    - {fileID: 21300000, guid: d090f2ad48aa9c641b04c424cc2d7ff9, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
