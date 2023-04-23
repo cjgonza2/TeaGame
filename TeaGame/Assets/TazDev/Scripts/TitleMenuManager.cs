@@ -119,9 +119,7 @@ public class TitleMenuManager : MonoBehaviour
         backButtonObj.SetActive(false);
 
         //bring back all start menu buttons
-        playButtonObj.SetActive(true);
-        creditsButtonObj.SetActive(true);
-        optionsButtonObj.SetActive(true);
+        StartCoroutine(StartButtonDelay());
     }
 
     IEnumerator StartButtonDelay()
@@ -135,7 +133,7 @@ public class TitleMenuManager : MonoBehaviour
         optionsButtonObj.SetActive(true);
     }
 
-    //when click either options or credits buttons, page flip occurs, so delay time to show objects in scene
+    //when click either options or credits buttons, page flip occurs, so show objects in scene after a delay
     IEnumerator PageFlipDelay()
     {
         Debug.Log(Time.time);
