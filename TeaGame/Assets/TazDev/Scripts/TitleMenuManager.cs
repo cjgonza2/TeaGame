@@ -13,7 +13,8 @@ public class TitleMenuManager : MonoBehaviour
     public GameObject backButtonObj;
     //public GameObject clickToStart;
 
-    public float delayTime;
+    public float startDelayTime;
+    public float pageDelayTime;
 
     //getting Button components
     private Button StartButton()
@@ -87,8 +88,8 @@ public class TitleMenuManager : MonoBehaviour
     {
         Debug.Log("options");
 
-        //pop out back button
-        backButtonObj.SetActive(true);
+        //pop out back button after delay
+        StartCoroutine(PageFlipDelay());
 
         //get rid of all start menu buttons
         playButtonObj.SetActive(false);
@@ -101,8 +102,8 @@ public class TitleMenuManager : MonoBehaviour
     {
         Debug.Log("credits");
 
-        //pop out back button
-        backButtonObj.SetActive(true);
+        //pop out back button after delay
+        StartCoroutine(PageFlipDelay());
 
         //get rid of all start menu buttons
         playButtonObj.SetActive(false);
@@ -126,11 +127,22 @@ public class TitleMenuManager : MonoBehaviour
     IEnumerator StartButtonDelay()
     {
         Debug.Log(Time.time);
-        yield return new WaitForSeconds(delayTime);
+        yield return new WaitForSeconds(startDelayTime);
         Debug.Log(Time.time);
 
         playButtonObj.SetActive(true);
         creditsButtonObj.SetActive(true);
         optionsButtonObj.SetActive(true);
+    }
+
+    //when click either options or credits buttons, page flip occurs, so delay time to show objects in scene
+    IEnumerator PageFlipDelay()
+    {
+        Debug.Log(Time.time);
+        yield return new WaitForSeconds(pageDelayTime);
+        Debug.Log(Time.time);
+
+        //show back button now
+        backButtonObj.SetActive(true);
     }
 }

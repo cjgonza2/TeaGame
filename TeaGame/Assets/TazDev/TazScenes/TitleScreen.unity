@@ -1366,7 +1366,8 @@ MonoBehaviour:
   optionsButtonObj: {fileID: 1132793452}
   creditsButtonObj: {fileID: 1577071999}
   backButtonObj: {fileID: 679216171}
-  delayTime: 0.55
+  startDelayTime: 0.55
+  pageDelayTime: 0.55
 --- !u!114 &1058436980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1894,7 +1895,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2126907057}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 175117284}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 175117285}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: page flip right
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1577072001
 MonoBehaviour:
   m_ObjectHideFlags: 0
