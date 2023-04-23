@@ -7,8 +7,12 @@ public class TitleMenuManager : MonoBehaviour
 {
 
     public GameObject startButtonObj;
+    public GameObject playButtonObj;
+    public GameObject optionsButtonObj;
+    public GameObject creditsButtonObj;
     //public GameObject clickToStart;
 
+    public float delayTime;
 
     private Button StartButton()
     {
@@ -33,6 +37,17 @@ public class TitleMenuManager : MonoBehaviour
     {
         Debug.Log("clicked");
         startButtonObj.SetActive(false);
-        
+        StartCoroutine(StartButtonDelay());
+    }
+
+    IEnumerator StartButtonDelay()
+    {
+        Debug.Log(Time.time);
+        yield return new WaitForSeconds(delayTime);
+        Debug.Log(Time.time);
+
+        playButtonObj.SetActive(true);
+        creditsButtonObj.SetActive(true);
+        optionsButtonObj.SetActive(true);
     }
 }
