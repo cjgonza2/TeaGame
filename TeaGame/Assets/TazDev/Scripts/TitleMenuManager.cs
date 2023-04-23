@@ -11,6 +11,7 @@ public class TitleMenuManager : MonoBehaviour
     public GameObject optionsButtonObj;
     public GameObject creditsButtonObj;
     public GameObject backButtonObj;
+    public GameObject backToStart;
     //public GameObject clickToStart;
 
     public float startDelayTime;
@@ -42,6 +43,11 @@ public class TitleMenuManager : MonoBehaviour
         return backButtonObj.GetComponent<Button>();
     }
 
+    private Button BackToStartButton()
+    {
+        return backToStart.GetComponent<Button>();
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +56,10 @@ public class TitleMenuManager : MonoBehaviour
         //add listener to Start Button, click for TaskOnStart
         Button openBook = StartButton();
         openBook.onClick.AddListener(TaskOnStart);
+
+        //add listener to Start Button, click for TaskOnStart
+        Button closeBook = BackToStartButton();
+        closeBook.onClick.AddListener(TaskOnClose);
 
         //add listener to Play Button, click for TaskOnPlay
         Button playGame = PlayButton();
@@ -77,6 +87,20 @@ public class TitleMenuManager : MonoBehaviour
         StartCoroutine(StartButtonDelay());
     }
 
+    private void TaskOnClose()
+    {
+        //bring back click to start after a delay
+        StartCoroutine(TitleScreenDelay());
+        
+        //get rid of close button
+        backToStart.SetActive(false);
+
+        //get rid of all start menu buttons
+        playButtonObj.SetActive(false);
+        creditsButtonObj.SetActive(false);
+        optionsButtonObj.SetActive(false);
+    }
+
     //do this when click play button
     private void TaskOnPlay()
     {
@@ -92,6 +116,7 @@ public class TitleMenuManager : MonoBehaviour
         StartCoroutine(PageFlipDelay());
 
         //get rid of all start menu buttons
+        backToStart.SetActive(false);
         playButtonObj.SetActive(false);
         creditsButtonObj.SetActive(false);
         optionsButtonObj.SetActive(false);
@@ -106,6 +131,7 @@ public class TitleMenuManager : MonoBehaviour
         StartCoroutine(PageFlipDelay());
 
         //get rid of all start menu buttons
+        backToStart.SetActive(false);
         playButtonObj.SetActive(false);
         creditsButtonObj.SetActive(false);
         optionsButtonObj.SetActive(false);
@@ -128,6 +154,7 @@ public class TitleMenuManager : MonoBehaviour
         yield return new WaitForSeconds(startDelayTime);
         Debug.Log(Time.time);
 
+        backToStart.SetActive(true);
         playButtonObj.SetActive(true);
         creditsButtonObj.SetActive(true);
         optionsButtonObj.SetActive(true);
@@ -142,5 +169,15 @@ public class TitleMenuManager : MonoBehaviour
 
         //show back button now
         backButtonObj.SetActive(true);
+    }
+
+    IEnumerator TitleScreenDelay()
+    {
+        Debug.Log(Time.time);
+        yield return new WaitForSeconds(startDelayTime);
+        Debug.Log(Time.time);
+
+        //show back button now
+        startButtonObj.SetActive(true);
     }
 }
