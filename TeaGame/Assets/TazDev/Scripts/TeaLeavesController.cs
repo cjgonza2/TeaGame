@@ -61,7 +61,7 @@ public class TeaLeavesController : MonoBehaviour
     }
 
     #region Ingredient Checks
-    private IEnumerator HakaCheck()
+    /*private IEnumerator HakaCheck()
     {
         //Debug.Log("Haka Check");
         //switch expression.
@@ -126,7 +126,7 @@ public class TeaLeavesController : MonoBehaviour
             <= 0 => false
         };
         yield break;
-    }
+    }*/
 
     
 
@@ -138,12 +138,12 @@ public class TeaLeavesController : MonoBehaviour
         if (inventoryManager.compendiumOpen) return;
         
         //based on whatever leaf name there is, starts the appropriate check.
-        StartCoroutine($"{leafName}Check");
+        //StartCoroutine($"{leafName}Check");
 
-        if (!enoughClumps) //if it sees there aren't enough clumps.
+        /*if (!enoughClumps) //if it sees there aren't enough clumps.
         {
             return; //simply returns and doesn't do the rest.
-        }
+        }*/
 
         //Debug.Log("YOu have made it bast the clump check.");
 

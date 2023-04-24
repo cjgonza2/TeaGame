@@ -22,14 +22,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Pouring Check")]
     public bool finishedPouring;
-    
-    [Header("Inventory Counts")]
-    public int hakaCount;
-    public int tallowCount;
-    public int bombomCount;
-    public int aileCount;
-    public int shnootCount;
-    public int poffCount;
+
+    [Header("Inventory Counts")] 
+    [SerializeField] private List<GameObject> ingPots = new List<GameObject>();
 
     [Header("Compendium Check")]
     [SerializeField] private TeaCompendiumController teaCompendium;
@@ -46,7 +41,7 @@ public class GameManager : MonoBehaviour
         Tasting,
         Exiting
     }
-    
+
     #region CoRoutines
 
     private IEnumerator WaitBeforeTaste()
@@ -60,12 +55,74 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         TransitionState(State.Exiting);
     }
+
+    IEnumerator Goyo_CanyonIngredientLoad()
+    {
+        switch (cycleManager.cycleCount)
+        {
+            case 1:
+                ingPots[0].SetActive(true);
+                ingPots[3].SetActive(true);
+                break;
+            case >1:
+                DefaultLoad();
+                break;
+        }
+        Debug.Log("piss in my ass");
+        yield break;
+    }
+
+    IEnumerator Lily_BogIngredientLoad()
+    {
+        switch (cycleManager.cycleCount)
+        {
+            case 1:
+                ingPots[0].SetActive(true);
+                ingPots[1].SetActive(true);
+                ingPots[3].SetActive(true);
+                break;
+            case >1:
+                DefaultLoad();
+                break;
+        }
+        yield break;
+    }
+
+    IEnumerator Ootal_CliffsIngredientLoad()
+    {
+        switch (cycleManager.cycleCount)
+        {
+            case 1:
+                ingPots[0].SetActive(true);
+                ingPots[1].SetActive(true);
+                ingPots[3].SetActive(true);
+                ingPots[5].SetActive(true);
+                break;
+            case >1:
+                DefaultLoad();
+                break;
+        }
+        yield break;
+    }
     #endregion
+
+    private void DefaultLoad()
+    {
+        foreach (var pot in ingPots)
+        {
+            pot.SetActive(true);
+        }
+    }
     
+    private void Awake()
+    {
+        cycleManager = CycleManager.FindInstance();
+    }
+
     void Start()
     {
         SetScene();
-        cycleManager = CycleManager.FindInstance();
+        StartCoroutine($"{_currentScene}IngredientLoad");
         TransitionState(State.Enter);
     }
 

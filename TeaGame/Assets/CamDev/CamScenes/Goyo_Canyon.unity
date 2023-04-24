@@ -467,7 +467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &140124915
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1569,14 +1569,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameIsPaused: 0
-  cycleCount: 0
+  cycleCount: 1
   sceneIndex: 3
-  hakaCount: 0
-  tallowCount: 0
-  bombomCount: 0
-  aileCount: 0
-  shnootCount: 0
-  poffCount: 0
 --- !u!4 &437281050
 Transform:
   m_ObjectHideFlags: 0
@@ -2300,7 +2294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &812925782
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2671,7 +2665,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &910619643
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4606,7 +4600,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1622692454
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4953,7 +4947,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1720828776
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5561,12 +5555,19 @@ MonoBehaviour:
   gamePaused: 0
   _currentScene: 
   finishedPouring: 0
-  hakaCount: 2
-  tallowCount: 2
-  bombomCount: 2
-  aileCount: 2
-  shnootCount: 2
-  poffCount: 2
+  ingPots:
+  - {fileID: 1622692453}
+  - {fileID: 812925781}
+  - {fileID: 140124914}
+  - {fileID: 1720828775}
+  - {fileID: 2039820582}
+  - {fileID: 910619642}
+  tallow: {fileID: 1622692453}
+  bomBom: {fileID: 812925781}
+  haka: {fileID: 140124914}
+  shnoot: {fileID: 1720828775}
+  poff: {fileID: 2039820582}
+  aile: {fileID: 910619642}
   teaCompendium: {fileID: 452534587}
   compendiumOpen: 0
   currentState: 0
@@ -5877,7 +5878,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2039820583
 SpriteRenderer:
   m_ObjectHideFlags: 0

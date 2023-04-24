@@ -23,6 +23,6 @@ public class SceneChanger : MonoBehaviour
 
         _cycleManager.sceneIndex++;
         SceneManager.LoadScene(_cycleManager.sceneIndex);
-        _cycleManager.cycleCount++;
+        //_cycleManager.cycleCount++;
     }
 }

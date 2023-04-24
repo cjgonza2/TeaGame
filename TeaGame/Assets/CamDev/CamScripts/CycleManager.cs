@@ -37,7 +37,7 @@ public class CycleManager : MonoBehaviour
 
     public bool gameIsPaused;
 
-    [HideInInspector] public int cycleCount;
+    public int cycleCount; //which cycle we're in.
 
     //Tells game managers/scene changers which scene to load in a given context.
     public int sceneIndex;
@@ -76,6 +76,7 @@ public class CycleManager : MonoBehaviour
         sceneIndex++;
         if (sceneIndex >= 8)
         {
+            cycleCount++;
             sceneIndex = 2;
         }
 

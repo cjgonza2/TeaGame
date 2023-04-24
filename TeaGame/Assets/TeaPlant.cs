@@ -31,11 +31,11 @@ public class TeaPlant : MonoBehaviour
 
     private void OnMouseDown()
     {
-        StartCoroutine($"{_plantName}Add");
+        //StartCoroutine($"{_plantName}Add");
         gameObject.SetActive(false);
     }
 
-    private IEnumerator HakaAdd()
+    /*private IEnumerator HakaAdd()
     {
         inventoryManager.hakaCount++;
         PickPlant();
@@ -81,7 +81,7 @@ public class TeaPlant : MonoBehaviour
         PickPlant();
         //Debug.Log("PoffAdd");
         yield break;
-    }
+    }*/
 
     private void PickPlant()
     {

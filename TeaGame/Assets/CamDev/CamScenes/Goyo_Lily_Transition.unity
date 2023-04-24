@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameIsPaused: 0
-  cycleCount: 0
+  cycleCount: 2
   sceneIndex: 4
 --- !u!4 &163082278
 Transform:

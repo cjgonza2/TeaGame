@@ -95,7 +95,7 @@ public class TeaClump : MonoBehaviour
         //
         SetBase(transform.tag);
         SetIngredient(transform.tag);
-        InventoryCheck(transform.tag);
+        //InventoryCheck(transform.tag);
         transform.position = restPos;
     }
     
@@ -155,7 +155,7 @@ public class TeaClump : MonoBehaviour
         }
     }
 
-    private void InventoryCheck(string clumpName)
+    /*private void InventoryCheck(string clumpName)
     {
         switch (clumpName)
         {
@@ -180,7 +180,7 @@ public class TeaClump : MonoBehaviour
             default:
                 break;
         }
-    }
+    }*/
 
     private void OnTriggerEnter2D(Collider2D col)
     {

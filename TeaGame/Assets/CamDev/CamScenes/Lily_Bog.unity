@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &22412834
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -395,7 +395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &126233111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -781,7 +781,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &270269542
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1917,7 +1917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &645641255
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2111,7 +2111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &690425609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3033,7 +3033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &989357865
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3405,12 +3405,6 @@ MonoBehaviour:
   gameIsPaused: 0
   cycleCount: 0
   sceneIndex: 5
-  hakaCount: 0
-  tallowCount: 0
-  bombomCount: 0
-  aileCount: 0
-  shnootCount: 0
-  poffCount: 0
 --- !u!4 &1257610728
 Transform:
   m_ObjectHideFlags: 0
@@ -5309,12 +5303,6 @@ MonoBehaviour:
   gameIsPaused: 0
   cycleCount: 0
   sceneIndex: 2
-  hakaCount: 0
-  tallowCount: 0
-  bombomCount: 0
-  aileCount: 0
-  shnootCount: 0
-  poffCount: 0
 --- !u!114 &1952468311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5373,12 +5361,13 @@ MonoBehaviour:
   gamePaused: 0
   _currentScene: 
   finishedPouring: 0
-  hakaCount: 2
-  tallowCount: 2
-  bombomCount: 2
-  aileCount: 2
-  shnootCount: 2
-  poffCount: 2
+  ingPots:
+  - {fileID: 270269541}
+  - {fileID: 22412833}
+  - {fileID: 645641254}
+  - {fileID: 126233110}
+  - {fileID: 690425608}
+  - {fileID: 989357864}
   teaCompendium: {fileID: 1680944388}
   compendiumOpen: 0
   currentState: 0

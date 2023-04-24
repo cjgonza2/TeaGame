@@ -1947,7 +1947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameIsPaused: 0
-  cycleCount: 0
+  cycleCount: 1
   sceneIndex: 1
 --- !u!4 &1644355544
 Transform:
