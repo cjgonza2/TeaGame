@@ -5,7 +5,11 @@ using UnityEngine.UI;
 
 public class TitleMenuManager : MonoBehaviour
 {
+    //booleans
+    private bool isOption = false;
+    private bool isCredits = false;
 
+    //button objects
     public GameObject startButtonObj;
     public GameObject playButtonObj;
     public GameObject optionsButtonObj;
@@ -13,6 +17,10 @@ public class TitleMenuManager : MonoBehaviour
     public GameObject backButtonObj;
     public GameObject backToStart;
     //public GameObject clickToStart;
+
+    //page objects
+    public GameObject creditsPage;
+    public GameObject optionsPage;
 
     public float startDelayTime;
     public float pageDelayTime;
@@ -111,24 +119,23 @@ public class TitleMenuManager : MonoBehaviour
     private void TaskOnOptions()
     {
         Debug.Log("options");
-
-        //pop out back button after delay
-        StartCoroutine(PageFlipDelay());
+        isOption = true;
 
         //get rid of all start menu buttons
         backToStart.SetActive(false);
         playButtonObj.SetActive(false);
         creditsButtonObj.SetActive(false);
         optionsButtonObj.SetActive(false);
+
+        //show options after delay
+        StartCoroutine(PageFlipDelay());
     }
 
     //do this when click credits button
     private void TaskOnCredits()
     {
         Debug.Log("credits");
-
-        //pop out back button after delay
-        StartCoroutine(PageFlipDelay());
+        isCredits = true;
 
         //get rid of all start menu buttons
         backToStart.SetActive(false);
@@ -136,6 +143,8 @@ public class TitleMenuManager : MonoBehaviour
         creditsButtonObj.SetActive(false);
         optionsButtonObj.SetActive(false);
 
+        //show credits after delay
+        StartCoroutine(PageFlipDelay());
     }
 
     //do this when click back button
@@ -143,6 +152,12 @@ public class TitleMenuManager : MonoBehaviour
     {
         Debug.Log("back");
         backButtonObj.SetActive(false);
+        isOption = false;
+        isCredits = false;
+
+        //turn off these pages if they are open
+        optionsPage.SetActive(false);
+        creditsPage.SetActive(false);
 
         //bring back all start menu buttons
         StartCoroutine(StartButtonDelay());
@@ -154,6 +169,7 @@ public class TitleMenuManager : MonoBehaviour
         yield return new WaitForSeconds(startDelayTime);
         Debug.Log(Time.time);
 
+        //show start menu options
         backToStart.SetActive(true);
         playButtonObj.SetActive(true);
         creditsButtonObj.SetActive(true);
@@ -169,6 +185,20 @@ public class TitleMenuManager : MonoBehaviour
 
         //show back button now
         backButtonObj.SetActive(true);
+
+        if (isOption)
+        {
+            Debug.Log("show options");
+            optionsPage.SetActive(true);
+        }
+
+        if (isCredits)
+        {
+            Debug.Log("show credits");
+            creditsPage.SetActive(true);
+        }
+
+
     }
 
     IEnumerator TitleScreenDelay()
