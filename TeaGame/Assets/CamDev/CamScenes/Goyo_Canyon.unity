@@ -588,8 +588,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 143838141}
-  - component: {fileID: 143838142}
   - component: {fileID: 143838143}
+  - component: {fileID: 143838144}
   m_Layer: 0
   m_Name: LidCollider
   m_TagString: TeaPotLid
@@ -612,22 +612,6 @@ Transform:
   m_Father: {fileID: 699752853}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &143838142
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 143838140}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.54066914, y: -0.29854244}
-  serializedVersion: 2
-  m_Radius: 4.03674
 --- !u!70 &143838143
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -644,6 +628,27 @@ CapsuleCollider2D:
   m_Offset: {x: -1.0138279, y: -1.5677577}
   m_Size: {x: 11.185129, y: 7.6751575}
   m_Direction: 1
+--- !u!50 &143838144
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143838140}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &173591451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,7 +1220,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.012165546, y: -0.023701906}
@@ -1239,7 +1244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306131749}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.7, y: -2.25, z: -0.000046744943}
+  m_LocalPosition: {x: -11.51, y: -1.74, z: -0.000046744943}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2045,11 +2050,13 @@ MonoBehaviour:
   _selected: 0
   pourManager: {fileID: 0}
   _steepManager: {fileID: 699752848}
+  potSprite: {fileID: 699752847}
   sprTrack: {fileID: 699752847}
   cupSprite: {fileID: 306131754}
   teaPourAnim: {fileID: 1266466437}
   teaPotLid: {fileID: 0}
   lidPouringCollider: {fileID: 143838140}
+  teaCupCollider: {fileID: 1890868912}
 --- !u!50 &699752850
 Rigidbody2D:
   serializedVersion: 4
@@ -2157,7 +2164,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 699752845}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.75, y: -1.24, z: 0}
+  m_LocalPosition: {x: 6.41, y: -1.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3044,7 +3051,7 @@ MonoBehaviour:
   kettleLiquid: {fileID: 867159617}
   boilingWater: {fileID: 1991028844}
   pouringPos: {x: 0, y: 0, z: 0}
-  potSpriteChanger: {fileID: 0}
+  potSpriteChanger: {fileID: 699752847}
   kettleSprite: {fileID: 1019151162}
   emptyKettle: {fileID: 21300000, guid: 34dd895698872634a9fa1fb616b144fc, type: 3}
   fullKettle: {fileID: 21300000, guid: 27a1ad8f13d0c304a9ecee42076cf3dd, type: 3}
@@ -4155,7 +4162,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 103614393
   m_SortingLayer: 6
-  m_SortingOrder: 2
+  m_SortingOrder: 5
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5514,9 +5521,10 @@ MonoBehaviour:
   locale: 
   character: {fileID: 0}
   lambSpr: {fileID: 0}
-  lambIdle: {fileID: 21300000, guid: 3d716d61431233d4c8c552bbbeff81ce, type: 3}
+  lambIdle: {fileID: 21300000, guid: 362e022524bc8e347b336c3ab0efcba9, type: 3}
   lambSip: {fileID: 21300000, guid: 9bc626d6695dfc74697b4340a99f3404, type: 3}
-  lambReact: {fileID: 21300000, guid: 3306742f33e72cd4fb581f86bff29512, type: 3}
+  lambSmile: {fileID: 21300000, guid: 3aeec9eaa2ae5094988a2e18d8df68f3, type: 3}
+  lambReact: {fileID: 21300000, guid: 7640922ce469aa945b6818bbbdf4baa8, type: 3}
   lambPresent: 0
   ranaSpr: {fileID: 0}
   ranaIdle: {fileID: 21300000, guid: 41f1e8cb5d33bdb47a57ed6a8b302c3e, type: 3}
@@ -5618,6 +5626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1890868913}
   - component: {fileID: 1890868915}
+  - component: {fileID: 1890868916}
   m_Layer: 0
   m_Name: PourCollider
   m_TagString: cup
@@ -5656,6 +5665,27 @@ CapsuleCollider2D:
   m_Offset: {x: 0.197722, y: -3.7676017}
   m_Size: {x: 3.2980418, y: 1.9229143}
   m_Direction: 1
+--- !u!50 &1890868916
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890868912}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1960983372
 GameObject:
   m_ObjectHideFlags: 0

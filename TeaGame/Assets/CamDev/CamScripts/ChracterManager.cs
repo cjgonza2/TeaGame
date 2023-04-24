@@ -26,6 +26,7 @@ public class ChracterManager : MonoBehaviour
     [Header("Sprites")]
     [SerializeField] private Sprite lambIdle;
     [SerializeField] private Sprite lambSip;
+    [SerializeField] private Sprite lambSmile;
     [SerializeField] private Sprite lambReact;
     private Sprite _lambCurrentSprite;
     
@@ -225,7 +226,7 @@ public class ChracterManager : MonoBehaviour
             if (steepManager.highFlavor)
             {
                 //sets character sprite to idle.
-                _lambCurrentSprite = lambIdle;
+                _lambCurrentSprite = lambSmile;
                 lambSpr.sprite = _lambCurrentSprite;
             }
             else

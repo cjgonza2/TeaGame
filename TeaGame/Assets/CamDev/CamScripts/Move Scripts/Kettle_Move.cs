@@ -24,7 +24,6 @@ public class Kettle_Move : CamMove
     private Sprite _currentSprite; //Current Sprite of the Kettle
     #endregion
 
-
     [Header("Steam Animators")] 
     [SerializeField] private GameObject lowSteam;
     [SerializeField] private GameObject medSteam;

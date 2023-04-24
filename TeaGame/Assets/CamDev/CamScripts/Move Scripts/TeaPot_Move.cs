@@ -11,6 +11,7 @@ public class TeaPot_Move : CamMove
     //[SerializeField] private GameManager myManager;
     [SerializeField] private PouringManager pourManager;
     [SerializeField] private Cam_Steep_Manager _steepManager;
+    [SerializeField] private Pot_SpriteChanger potSprite;
     [Header("Sprite Changer")]
     [SerializeField] 
     private Pot_SpriteChanger sprTrack;
@@ -21,6 +22,7 @@ public class TeaPot_Move : CamMove
     [Header("TeaPot Lid")]
     [SerializeField]private GameObject teaPotLid;
     [SerializeField] private GameObject lidPouringCollider;
+    [SerializeField] private GameObject teaCupCollider;
     private bool _lidMoved = false;
 
 
@@ -88,7 +90,10 @@ public class TeaPot_Move : CamMove
     public override void OnMouseUp()
     {
         base.OnMouseUp(); //Does everything parent function does.
-        lidPouringCollider.SetActive(true);
+        if (!potSprite._steeping)
+        {
+            lidPouringCollider.SetActive(true);
+        }
         //pourCollider.enabled = true; //enables pouring collider. 
     }
 
@@ -113,6 +118,7 @@ public class TeaPot_Move : CamMove
         {
             transform.DORotate(new Vector3(0, 0, 0f), 0.5f).SetEase(Ease.InOutCubic);
         }
+        teaCupCollider.SetActive(false);
     }
 
     #region TweenTesting

@@ -26,7 +26,7 @@ public class TeaCup_Move : CamMove
         base.Update();
         if (cupSpr.fillCup)
         {
-            pourCollider.SetActive(false);
+            //pourCollider.SetActive(false);
         }
     }
 
@@ -39,7 +39,10 @@ public class TeaCup_Move : CamMove
     public override void OnMouseUp()
     {
         base.OnMouseUp();
-        pourCollider.SetActive(true);
+        if (!cupSpr.fillCup)
+        {
+            pourCollider.SetActive(true);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -49,6 +52,6 @@ public class TeaCup_Move : CamMove
         _selected = false;
         gameObject.transform.position = sipPos;
         myManager.TransitionState(GameManager.State.Drinking);
-        Debug.Log("cheese;");
+        //Debug.Log("cheese;");
     }
 }

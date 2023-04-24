@@ -762,6 +762,7 @@ MonoBehaviour:
   lambSpr: {fileID: 0}
   lambIdle: {fileID: 21300000, guid: 3d716d61431233d4c8c552bbbeff81ce, type: 3}
   lambSip: {fileID: 21300000, guid: d81479f9d6fc7e54e87f9759805914a1, type: 3}
+  lambSmile: {fileID: 0}
   lambReact: {fileID: 21300000, guid: 3306742f33e72cd4fb581f86bff29512, type: 3}
   lambPresent: 0
   ranaSpr: {fileID: 0}
@@ -2840,11 +2841,13 @@ MonoBehaviour:
   _selected: 0
   pourManager: {fileID: 0}
   _steepManager: {fileID: 942446370}
+  potSprite: {fileID: 942446369}
   sprTrack: {fileID: 942446369}
   cupSprite: {fileID: 9059217}
   teaPourAnim: {fileID: 1988514630}
   teaPotLid: {fileID: 0}
   lidPouringCollider: {fileID: 654424718}
+  teaCupCollider: {fileID: 193459400}
 --- !u!50 &942446372
 Rigidbody2D:
   serializedVersion: 4
@@ -5768,7 +5771,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 103614393
   m_SortingLayer: 6
-  m_SortingOrder: 2
+  m_SortingOrder: 5
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
