@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/CamDev/CamScenes/Title Screen.unity
-    guid: 053ec37247f49684aa105286de8041cf
+    path: Assets/CamDev/CamScenes/TitleScreen.unity
+    guid: 0a9336df36bfbda489d2eef72317cc89
   - enabled: 1
     path: Assets/CamDev/CamScenes/Intro.unity
     guid: 2316ad99abda275428f03b441290fb64

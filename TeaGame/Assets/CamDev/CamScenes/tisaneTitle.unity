@@ -1932,7 +1932,7 @@ GameObject:
   m_Component:
   - component: {fileID: 519270612}
   - component: {fileID: 519270613}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2988,7 +2988,7 @@ GameObject:
   m_Component:
   - component: {fileID: 933270207}
   - component: {fileID: 933270208}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: cam n tass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
