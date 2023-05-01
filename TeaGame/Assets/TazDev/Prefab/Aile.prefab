@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myManager: {fileID: 0}
   _selected: 0
+  highlight: {fileID: 0}
 --- !u!114 &8120204097821216071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,4 +168,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

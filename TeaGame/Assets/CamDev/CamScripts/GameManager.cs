@@ -121,6 +121,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        cycleManager = CycleManager.FindInstance();
         SetScene();
         StartCoroutine($"{_currentScene}IngredientLoad");
         TransitionState(State.Enter);
