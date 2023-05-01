@@ -7,6 +7,7 @@ public class TeaLeavesController : MonoBehaviour
 {
     [SerializeField] private GameManager inventoryManager;
 
+    [SerializeField] private GameObject highLight;
     [SerializeField] private GameObject tea;
 
     [SerializeField] private string leafName;
@@ -22,9 +23,12 @@ public class TeaLeavesController : MonoBehaviour
     private SpriteRenderer _teaLayer;
     private Vector3 _mousePosOffset;
     private float _mouseZ;
-    
-    
-    
+
+    private void Awake()
+    {
+        highLight.SetActive(false);
+    }
+
 
     //start/update in case we need it. 
     #region Start/Update
@@ -131,6 +135,17 @@ public class TeaLeavesController : MonoBehaviour
     
 
     #endregion
+
+    private void OnMouseOver() //while the mouse is over;
+    {
+        //sets the highlight to active.
+        highLight.SetActive(true);
+    }
+
+    private void OnMouseExit() //when the mouse moves away from the object;
+    {
+        highLight.SetActive(false); //deactivates highlight objects.
+    }
 
     public virtual void OnMouseDown()
     {

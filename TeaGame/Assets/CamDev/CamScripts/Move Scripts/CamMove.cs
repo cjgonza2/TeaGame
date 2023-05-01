@@ -14,6 +14,9 @@ public class CamMove : MonoBehaviour
     public bool _selected = false; //bool that determines if an object has been selected.
 
     private Camera _mainCam; //reference to main camera;
+
+    public GameObject highlight;    
+    
     
 
     // Start is called before the first frame update

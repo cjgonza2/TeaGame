@@ -11,9 +11,11 @@ public class WaterValve : MonoBehaviour
     [SerializeField] private Kettle_Move kettle;
     [SerializeField] private GameManager myManager; //gamemanager reference
 
+    [Header("Pipe GameObjects")] 
+    [SerializeField] private GameObject highLight;
+
     private IEnumerator PourWater()
     {
-        
         pourAnimation.Play("WaterPouringAnimation");
         yield return new WaitForSeconds(pourAnimation.GetCurrentAnimatorClipInfo(0).Length);
         kettle.fill = true;
@@ -22,8 +24,18 @@ public class WaterValve : MonoBehaviour
     private void OnMouseDown()
     {
         if (myManager.gamePaused) return;
-        Debug.Log("Pour water");
+        //Debug.Log("Pour water");
         StartCoroutine(PourWater());
+    }
 
+    private void OnMouseOver() //while the mouse is over;
+    {
+        //sets the highlight to active.
+        highLight.SetActive(true);
+    }
+
+    private void OnMouseExit() //when the mouse moves away from the object;
+    {
+        highLight.SetActive(false); //deactivates highlight objects.
     }
 }

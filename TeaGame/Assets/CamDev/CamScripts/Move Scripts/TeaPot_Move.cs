@@ -7,6 +7,8 @@ using UnityEngine.TextCore.Text;
 
 public class TeaPot_Move : CamMove
 {
+    [SerializeField] private GameObject lidHighlight;
+    
     [Header("Managers")]
     //[SerializeField] private GameManager myManager;
     [SerializeField] private PouringManager pourManager;
@@ -96,7 +98,25 @@ public class TeaPot_Move : CamMove
         }
         //pourCollider.enabled = true; //enables pouring collider. 
     }
+    private void OnMouseOver() //while the mouse is over;
+    {
+        if (_selected) //if the kettle is selected
+        {
+            highlight.SetActive(false); //sets the highlight object to inactive.
+            lidHighlight.SetActive(false);
+            return; //returns
+        }
+       
+        //sets the highlight to active.
+        highlight.SetActive(true);
+        lidHighlight.SetActive(true);
+    }
 
+    private void OnMouseExit() //when the mouse moves away from the object;
+    {
+        highlight.SetActive(false); //deactivates highlight objects.
+        lidHighlight.SetActive(false);
+    }
 
 
     public void OnTriggerEnter2D(Collider2D col)

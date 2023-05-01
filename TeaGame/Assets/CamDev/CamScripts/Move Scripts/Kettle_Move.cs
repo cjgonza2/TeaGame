@@ -291,4 +291,21 @@ public class Kettle_Move : CamMove
    }
    #endregion
 
+
+   private void OnMouseOver() //while the mouse is over;
+   {
+       if (_selected) //if the kettle is selected
+       {
+           highlight.SetActive(false); //sets the highlight object to inactive.
+           return; //returns
+       }
+       
+       //sets the highlight to active.
+       highlight.SetActive(true);
+   }
+
+   private void OnMouseExit() //when the mouse moves away from the object;
+   {
+       highlight.SetActive(false); //deactivates highlight objects.
+   }
 }
