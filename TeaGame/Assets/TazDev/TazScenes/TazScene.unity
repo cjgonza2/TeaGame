@@ -225,7 +225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &41579189
 RectTransform:
   m_ObjectHideFlags: 0
@@ -678,6 +678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 0}
+  highLight: {fileID: 0}
   tea: {fileID: 5798671141735087650, guid: 81f4b1c15358d854daeca38ee0a13579, type: 3}
   leafName: 
   clumpExists: 0
@@ -808,6 +809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 0}
+  highLight: {fileID: 0}
   tea: {fileID: 2511771901951824603, guid: 308127526eee579449114b7e82f561ec, type: 3}
   leafName: 
   clumpExists: 0
@@ -1308,6 +1310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 0}
+  highLight: {fileID: 0}
   tea: {fileID: 841392332907388582, guid: 26352c4c83eee0d4f9f7bf5ffe4b7988, type: 3}
   leafName: 
   clumpExists: 0
@@ -1653,6 +1656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 0}
+  highLight: {fileID: 0}
   tea: {fileID: 8041832864052992740, guid: c5dc233a5d96e06459d1b99c68939dcc, type: 3}
   leafName: 
   clumpExists: 0
@@ -1815,7 +1819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &860032006
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1936,7 +1940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &870982013
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2055,7 +2059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &873410269
 Transform:
   m_ObjectHideFlags: 0
@@ -2202,6 +2206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 0}
+  highLight: {fileID: 0}
   tea: {fileID: 8256131796517067444, guid: d4b51fb87825c3b4e83f9e693689d8a7, type: 3}
   leafName: 
   clumpExists: 0
@@ -2708,7 +2713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1098443755
 Transform:
   m_ObjectHideFlags: 0
@@ -3139,7 +3144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1493110663
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3274,7 +3279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1570386392
 Transform:
   m_ObjectHideFlags: 0
@@ -3430,6 +3435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myManager: {fileID: 0}
   _selected: 0
+  highlight: {fileID: 0}
 --- !u!95 &1608201838
 Animator:
   serializedVersion: 4
@@ -4013,6 +4019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 0}
+  highLight: {fileID: 0}
   tea: {fileID: 6685805166792971333, guid: 874f53bf4c9febf439de2b19c5ae2af1, type: 3}
   leafName: 
   clumpExists: 0
@@ -4076,7 +4083,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c74ef34c96cc5df4dbd92b2a7f28e770, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f7deb575127ba2c42919cc6625b2cc10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4095,7 +4102,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796490836}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.45, y: 6.98, z: 0}
+  m_LocalPosition: {x: 0.45, y: 0.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4227,6 +4234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 0}
+  highLight: {fileID: 0}
   tea: {fileID: 3463905922791520080, guid: 162f7b6fa001faa46b68d258a6c56003, type: 3}
   leafName: 
   clumpExists: 0
@@ -4353,7 +4361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1978692392
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4541,7 +4549,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:

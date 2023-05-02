@@ -26,12 +26,17 @@ public class TitleMenuManager : MonoBehaviour
     public float startDelayTime;
     public float pageDelayTime;
 
-    //getting Button components
-    private Button StartButton()
-    {
-        return startButtonObj.GetComponent<Button>();
-    }
+    private SpriteRenderer startButtonSR;
+    
+    public Color startDefaultColor;
+    public Color startHoverColor;
 
+    //animations
+    public Animator openBookAnim;
+    public Animator zoomAnim;
+    public Animator fadeOutAnim;
+
+    //getting Button components
     private Button PlayButton()
     {
         return playButtonObj.GetComponent<Button>();
@@ -61,10 +66,12 @@ public class TitleMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         //add listener to Start Button, click for TaskOnStart
-        Button openBook = StartButton();
-        openBook.onClick.AddListener(TaskOnStart);
+        /*Button openBook = StartButton();
+        openBook.onClick.AddListener(TaskOnStart);*/
+
+        startButtonSR = startButtonObj.GetComponent<SpriteRenderer>();
 
         //add listener to Start Button, click for TaskOnStart
         Button closeBook = BackToStartButton();
@@ -89,11 +96,26 @@ public class TitleMenuManager : MonoBehaviour
 
 
     //do this when click start button
-    private void TaskOnStart()
+    private void OnMouseOver()
     {
-        Debug.Log("start");
-        startButtonObj.SetActive(false);
-        StartCoroutine(StartButtonDelay());
+        startButtonSR.color = startHoverColor; //66340D
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("start");
+            openBookAnim.Play("title book open");
+            zoomAnim.Play("zoom");
+            fadeOutAnim.Play("fade out");
+
+            startButtonObj.SetActive(false);
+            StartCoroutine(StartButtonDelay());
+        }
+        
+    }
+
+    private void OnMouseExit()
+    {
+        startButtonSR.color = startDefaultColor;
     }
 
     private void TaskOnClose()
