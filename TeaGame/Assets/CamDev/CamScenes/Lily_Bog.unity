@@ -349,7 +349,6 @@ GameObject:
   m_Component:
   - component: {fileID: 89614152}
   - component: {fileID: 89614151}
-  - component: {fileID: 89614150}
   - component: {fileID: 89614149}
   - component: {fileID: 89614148}
   m_Layer: 0
@@ -374,7 +373,7 @@ MonoBehaviour:
   myManager: {fileID: 0}
   lookUpDistance: 7.5
   lookLeftDistance: -15
-  lookRightDistance: 18.5
+  lookRightDistance: 17.5
   _input: 0
 --- !u!81 &89614149
 AudioListener:
@@ -384,26 +383,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89614147}
   m_Enabled: 1
---- !u!114 &89614150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 89614147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AssetsPPU: 32
-  m_RefResolutionX: 1920
-  m_RefResolutionY: 1080
-  m_UpscaleRT: 0
-  m_PixelSnapping: 0
-  m_CropFrameX: 0
-  m_CropFrameY: 0
-  m_StretchFill: 0
 --- !u!20 &89614151
 Camera:
   m_ObjectHideFlags: 0
@@ -428,10 +407,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 15
   field of view: 60
-  orthographic: 0
-  orthographic size: 16.875
+  orthographic: 1
+  orthographic size: 6.02
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

@@ -24,6 +24,16 @@ public class CameraMove : MonoBehaviour
     private float _startPosX;
     private float _startPosY;
 
+    private float _cameraX()
+    {
+        return gameObject.transform.position.x;
+    }
+
+    private float _cameraY()
+    {
+        return gameObject.transform.position.y;
+    }
+
     [SerializeField]
     private bool _input = false;
 
@@ -39,93 +49,86 @@ public class CameraMove : MonoBehaviour
     {
         //input checks.
         if (myManager.compendiumOpen) return;
+        DownInput();
         UpInput();
         LeftInput();
         RightInput();
     }
 
+    private void DownInput()
+    {
+        if (gameObject.transform.position.y != lookUpDistance) return;
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            gameObject.transform.DOMoveY(_startPosY, 0.5f).SetEase(Ease.InOutCubic);
+        }
+        
+    }
+    
     
     #region Up Input
     private void UpInput()
     {
-        if (Input.GetKeyDown(KeyCode.W) && _input == false) //if w key is pressed down and no other input is pressed.;
-        { 
-            UpLook(); //lerps the camera up to the Customer.
-        }
-
-        if (Input.GetKeyUp(KeyCode.W) && _input) //if w key is released;
+        if (gameObject.transform.position != _startPos) return; //if the camera's position is not the start position.
+        if (Input.GetKeyDown(KeyCode.W)) //if w key is pressed down;
         {
-            UpReset(); //lerps the camera down to start pos.
+            UpLook(); //lerps the camera up to the Customer.
         }
     }
 
     private void UpLook()
     {
-        _input = true; //sets input to true;
         //tweens the object up to the customer.
         gameObject.transform.DOMoveY(lookUpDistance, 0.5f).SetEase(Ease.InOutCubic);
         
-    }
-
-    private void UpReset()
-    {
-        //tweens the camera to start position.
-        gameObject.transform.DOMoveY(_startPosY, 0.5f).SetEase(Ease.InOutCubic);
-        _input = false;
     }
     #endregion
 
     #region Left Input
     private void LeftInput()
     {
-        if (Input.GetKeyDown(KeyCode.A) && _input == false)
+        if (gameObject.transform.position == _startPos)
         {
-            LeftLook();
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                LeftLook();
+            }
+        }else if (Math.Abs(_cameraX() - lookRightDistance) < .01)
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                gameObject.transform.DOMoveX(_startPosX, 0.5f).SetEase(Ease.InOutCubic);
+            }
         }
 
-        if (Input.GetKeyUp(KeyCode.A) && _input)
-        {
-            LeftReset();
-        }
     }
     private void LeftLook()
     {
-        _input = true;
         gameObject.transform.DOMoveX(lookLeftDistance, 0.5f).SetEase(Ease.InOutCubic);
-        
-    }
-
-    private void LeftReset()
-    {
-        gameObject.transform.DOMoveX(_startPosX, 0.5f).SetEase(Ease.InOutCubic);
-        _input = false;
     }
     #endregion
 
     #region Right Input
-    void RightInput()
+    private void RightInput()
     {
-        if (Input.GetKeyDown(KeyCode.D) && _input == false)
+        if (gameObject.transform.position == _startPos)
         {
-            RightLook();
-        }
-        
-        if (Input.GetKeyUp(KeyCode.D) && _input)
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                RightLook();
+            }
+        }else if (Math.Abs(_cameraY() - lookRightDistance) > .01)
         {
-            RightReset();
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                gameObject.transform.DOMoveX(_startPosX, 0.5f).SetEase(Ease.InOutCubic);
+            }
         }
     }
     private void RightLook()
     {
-        _input = true;
         gameObject.transform.DOMoveX(lookRightDistance, 0.5f).SetEase(Ease.InOutCubic);
         
-    }
-
-    private void RightReset()
-    {
-        gameObject.transform.DOMoveX(_startPosX, 0.5f).SetEase(Ease.InOutCubic);
-        _input = false;
     }
     #endregion
 }
