@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5654311997999405344}
   - component: {fileID: 6007942486494676821}
   - component: {fileID: 2719895558570048983}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Haka
   m_TagString: bitter
   m_Icon: {fileID: 0}
@@ -167,5 +167,6 @@ MonoBehaviour:
   inventoryManager: {fileID: 0}
   lid: {fileID: 0}
   teaPot: {fileID: 0}
+  _cooldown: 0
   restPos: {x: 0, y: -7.5}
   inPotPos: {x: 0, y: 0}

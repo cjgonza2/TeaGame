@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8120204097821216071}
   - component: {fileID: 7775717612747998263}
   - component: {fileID: 6000314284857584919}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Aile
   m_TagString: health
   m_Icon: {fileID: 0}
@@ -120,6 +120,7 @@ MonoBehaviour:
   inventoryManager: {fileID: 0}
   lid: {fileID: 0}
   teaPot: {fileID: 0}
+  _cooldown: 0
   restPos: {x: 0, y: -7.5}
   inPotPos: {x: 0, y: 0}
 --- !u!61 &7775717612747998263

@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 143838141}
   - component: {fileID: 143838143}
   - component: {fileID: 143838144}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LidCollider
   m_TagString: TeaPotLid
   m_Icon: {fileID: 0}

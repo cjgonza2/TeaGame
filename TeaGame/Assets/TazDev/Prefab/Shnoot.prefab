@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7522584429571306703}
   - component: {fileID: 1461226570493777998}
   - component: {fileID: 3040197835444926295}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shnoot
   m_TagString: sleep
   m_Icon: {fileID: 0}
@@ -167,5 +167,6 @@ MonoBehaviour:
   inventoryManager: {fileID: 0}
   lid: {fileID: 0}
   teaPot: {fileID: 0}
+  _cooldown: 0
   restPos: {x: 0, y: 0}
   inPotPos: {x: 0, y: 0}

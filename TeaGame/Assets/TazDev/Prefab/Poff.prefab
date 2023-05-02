@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6621623461212308891}
   - component: {fileID: 5773194138330371156}
   - component: {fileID: 6074710942678871397}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Poff
   m_TagString: energy
   m_Icon: {fileID: 0}
@@ -167,5 +167,6 @@ MonoBehaviour:
   inventoryManager: {fileID: 0}
   lid: {fileID: 0}
   teaPot: {fileID: 0}
+  _cooldown: 0
   restPos: {x: 0, y: -7.5}
   inPotPos: {x: 0, y: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7150227564555034516}
   - component: {fileID: 1394918202182871001}
   - component: {fileID: 7920337179134803045}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BomBom
   m_TagString: sweet
   m_Icon: {fileID: 0}
@@ -167,5 +167,6 @@ MonoBehaviour:
   inventoryManager: {fileID: 0}
   lid: {fileID: 0}
   teaPot: {fileID: 0}
+  _cooldown: 0
   restPos: {x: 0, y: -7.5}
   inPotPos: {x: 0, y: 0}

@@ -29,10 +29,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - TeaClump
   - Water
   - UI
-  - 
+  - LidCollider
   - 
   - 
   - 
