@@ -196,6 +196,7 @@ public class TeaLeavesController : MonoBehaviour
     private void OnMouseUp()
     {
         selected = false;
+        clumpMoveScript._selected = false;
     }
 
 
