@@ -27,6 +27,7 @@ public class TitleMenuManager : MonoBehaviour
     public float pageDelayTime;
 
     private SpriteRenderer startButtonSR;
+    private Collider2D startButtonCollider;
     
     public Color startDefaultColor;
     public Color startHoverColor;
@@ -72,6 +73,7 @@ public class TitleMenuManager : MonoBehaviour
         openBook.onClick.AddListener(TaskOnStart);*/
 
         startButtonSR = startButtonObj.GetComponent<SpriteRenderer>();
+        startButtonCollider = this.GetComponent<Collider2D>();
 
         //add listener to Start Button, click for TaskOnStart
         Button closeBook = BackToStartButton();
@@ -107,6 +109,7 @@ public class TitleMenuManager : MonoBehaviour
             zoomAnim.Play("zoom");
             fadeOutAnim.Play("fade out");
 
+            startButtonCollider.enabled = false;
             startButtonObj.SetActive(false);
             StartCoroutine(StartButtonDelay());
         }
@@ -233,5 +236,6 @@ public class TitleMenuManager : MonoBehaviour
 
         //show back button now
         startButtonObj.SetActive(true);
+        startButtonCollider.enabled = true;
     }
 }
