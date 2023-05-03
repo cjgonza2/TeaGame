@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4839679406117168328}
   - component: {fileID: 6191760126442840710}
   - component: {fileID: 7522584429571306703}
-  - component: {fileID: 1461226570493777998}
   - component: {fileID: 3040197835444926295}
+  - component: {fileID: 2967748606133077662}
   m_Layer: 3
   m_Name: Shnoot
   m_TagString: sleep
@@ -122,7 +122,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4839679406117168330}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -135,21 +135,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1461226570493777998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4839679406117168330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 874170f390d4edb4e955ed49966b3152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myManager: {fileID: 0}
-  _selected: 0
-  highlight: {fileID: 0}
 --- !u!114 &3040197835444926295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,11 +147,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b39d33f4db48c1a419c4c1fedd39330c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  potSpr: {fileID: 0}
   potSteep: {fileID: 0}
-  inventoryManager: {fileID: 0}
   lid: {fileID: 0}
   teaPot: {fileID: 0}
-  _cooldown: 0
   restPos: {x: 0, y: 0}
   inPotPos: {x: 0, y: 0}
+--- !u!114 &2967748606133077662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4839679406117168330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca157e9c0642a5441b9f12e826e0773b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myManager: {fileID: 0}
+  _selected: 0
+  highlight: {fileID: 0}
+  clumpRigidbody2D: {fileID: 0}

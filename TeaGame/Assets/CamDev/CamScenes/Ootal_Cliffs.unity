@@ -353,6 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 245267376}
+  clumpMoveScript: {fileID: 0}
   highLight: {fileID: 1377342661}
   tea: {fileID: 3684774035611108014, guid: cf57c6606e9b2c94abc6fb53782211b0, type: 3}
   leafName: Aile
@@ -1489,9 +1490,11 @@ GameObject:
   m_Component:
   - component: {fileID: 509264397}
   - component: {fileID: 509264398}
-  m_Layer: 0
+  - component: {fileID: 509264400}
+  - component: {fileID: 509264399}
+  m_Layer: 6
   m_Name: TeaPotInside
-  m_TagString: Untagged
+  m_TagString: TeaPotLid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1563,6 +1566,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &509264399
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509264396}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &509264400
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509264396}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.15865469, y: 0.990911}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.1666665, y: 3.875}
+    newSize: {x: 6.1666665, y: 3.875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.850976, y: 0.8260879}
+  m_EdgeRadius: 0
 --- !u!1 &580340462
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,7 +1831,7 @@ GameObject:
   - component: {fileID: 654424721}
   - component: {fileID: 654424719}
   - component: {fileID: 654424722}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LidCollider
   m_TagString: TeaPotLid
   m_Icon: {fileID: 0}
@@ -2495,6 +2545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 245267376}
+  clumpMoveScript: {fileID: 0}
   highLight: {fileID: 702190000}
   tea: {fileID: 2337735361097190598, guid: 308127526eee579449114b7e82f561ec, type: 3}
   leafName: Haka
@@ -4587,6 +4638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 245267376}
+  clumpMoveScript: {fileID: 0}
   highLight: {fileID: 18075057}
   tea: {fileID: 2223131341113361063, guid: 874f53bf4c9febf439de2b19c5ae2af1, type: 3}
   leafName: BomBom
@@ -4903,6 +4955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 245267376}
+  clumpMoveScript: {fileID: 0}
   highLight: {fileID: 1913580810}
   tea: {fileID: 4839679406117168330, guid: c5dc233a5d96e06459d1b99c68939dcc, type: 3}
   leafName: Shnoot
@@ -6875,6 +6928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 245267376}
+  clumpMoveScript: {fileID: 0}
   highLight: {fileID: 741953340}
   tea: {fileID: 7899271565261427418, guid: 81f4b1c15358d854daeca38ee0a13579, type: 3}
   leafName: Tallow
@@ -7366,6 +7420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 245267376}
+  clumpMoveScript: {fileID: 0}
   highLight: {fileID: 922960026}
   tea: {fileID: 2350093807606629641, guid: 162f7b6fa001faa46b68d258a6c56003, type: 3}
   leafName: Poff

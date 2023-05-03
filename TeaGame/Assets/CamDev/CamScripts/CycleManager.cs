@@ -29,8 +29,8 @@ public class CycleManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
-        Debug.Log("Current Loop: " + cycleCount);
-        Debug.Log("Current Index: " + sceneIndex);
+        //Debug.Log("Current Loop: " + cycleCount);
+        //Debug.Log("Current Index: " + sceneIndex);
     }
 
     #endregion
@@ -44,8 +44,8 @@ public class CycleManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Current Loop: " + cycleCount);
-        Debug.Log("Current Index: " + sceneIndex);
+        //Debug.Log("Current Loop: " + cycleCount);
+        //Debug.Log("Current Index: " + sceneIndex);
     }
 
     private void Update()

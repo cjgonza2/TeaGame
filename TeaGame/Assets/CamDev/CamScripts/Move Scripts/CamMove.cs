@@ -10,7 +10,7 @@ public class CamMove : MonoBehaviour
     public GameManager myManager;
 
     private Vector3 _mousePos; //vector 3 of the mouse. 
-    [HideInInspector]
+    //[HideInInspector]
     public bool _selected = false; //bool that determines if an object has been selected.
 
     private Camera _mainCam; //reference to main camera;

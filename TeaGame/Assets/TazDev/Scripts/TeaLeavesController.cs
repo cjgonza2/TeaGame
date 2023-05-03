@@ -6,6 +6,7 @@ using UnityEngine;
 public class TeaLeavesController : MonoBehaviour
 {
     [SerializeField] private GameManager inventoryManager;
+    [SerializeField] private ClumpMove clumpMoveScript;
 
     [SerializeField] private GameObject highLight;
     [SerializeField] private GameObject tea;
@@ -162,10 +163,11 @@ public class TeaLeavesController : MonoBehaviour
 
         //Debug.Log("YOu have made it bast the clump check.");
 
-        selected = true; 
+        selected = true;
         
         if (clumpExists) //if the tea clump already exists;
         {
+            clumpMoveScript._selected = true;
             return; //returns the function here.
         }
         
@@ -186,6 +188,8 @@ public class TeaLeavesController : MonoBehaviour
         _teaClump = Instantiate(tea, GetMouseWorldPosition(), Quaternion.identity); //instantiates clone of clump prefab.
         _teaLayer = _teaClump.GetComponent<SpriteRenderer>(); //grabs the sprite renderer of cloned prefab.
         _teaLayer.sortingLayerName = "Clumps"; //sets the sorting layer of prefab clone.
+        clumpMoveScript = _teaClump.GetComponent<ClumpMove>();
+        clumpMoveScript._selected = true;
         clumpExists = true;
     }
 

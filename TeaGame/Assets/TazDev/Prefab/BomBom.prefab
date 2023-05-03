@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3937833880600352493}
   - component: {fileID: 601063140753874506}
   - component: {fileID: 7150227564555034516}
-  - component: {fileID: 1394918202182871001}
   - component: {fileID: 7920337179134803045}
+  - component: {fileID: -3067268230668979887}
   m_Layer: 3
   m_Name: BomBom
   m_TagString: sweet
@@ -122,7 +122,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2223131341113361063}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -135,21 +135,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1394918202182871001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2223131341113361063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 874170f390d4edb4e955ed49966b3152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myManager: {fileID: 0}
-  _selected: 0
-  highlight: {fileID: 0}
 --- !u!114 &7920337179134803045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,11 +147,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b39d33f4db48c1a419c4c1fedd39330c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  potSpr: {fileID: 0}
   potSteep: {fileID: 0}
-  inventoryManager: {fileID: 0}
   lid: {fileID: 0}
   teaPot: {fileID: 0}
-  _cooldown: 0
   restPos: {x: 0, y: -7.5}
   inPotPos: {x: 0, y: 0}
+--- !u!114 &-3067268230668979887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2223131341113361063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca157e9c0642a5441b9f12e826e0773b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myManager: {fileID: 0}
+  _selected: 0
+  highlight: {fileID: 0}
+  clumpRigidbody2D: {fileID: 0}

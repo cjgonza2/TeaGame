@@ -68,7 +68,6 @@ public class GameManager : MonoBehaviour
                 DefaultLoad();
                 break;
         }
-        Debug.Log("piss in my ass");
         yield break;
     }
 

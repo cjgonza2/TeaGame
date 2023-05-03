@@ -4,20 +4,28 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using DG.Tweening;
+using Sequence = DG.Tweening.Sequence;
 
 public class TeaClump : MonoBehaviour
 {
     [SerializeField] 
-    private Pot_SpriteChanger potSpr; //this is so we can access the 
-
-    [SerializeField] 
     private Cam_Steep_Manager potSteep; //lets us pass the flavor to steep manager.
 
-    [SerializeField] private GameManager inventoryManager;
+    private CamMove _moveScript;
 
     private bool _holdingClump = false;
     
     public GameObject lid;
+
+    private float _clumpX()
+    {
+        return transform.position.x;
+    }
+
+    private float _clumpY()
+    {
+        return transform.position.y;
+    }
     private float _lidX()
     {
         return lid.transform.position.x;
@@ -35,6 +43,15 @@ public class TeaClump : MonoBehaviour
 
     #region TeaPot GameObject/Coordinates
     public GameObject teaPot;
+    private float _potXMax()
+    {
+        return (teaPot.transform.position.x + 1.6f);
+    }
+    private float _potXMin()
+    {
+        return (teaPot.transform.position.x - 1.6f);
+    }
+
     private float _potX()
     {
         return teaPot.transform.position.x;
@@ -53,16 +70,19 @@ public class TeaClump : MonoBehaviour
     public Vector2 restPos;
     public Vector2 inPotPos;
 
+    private Sequence _lidSequence;
+    private Sequence _lidCloseSequence;
+    
     private void Awake()
     {
         //Debug.Log(gameObject.tag);
+        _lidSequence = DOTween.Sequence();
+        _lidCloseSequence = DOTween.Sequence();
         _holdingClump = true;
         restPos = new Vector2(0, -7.5f);
         teaPot = GameObject.Find("TeaPot");
         lid = GameObject.Find("TeaPotLid");
-        potSpr = teaPot.GetComponent<Pot_SpriteChanger>();
         potSteep = teaPot.GetComponent<Cam_Steep_Manager>();
-        inventoryManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void Update()
@@ -72,30 +92,21 @@ public class TeaClump : MonoBehaviour
             gameObject.transform.position = restPos;
         }
     }
+    
 
     private void OnCollisionEnter2D(Collision2D col)
     {
         TeaPotCollision(col.transform.tag);
-        
-        /*if (potSteep.teaBase && potSteep.teaIng  && potSpr._filled)
-        {
-            potSpr._steeping = true; //sets the teapot to steeping. Steeping counter starts.
-        }*/
-
     }
 
     private void TeaPotCollision(string tag)
     {
-        if (tag != "TeaPot")
+        if (tag != "TeaPotLid")
         {
             return;
         }
-        //hakachekc
-        //tallow
-        //
         SetBase(transform.tag);
         SetIngredient(transform.tag);
-        //InventoryCheck(transform.tag);
         transform.position = restPos;
     }
     
@@ -155,33 +166,6 @@ public class TeaClump : MonoBehaviour
         }
     }
 
-    /*private void InventoryCheck(string clumpName)
-    {
-        switch (clumpName)
-        {
-            case "bitter":
-                inventoryManager.hakaCount--;
-                break;
-            case "mild":
-                inventoryManager.tallowCount--;
-                break;
-            case "sweet":
-                inventoryManager.bombomCount--;
-                break;
-            case "sleep":
-                inventoryManager.shnootCount--;
-                break;
-            case "energy":
-                inventoryManager.poffCount--;
-                break;
-            case "health":
-                inventoryManager.poffCount--;
-                break;
-            default:
-                break;
-        }
-    }*/
-
     private void OnTriggerEnter2D(Collider2D col)
     {
         MoveLid(col.transform.tag);
@@ -197,28 +181,26 @@ public class TeaClump : MonoBehaviour
         ResetLid();
     }
 
-    private void MoveLid(string tag)
+    private void MoveLid(string collidertag)
     {
-        if (tag != "TeaPotLid")
-        {
-            return;
-        }
-        lid.transform.DOMove(new Vector3( //tweens lid up to the right. 
+        if (collidertag != "TeaPotLid") return;
+        if (_lidSequence.IsPlaying()) return;
+        _lidSequence.Append(lid.transform.DOMove(new Vector3( //tweens lid up to the right. 
             _lidX() + 1f,
             _lidY() + 1f,
-            _lidZ()), 0.5f).SetEase(Ease.InOutCubic);
-        lid.transform.DORotate(new Vector3(0, 0, -25), .5f); //rotates lid. 
+            _lidZ()), 0.5f).SetEase(Ease.InOutCubic));
+        _lidSequence.Join(lid.transform.DORotate(new Vector3(0, 0, -25), .5f)); //rotates lid. 
+        _lidSequence.Play(); 
     }
 
     private void ResetLid()
     {
-        /*Debug.Log(_potX());
-        Debug.Log(_potY());
-        Debug.Log(_potZ());*/
-        lid.transform.DOMove(new Vector3(
+        if (_lidCloseSequence.IsPlaying()) return;
+        _lidCloseSequence.Append(lid.transform.DOMove(new Vector3(
             _potX(),
             _potY(),
-            _potZ()), 0.5f).SetEase(Ease.InOutCubic);
-        lid.transform.DORotate(Vector3.zero, .5f);
+            _potZ()), 0.5f).SetEase(Ease.InOutCubic));
+        _lidCloseSequence.Append(lid.transform.DORotate(Vector3.zero, .5f));
+        _lidCloseSequence.Play();
     }
 }

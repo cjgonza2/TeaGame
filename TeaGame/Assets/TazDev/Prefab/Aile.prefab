@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2440675956820040746}
   - component: {fileID: 2939183953937752601}
-  - component: {fileID: 6643013923725178303}
   - component: {fileID: 8120204097821216071}
   - component: {fileID: 7775717612747998263}
   - component: {fileID: 6000314284857584919}
+  - component: {fileID: 2524368638161411716}
   m_Layer: 3
   m_Name: Aile
   m_TagString: health
@@ -88,21 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6643013923725178303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3684774035611108014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 874170f390d4edb4e955ed49966b3152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myManager: {fileID: 0}
-  _selected: 0
-  highlight: {fileID: 0}
 --- !u!114 &8120204097821216071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,12 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b39d33f4db48c1a419c4c1fedd39330c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  potSpr: {fileID: 0}
   potSteep: {fileID: 0}
-  inventoryManager: {fileID: 0}
   lid: {fileID: 0}
   teaPot: {fileID: 0}
-  _cooldown: 0
   restPos: {x: 0, y: -7.5}
   inPotPos: {x: 0, y: 0}
 --- !u!61 &7775717612747998263
@@ -157,7 +139,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3684774035611108014}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -170,3 +152,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2524368638161411716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3684774035611108014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca157e9c0642a5441b9f12e826e0773b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myManager: {fileID: 0}
+  _selected: 0
+  highlight: {fileID: 0}
+  clumpRigidbody2D: {fileID: 0}
