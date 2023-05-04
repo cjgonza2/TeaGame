@@ -92,6 +92,16 @@ public class Kettle_Move : CamMove
     public override void Update()
     {
         base.Update(); //does everything parent function does.
+
+        if (gameObject.transform.position.y < -3 && !_selected)
+        {
+            gameObject.transform.DOMoveY(_startPos.y, 0.5f);
+        }
+
+        if (gameObject.transform.position.y > 4 && !_selected)
+        {
+            gameObject.transform.DOMoveY(0.5f, 0.5f);
+        }
         
         FillCheck(); //checks if the kettle is filled.
         

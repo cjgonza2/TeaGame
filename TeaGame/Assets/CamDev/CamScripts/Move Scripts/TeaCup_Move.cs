@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
 
@@ -15,15 +16,36 @@ public class TeaCup_Move : CamMove
 
     public Vector3 sipPos;
 
+    private Vector3 _startPos;
+    
+    private float cupY()
+    {
+        return gameObject.transform.position.y;
+    }
+
     public override void Start()
     {
         base.Start();
+        _startPos = gameObject.transform.position;
         myManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public override void Update()
     {
         base.Update();
+
+        if (cupY() < -3 && !_selected)
+        {
+            if (myManager.currentState != GameManager.State.Resting)return;
+            gameObject.transform.DOMoveY(_startPos.y, 0.5f);
+        }
+
+        if (cupY() > 4 && !_selected)
+        {
+            
+            gameObject.transform.DOMoveY(0.5f, 0.5f);
+        }
+        
         if (cupSpr.fillCup)
         {
             //pourCollider.SetActive(false);

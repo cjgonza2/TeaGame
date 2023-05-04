@@ -47,6 +47,7 @@ public class TeaPot_Move : CamMove
     #endregion
 
     #region Pot Transform Position
+    [SerializeField]private Vector3 startPos;
     private float _PotX()
     {
         return transform.position.x;
@@ -67,6 +68,7 @@ public class TeaPot_Move : CamMove
     public override void Start()
     {
         base.Start(); //does everything parent function does. 
+        startPos = gameObject.transform.position;
         myManager = GameObject.Find("GameManager").GetComponent<GameManager>(); //assigns game manager reference.
         teaPotLid = GameObject.Find("teapot_lid"); //assigns teapot lid reference;
         //_myManager = PouringManager.FindInstance();
@@ -75,6 +77,16 @@ public class TeaPot_Move : CamMove
     public override void Update()
     {
         base.Update(); //Does everything parent script does.
+
+        if (_PotY() < -3 && !_selected)
+        {
+            gameObject.transform.DOMoveY(startPos.y, 0.5f);
+        }
+
+        if (_PotY() > 4 && !_selected)
+        {
+            gameObject.transform.DOMoveY(0.5f, 0.5f);
+        }
     }
 
     public override void OnMouseDown()
