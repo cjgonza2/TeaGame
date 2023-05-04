@@ -67,6 +67,9 @@ public class ChracterManager : MonoBehaviour
     [Header("Tween Positions")] //posiitons for character entrance and exits.
     [SerializeField] private Vector3 entrancePos;
     [SerializeField] private Vector3 exitPos;
+
+    [Header("Animation Object")]
+    [SerializeField] private GameObject animationObj;
     
     public bool _sceneEnd = false;
 
@@ -180,6 +183,7 @@ public class ChracterManager : MonoBehaviour
         {
             return;
         }
+        animationObj.SetActive(false);
         LombardoDrink();
         RanaDrink();
         ShiWiDrink();
