@@ -164,13 +164,8 @@ public class TeaLeavesController : MonoBehaviour
         //Debug.Log("YOu have made it bast the clump check.");
 
         selected = true;
-        
-        if (clumpExists) //if the tea clump already exists;
-        {
-            clumpMoveScript._selected = true;
-            return; //returns the function here.
-        }
-        
+        //clumpMoveScript._selected = true;
+
         CreateClump(); //creates the tea clump.
     
     }

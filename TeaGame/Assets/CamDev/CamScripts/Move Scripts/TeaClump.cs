@@ -11,6 +11,8 @@ public class TeaClump : MonoBehaviour
     [SerializeField] 
     private Cam_Steep_Manager potSteep; //lets us pass the flavor to steep manager.
 
+    private TeaLeavesController leaveController;
+
     private CamMove _moveScript;
 
     private bool _holdingClump = false;
@@ -89,7 +91,7 @@ public class TeaClump : MonoBehaviour
     {
         if (gameObject.transform.position.y < restPos.y)
         {
-            gameObject.transform.position = restPos;
+            Destroy(gameObject);
         }
     }
     
