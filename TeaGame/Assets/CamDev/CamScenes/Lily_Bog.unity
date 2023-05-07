@@ -4225,7 +4225,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 103614393
   m_SortingLayer: 6
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5029,9 +5029,11 @@ MonoBehaviour:
   leftButton: {fileID: 1378024908}
   rightButton: {fileID: 2098276754}
   pages:
-  - {fileID: 21300000, guid: 2caf0fb96e8aac744bef5a9476cd9d37, type: 3}
-  - {fileID: 21300000, guid: 3b660358c5a2040459aaa1ca8dec82b1, type: 3}
-  - {fileID: 21300000, guid: 36ce6ac2942b16a4a95986e35eb88964, type: 3}
+  - {fileID: 21300000, guid: eb6ab3b797b2fce4fb49eab691b8a2cb, type: 3}
+  - {fileID: 21300000, guid: e535e5bd45fd8674e8a280c99eeb7a39, type: 3}
+  - {fileID: 21300000, guid: 265e8764427c18a47bc542f2f31186bd, type: 3}
+  - {fileID: 21300000, guid: 9134019fabc89534797d0847ed70601a, type: 3}
+  - {fileID: 21300000, guid: a270754c6d4e716468a2a2290482f7db, type: 3}
   currentIndex: 0
 --- !u!212 &1642992236
 SpriteRenderer:
@@ -5074,7 +5076,7 @@ SpriteRenderer:
   m_SortingLayerID: 242358951
   m_SortingLayer: 8
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 2caf0fb96e8aac744bef5a9476cd9d37, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eb6ab3b797b2fce4fb49eab691b8a2cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5894,6 +5896,7 @@ MonoBehaviour:
   teaPotLid: {fileID: 1003423269}
   lidPouringCollider: {fileID: 1592936555}
   teaCupCollider: {fileID: 602345509}
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!50 &1727030561
 Rigidbody2D:
   serializedVersion: 4

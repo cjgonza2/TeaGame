@@ -932,6 +932,7 @@ MonoBehaviour:
   cycleManager: {fileID: 0}
   steepManager: {fileID: 0}
   locale: 
+  _currentCharacter: 
   character: {fileID: 0}
   lambSpr: {fileID: 0}
   lambIdle: {fileID: 21300000, guid: 3d716d61431233d4c8c552bbbeff81ce, type: 3}
@@ -1647,6 +1648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 245267376}
+  charManager: {fileID: 245267377}
   characterAnimation: {fileID: 531462401}
 --- !u!95 &531462401
 Animator:

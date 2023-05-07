@@ -14,7 +14,7 @@ public class ChracterManager : MonoBehaviour
 
     [SerializeField]
     private string locale;
-    private string _currentCharacter;
+    public string _currentCharacter;
     
     [SerializeField] private GameObject character;
     

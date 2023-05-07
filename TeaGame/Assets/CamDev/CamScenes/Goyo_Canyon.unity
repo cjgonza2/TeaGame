@@ -1838,7 +1838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameIsPaused: 0
-  cycleCount: 1
+  cycleCount: 2
   sceneIndex: 3
 --- !u!4 &437281050
 Transform:
@@ -2490,6 +2490,7 @@ MonoBehaviour:
   teaPotLid: {fileID: 0}
   lidPouringCollider: {fileID: 143838140}
   teaCupCollider: {fileID: 1890868912}
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!50 &699752850
 Rigidbody2D:
   serializedVersion: 4
@@ -6300,6 +6301,7 @@ MonoBehaviour:
   cycleManager: {fileID: 0}
   steepManager: {fileID: 699752848}
   locale: 
+  _currentCharacter: 
   character: {fileID: 0}
   lambSpr: {fileID: 0}
   lambIdle: {fileID: 21300000, guid: 362e022524bc8e347b336c3ab0efcba9, type: 3}
@@ -6456,7 +6458,7 @@ SpriteRenderer:
   m_Size: {x: 14.166667, y: 15.416667}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1814120138
@@ -6472,6 +6474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1808856649}
+  charManager: {fileID: 1808856648}
   characterAnimation: {fileID: 1814120136}
 --- !u!1 &1861810643
 GameObject:

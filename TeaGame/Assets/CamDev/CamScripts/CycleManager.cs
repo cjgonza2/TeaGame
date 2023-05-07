@@ -46,6 +46,7 @@ public class CycleManager : MonoBehaviour
     {
         //Debug.Log("Current Loop: " + cycleCount);
         //Debug.Log("Current Index: " + sceneIndex);
+        //Cursor.visible = false;
     }
 
     private void Update()
