@@ -21,8 +21,16 @@ public class SceneChanger : MonoBehaviour
 
         if (!Input.GetKeyDown(KeyCode.Space)) return;
 
-        _cycleManager.sceneIndex++;
-        SceneManager.LoadScene(_cycleManager.sceneIndex);
-        //_cycleManager.cycleCount++;
+        if (SceneManager.GetActiveScene().name == "Epilogue")
+        {
+            SceneManager.LoadScene(0);
+        }
+        else
+        {
+            _cycleManager.sceneIndex++;
+            SceneManager.LoadScene(_cycleManager.sceneIndex);
+            //_cycleManager.cycleCount++;
+        }
+        
     }
 }

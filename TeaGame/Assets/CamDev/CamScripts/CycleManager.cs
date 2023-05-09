@@ -81,7 +81,15 @@ public class CycleManager : MonoBehaviour
             sceneIndex = 2;
         }
 
-        SceneManager.LoadScene(sceneIndex);
+        if (cycleCount > 3)
+        {
+            sceneIndex = 8;
+            SceneManager.LoadScene(sceneIndex);
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneIndex);
+        }
     }
 
     public void InitialStart()

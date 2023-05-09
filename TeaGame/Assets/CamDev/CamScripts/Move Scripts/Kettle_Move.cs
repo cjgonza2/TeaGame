@@ -11,6 +11,8 @@ public class Kettle_Move : CamMove
     
     [SerializeField] private Animator kettleLiquid;
     [SerializeField] private GameObject boilingWater;
+    [SerializeField] private AudioSource pouringWater;
+    
 
 
     [SerializeField] private Vector3 pouringPos;
@@ -218,6 +220,7 @@ public class Kettle_Move : CamMove
     {
         transform.DORotate(new Vector3(0, 0, -25f), 0.5f).SetEase(Ease.InOutCubic);
         kettleLiquid.Play("water_pour", 0, 0f);
+        pouringWater.Play();
         yield return new WaitForSeconds(kettleLiquid.GetCurrentAnimatorClipInfo(0).Length);
         myManager.finishedPouring = true;
         //potSpriteChanger._filled = true;
@@ -242,6 +245,7 @@ public class Kettle_Move : CamMove
 
     IEnumerator KettleReset()
     {
+        pouringWater.Stop();
         transform.DORotate(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.InOutCubic);
         yield break;
     }
