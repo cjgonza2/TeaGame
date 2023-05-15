@@ -3756,9 +3756,12 @@ MonoBehaviour:
   leftButton: {fileID: 1465484740}
   rightButton: {fileID: 1831396518}
   pages:
-  - {fileID: 21300000, guid: 2caf0fb96e8aac744bef5a9476cd9d37, type: 3}
-  - {fileID: 21300000, guid: 3b660358c5a2040459aaa1ca8dec82b1, type: 3}
-  - {fileID: 21300000, guid: 36ce6ac2942b16a4a95986e35eb88964, type: 3}
+  - {fileID: 21300000, guid: b21cf4c14818a33418a8011ce4c8be42, type: 3}
+  - {fileID: 21300000, guid: eb6ab3b797b2fce4fb49eab691b8a2cb, type: 3}
+  - {fileID: 21300000, guid: e535e5bd45fd8674e8a280c99eeb7a39, type: 3}
+  - {fileID: 21300000, guid: 265e8764427c18a47bc542f2f31186bd, type: 3}
+  - {fileID: 21300000, guid: 9134019fabc89534797d0847ed70601a, type: 3}
+  - {fileID: 21300000, guid: a270754c6d4e716468a2a2290482f7db, type: 3}
   currentIndex: 0
 --- !u!212 &989252571
 SpriteRenderer:
@@ -3801,7 +3804,7 @@ SpriteRenderer:
   m_SortingLayerID: 242358951
   m_SortingLayer: 8
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 2caf0fb96e8aac744bef5a9476cd9d37, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b21cf4c14818a33418a8011ce4c8be42, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
