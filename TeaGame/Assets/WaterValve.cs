@@ -10,12 +10,14 @@ public class WaterValve : MonoBehaviour
     [SerializeField] private Animator pourAnimation;
     [SerializeField] private Kettle_Move kettle;
     [SerializeField] private GameManager myManager; //gamemanager reference
+    [SerializeField] private AudioSource pourWaterSound;
 
     [Header("Pipe GameObjects")] 
     [SerializeField] private GameObject highLight;
 
     private IEnumerator PourWater()
     {
+        pourWaterSound.Play();
         pourAnimation.Play("WaterPouringAnimation");
         yield return new WaitForSeconds(pourAnimation.GetCurrentAnimatorClipInfo(0).Length);
         kettle.fill = true;

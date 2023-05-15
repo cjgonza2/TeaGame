@@ -13,7 +13,14 @@ public class StoryManager : MonoBehaviour
     public TextAsset inkAsset; //reference to the Ink Json File.
     private Story _inkStory;
     
-    [Header("Animators")] 
+    [Header("cycleManager")]
+    [SerializeField] private CycleManager cycleManager;
+
+    [Header("Animators")]
+    [Header("Vignette Two")]
+    [SerializeField] private Animator vignetteTwo_Animator;
+    [Header("Vignette Three")]
+    [SerializeField] private Animator vignetteThree_Animator;
     [Header("Line One")]
     [SerializeField] private Animator lineOne_Animator;
     [Header("Line Two")]
@@ -45,11 +52,30 @@ public class StoryManager : MonoBehaviour
     [Header("Panel")] 
     [SerializeField] private Animator SceneFade;
 
+    [Header("Text")]
     [SerializeField] private List<TMP_Text> _text;
 
     private List<string> _lines;
 
-    [SerializeField] private CycleManager cycleManager;
+
+    private int _lineNumb;
+    private bool _skip;
+    private bool _lineOne;
+    private bool _lineTwo;
+    private bool _lineThree;
+    private bool _lineFour;
+    private bool _batchFadeOne;
+    private bool _lineFive;
+    private bool _lineSix;
+    private bool _lineSeven;
+    private bool _lineEight;
+    private bool _batchFadeTwo;
+    private bool _lineNine;
+    private bool _lineTen;
+    private bool _lineEleven;
+    private bool _lineTwelve;
+    private bool _lineThirteen;
+    private bool _lineFourteen;
 
     //YOU CAN NOT USE START/UPDATE IN THE SCRIPT THAT'S PARSING THE INK FILE.
     private void Awake()
@@ -60,17 +86,82 @@ public class StoryManager : MonoBehaviour
         StartCoroutine(InitialLines());
     }
 
+    private void Update()
+    {
+        print(_lineNumb);
+        if (!Input.GetMouseButtonDown(0)) return;
+        _lineNumb++;
+        switch (_lineNumb)
+        {
+            case 1:
+                _lineOne = true;
+                StartCoroutine(FadeInLineOne());
+                break;
+            case 2:
+                _lineTwo = true;
+                StartCoroutine(FadeInLineTwo());
+                break;
+            case 3:
+                _lineThree = true;
+                StartCoroutine(FadeInLineThree());
+                break;
+            case 4:
+                _lineFour = true;
+                StartCoroutine(FadeInLineFour());
+                break;
+            case 5:
+                _batchFadeOne = true;
+                StartCoroutine(BatchFadeOutOne());
+                break;
+            case 6:
+                _lineFive = true;
+                StartCoroutine(FadeInLineFive());
+                break;
+            case 7:
+                _lineSix = true;
+                StartCoroutine(FadeInLineSix());
+                break;
+            case 8:
+                _lineSeven = true;
+                StartCoroutine(FadeInLineSeven());
+                break;
+            case 9:
+                _lineEight = true;
+                StartCoroutine(FadeInLineEight());
+                break;
+            case 10:
+                _batchFadeTwo = true;
+                StartCoroutine(BatchFadeOutTwo());
+                break;
+            case 11:
+                break;
+            case 12:
+                break;
+            case 13:
+                break;
+            case 14:
+                break;
+            case 15:
+                break;
+            case 16:
+                break;
+        }
+    }
+
     private IEnumerator InitialLines()
     {
+        SceneFade.Play("IntrofadeOne");
         for (int i = 0; i < 14; i++) //adds 13 lines to string list.
         {
             _lines.Add(_inkStory.Continue()); //adds each line of the story
             _text[i].text = _lines[i];           //to string list.
             //Debug.Log(_text[i].text);
         }
-
+        
+        yield return new WaitForSeconds(1f);
+        if(_lineOne) yield break;
+        _lineNumb++;
         StartCoroutine(FadeInLineOne());
-        yield break;
     }
 
     #region SectionOne
@@ -78,34 +169,48 @@ public class StoryManager : MonoBehaviour
     private IEnumerator FadeInLineOne()
     {
         lineOne_Animator.Play("LineOne_fadeIn");
+        Debug.Log("waiting line one");
         yield return new WaitForSeconds(4f);
+        if (_lineTwo) yield break;
+        _lineNumb++;
         StartCoroutine(FadeInLineTwo());
+
+
     }
     private IEnumerator FadeInLineTwo()
     {
         lineTwo_Animator.Play("LineTwo_FadeIn");
         yield return new WaitForSeconds(2f);
+        if (_lineThree) yield break;
+        _lineNumb++;
         StartCoroutine(FadeInLineThree());
     }
     private IEnumerator FadeInLineThree()
     {
         lineThree_Animator.Play("LineThree_FadeIn");
         yield return new WaitForSeconds(3f);
+        if(_lineFour) yield break;
+        _lineNumb++;
         StartCoroutine(FadeInLineFour());
     }
     private IEnumerator FadeInLineFour()
     {
         lineFour_Animator.Play("LineFour_FadeIn");
         yield return new WaitForSeconds(5f);
+        if(_batchFadeOne)yield break;
+        _lineNumb++;
         StartCoroutine(BatchFadeOutOne());
     }
     private IEnumerator BatchFadeOutOne()
     {
+        vignetteTwo_Animator.Play("VignetteTwo'");
         lineFour_Animator.Play("LineFour_FadeOut");
         lineThree_Animator.Play("LineThree_FadeOut");
         lineTwo_Animator.Play("LineTwo_FadeOut");
         lineOne_Animator.Play("LineOne_FadeOut");
         yield return new WaitForSeconds(1f);
+        if (_lineFive) yield break;
+        _lineNumb++;
         StartCoroutine(FadeInLineFive());
     }
     #endregion
@@ -115,6 +220,8 @@ public class StoryManager : MonoBehaviour
     {
         lineFive_Animator.Play("LineFive_FadeIn");
         yield return new WaitForSeconds(2f);
+        if (_lineSix) yield break;
+        _lineNumb++;
         StartCoroutine(FadeInLineSix());
     }
 
@@ -122,29 +229,39 @@ public class StoryManager : MonoBehaviour
     {
         lineSix_Animator.Play("LineSix_FadeIn");
         yield return new WaitForSeconds(2f);
+        if(_lineSeven) yield break;
+        _lineNumb++;
         StartCoroutine(FadeInLineSeven());
     }
 
     private IEnumerator FadeInLineSeven()
     {
         lineSeven_Animator.Play("LineSeven_FadeIn");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
+        if(_lineEight) yield break;
+        _lineNumb++;
         StartCoroutine(FadeInLineEight());
     }
     private IEnumerator FadeInLineEight()
     {
         lineEight_Animator.Play("LineEight_FadeIn");
         yield return new WaitForSeconds(3f);
+        if(_batchFadeTwo) yield break;
+        _lineNumb++;
         StartCoroutine(BatchFadeOutTwo());
     }
 
     private IEnumerator BatchFadeOutTwo()
     {
+        
+        vignetteThree_Animator.Play("VignetteThree");
         lineEight_Animator.Play("LineEight_FadeOut");
         lineSeven_Animator.Play("LineSeven_FadeOut");
         lineSix_Animator.Play("LineSix_FadeOut");
         lineFive_Animator.Play("LineFive_FadeOut");
         yield return new WaitForSeconds(1f);
+        if(_lineNine) yield break;
+        _lineNumb++;
         StartCoroutine(LineNine());
     }
 

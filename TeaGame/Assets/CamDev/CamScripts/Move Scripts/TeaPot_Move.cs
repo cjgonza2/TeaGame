@@ -14,6 +14,8 @@ public class TeaPot_Move : CamMove
     [SerializeField] private PouringManager pourManager;
     [SerializeField] private Cam_Steep_Manager _steepManager;
     [SerializeField] private Pot_SpriteChanger potSprite;
+
+    [SerializeField] private AudioSource pourWater;
     [Header("Sprite Changer")]
     [SerializeField] 
     private Pot_SpriteChanger sprTrack;
@@ -136,7 +138,8 @@ public class TeaPot_Move : CamMove
         if (!col.gameObject.CompareTag("cup")) return; //unless the pot is colliding with the cup, breaks.
 
         if (!sprTrack._steeping) return;
-        
+
+        pourWater.Play();
         transform.DORotate(new Vector3(0, 0, 25f), 0.5f).SetEase(Ease.InOutCubic);
         teaPourAnim.Play("pour_animation"); 
         _steepManager._finishedSteep = true;
@@ -148,6 +151,7 @@ public class TeaPot_Move : CamMove
         if (!other.gameObject.CompareTag("cup")) return;
         if (sprTrack._steeping)
         {
+            pourWater.Stop();
             transform.DORotate(new Vector3(0, 0, 0f), 0.5f).SetEase(Ease.InOutCubic);
         }
         teaCupCollider.SetActive(false);
