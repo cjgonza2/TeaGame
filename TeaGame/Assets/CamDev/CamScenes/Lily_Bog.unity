@@ -5113,7 +5113,8 @@ MonoBehaviour:
   leftButton: {fileID: 1378024908}
   rightButton: {fileID: 2098276754}
   pages:
-  - {fileID: 21300000, guid: eb6ab3b797b2fce4fb49eab691b8a2cb, type: 3}
+  - {fileID: 21300000, guid: b21cf4c14818a33418a8011ce4c8be42, type: 3}
+  - {fileID: 21300000, guid: 44c99502db3d3d54b96a0c8a0222a12a, type: 3}
   - {fileID: 21300000, guid: e535e5bd45fd8674e8a280c99eeb7a39, type: 3}
   - {fileID: 21300000, guid: 265e8764427c18a47bc542f2f31186bd, type: 3}
   - {fileID: 21300000, guid: 9134019fabc89534797d0847ed70601a, type: 3}
@@ -5160,7 +5161,7 @@ SpriteRenderer:
   m_SortingLayerID: 242358951
   m_SortingLayer: 8
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: eb6ab3b797b2fce4fb49eab691b8a2cb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b21cf4c14818a33418a8011ce4c8be42, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
