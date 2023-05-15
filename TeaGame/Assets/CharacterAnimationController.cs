@@ -36,6 +36,17 @@ public class CharacterAnimationController : MonoBehaviour
         }
     }
 
+    private IEnumerator RanaPlayAnimation()
+    {
+        print("Playing Animation");
+        characterAnimation.Play("rana_anim");
+        yield return new WaitForSeconds(characterAnimation.GetCurrentAnimatorClipInfo(0).Length);
+        if (gameManager.currentState == GameManager.State.Resting)
+        {
+            StartCoroutine(WaitToStartAnimation());
+        }
+    }
+    
     private IEnumerator ShiWiPlayAnimation()
     {
         print("playing Animation");
