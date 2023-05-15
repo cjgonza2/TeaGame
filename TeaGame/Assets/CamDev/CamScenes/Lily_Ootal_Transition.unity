@@ -238,8 +238,8 @@ MonoBehaviour:
     time soon. But you know what, this time\u2019s the one. It\u2019s gonna go great.
     Third time\u2019s the charm right?"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42830b81367d2d34f9aebba04167d5fb, type: 2}
+  m_sharedMaterial: {fileID: 5611092919904049159, guid: 42830b81367d2d34f9aebba04167d5fb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -560,8 +560,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press Space to Continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42830b81367d2d34f9aebba04167d5fb, type: 2}
+  m_sharedMaterial: {fileID: 5611092919904049159, guid: 42830b81367d2d34f9aebba04167d5fb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
