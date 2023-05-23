@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject resumeButton;
     [SerializeField] private GameObject quitButton;
+    [SerializeField] private GameObject controls;
     public bool gamePaused;
 
     [Header("Current Scene Info")]
@@ -121,6 +123,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         cycleManager = CycleManager.FindInstance();
+
         SetScene();
         StartCoroutine($"{_currentScene}IngredientLoad");
         TransitionState(State.Enter);
@@ -155,16 +158,18 @@ public class GameManager : MonoBehaviour
         pausePanel.SetActive(true);
         resumeButton.SetActive(true);
         quitButton.SetActive(true);
+        controls.SetActive(true);
         gamePaused = true;
         //Time.timeScale = 0f;
     }
 
-    private void UnPauseGame()
+    public void UnPauseGame()
     {
         if (gamePaused) return; //if game is paused, returns
         pausePanel.SetActive(false);
         resumeButton.SetActive(false);
         quitButton.SetActive(false);
+        controls.SetActive(false);
         gamePaused = false;
         //Time.timeScale = 1f;
     }
