@@ -52,8 +52,10 @@ public class CycleManager : MonoBehaviour
     private void Update()
     {
         PauseInput();
-        /*PauseGame();
-        UnPauseGame();*/
+        if (SceneManager.GetActiveScene().name == "TisaneTitle")
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void PauseInput()
