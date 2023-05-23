@@ -13,7 +13,7 @@ public class TitleMenuManager : MonoBehaviour
     //button objects
     public GameObject startButtonObj;
     public GameObject playButtonObj;
-    //public GameObject optionsButtonObj;
+    public GameObject optionsButtonObj;
     public GameObject creditsButtonObj;
     public GameObject backButtonObj;
     public GameObject backToStart;
@@ -43,10 +43,10 @@ public class TitleMenuManager : MonoBehaviour
         return playButtonObj.GetComponent<Button>();
     }
 
-    // private Button OptionsButton()
-    // {
-    //     return optionsButtonObj.GetComponent<Button>();
-    // }
+    private Button OptionsButton()
+    {
+         return optionsButtonObj.GetComponent<Button>();
+    }
 
     private Button CreditsButton()
     {
@@ -84,8 +84,8 @@ public class TitleMenuManager : MonoBehaviour
         playGame.onClick.AddListener(TaskOnPlay);
 
         //add listener to Options Button, click for TaskOnOptions
-        // Button openOptions = OptionsButton();
-        // openOptions.onClick.AddListener(TaskOnOptions);
+        Button openOptions = OptionsButton();
+        openOptions.onClick.AddListener(TaskOnOptions);
 
         //add listener to Credits Button, click for TaskOnCredits
         Button openCredits = CreditsButton();
@@ -132,7 +132,7 @@ public class TitleMenuManager : MonoBehaviour
         //get rid of all start menu buttons
         playButtonObj.SetActive(false);
         creditsButtonObj.SetActive(false);
-        // optionsButtonObj.SetActive(false);
+        optionsButtonObj.SetActive(false);
     }
 
     //do this when click play button
@@ -143,20 +143,20 @@ public class TitleMenuManager : MonoBehaviour
     }
 
     //do this when click options button
-    // private void TaskOnOptions()
-    // {
-    //     Debug.Log("options");
-    //     isOption = true;
-    //
-    //     //get rid of all start menu buttons
-    //     backToStart.SetActive(false);
-    //     playButtonObj.SetActive(false);
-    //     creditsButtonObj.SetActive(false);
-    //     // optionsButtonObj.SetActive(false);
-    //
-    //     //show options after delay
-    //     StartCoroutine(PageFlipDelay());
-    // }
+    private void TaskOnOptions()
+    {
+         Debug.Log("options");
+         isOption = true;
+    
+         //get rid of all start menu buttons
+         backToStart.SetActive(false);
+         playButtonObj.SetActive(false);
+         creditsButtonObj.SetActive(false);
+         optionsButtonObj.SetActive(false);
+    
+         //show options after delay
+         StartCoroutine(PageFlipDelay());
+    }
 
     //do this when click credits button
     private void TaskOnCredits()
@@ -168,7 +168,7 @@ public class TitleMenuManager : MonoBehaviour
         backToStart.SetActive(false);
         playButtonObj.SetActive(false);
         creditsButtonObj.SetActive(false);
-        // optionsButtonObj.SetActive(false);
+        optionsButtonObj.SetActive(false);
 
         //show credits after delay
         StartCoroutine(PageFlipDelay());
@@ -200,7 +200,7 @@ public class TitleMenuManager : MonoBehaviour
         backToStart.SetActive(true);
         playButtonObj.SetActive(true);
         creditsButtonObj.SetActive(true);
-        // optionsButtonObj.SetActive(true);
+        optionsButtonObj.SetActive(true);
     }
 
     //when click either options or credits buttons, page flip occurs, so show objects in scene after a delay
