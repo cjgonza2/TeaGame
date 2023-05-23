@@ -37,6 +37,10 @@ public class CameraMove : MonoBehaviour
     [SerializeField]
     private bool _input = false;
 
+    private bool _sceneEnd;
+
+    private bool _customerLook;
+
     private void Start()
     {
         _startPos = gameObject.transform.position;
@@ -49,12 +53,29 @@ public class CameraMove : MonoBehaviour
     {
         //input checks.
         if (myManager.compendiumOpen) return;
+
+        if (myManager.currentState == GameManager.State.Drinking)
+        {
+            LookAtCustomer();
+            return;
+        }
+
+        if (_sceneEnd) return;
         DownInput();
         UpInput();
         LeftInput();
         RightInput();
     }
 
+    private void LookAtCustomer()
+    {
+        if (_customerLook) return;
+        _customerLook = true;
+        _input = false;
+        _sceneEnd = true;
+        gameObject.transform.DOMoveY(lookUpDistance, 0.5f).SetEase(Ease.InOutCubic);
+    }
+    
     private void DownInput()
     {
         if (gameObject.transform.position.y != lookUpDistance) return;
