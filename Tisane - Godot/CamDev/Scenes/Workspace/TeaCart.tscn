@@ -40,27 +40,37 @@ animations = [ {
 [node name="Table" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Shelf" type="Node2D" parent="Sprite"]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Sprite/Shelf"]
 position = Vector2( -230, -49 )
 texture = ExtResource( 4 )
 
 [node name="Pipe" type="Area2D" parent="Sprite"]
+position = Vector2( -79.3241, -117 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Sprite/Pipe"]
-position = Vector2( -82, -115 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Pipe"]
-position = Vector2( -69, -130 )
+position = Vector2( 12.6759, -14.3333 )
 shape = SubResource( 1 )
 
 [node name="FaucetPouring" type="AnimatedSprite" parent="Sprite/Pipe"]
-position = Vector2( -64, -45 )
+position = Vector2( 17.5, 70 )
 z_index = 2
 frames = SubResource( 2 )
 animation = "FaucetPouring"
