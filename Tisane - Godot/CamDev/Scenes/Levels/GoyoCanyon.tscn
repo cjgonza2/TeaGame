@@ -16,5 +16,6 @@ position = Vector2( -97, 204 )
 [node name="PlayerCamera" parent="." instance=ExtResource( 3 )]
 position = Vector2( -62, 104 )
 _startPos = Vector2( -62, 104 )
+_lookUpPos = Vector2( -62, -40 )
 _lookLeftPos = Vector2( -350, 104 )
 _lookRightPos = Vector2( 350, 104 )
