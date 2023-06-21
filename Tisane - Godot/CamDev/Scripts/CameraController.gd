@@ -81,7 +81,6 @@ func _process(delta):
 	print(position.x)
 	pass
 
-
 func _physics_process(delta):
 	if _moveCamera:
 		var tween := create_tween()
