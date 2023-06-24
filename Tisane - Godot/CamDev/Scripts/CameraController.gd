@@ -1,22 +1,19 @@
 extends Node2D
 
+#dictionarry for holding the camera positions.
+export var _cameraPositions: Dictionary
 
-export var _startPos: Vector2
-export var _lookUpPos: Vector2
-export var _lookLeftPos: Vector2
-export var _lookRightPos: Vector2
 var _targetPos: Vector2
 var _currentPos: Vector2
 
 var _moveCamera: bool = false
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#caches the start position as our target so we know where we are,
 	#and once we provide an input we know where to go. 
-	_targetPos = _startPos
+	#_targetPos = _startPos
+	_targetPos = _cameraPositions.startPos
 
 func _input(event):
 
@@ -27,24 +24,24 @@ func _input(event):
 	if !_moveCamera:
 		# x input event will change the target pos based on where it currently is.
 		if Input.is_action_pressed("MoveLeft"):
-			if _currentPos == _startPos:		#if we're at our starting position: 
-				_targetPos = _lookLeftPos		#We move to the left position.
-			if _currentPos == _lookRightPos:	#But if we're at the right position:
-				_targetPos = _startPos			#We move back to the starting position. 
+			if _currentPos == _cameraPositions.startPos:		#if we're at our starting position: 
+				_targetPos = _cameraPositions.leftPos			#We move to the left position.
+			if _currentPos == _cameraPositions.rightPos:	#But if we're at the right position:
+				_targetPos = _cameraPositions.startPos		#We move back to the starting position. 
 				
 		if Input.is_action_pressed("MoveRight"):
-			if _currentPos == _startPos:
-				_targetPos = _lookRightPos
-			if _currentPos == _lookLeftPos:
-				_targetPos = _startPos
+			if _currentPos == _cameraPositions.startPos:
+				_targetPos = _cameraPositions.rightPos
+			if _currentPos == _cameraPositions.leftPos:
+				_targetPos = _cameraPositions.startPos
 				
 		if Input.is_action_pressed("MoveUp"):
-			if _currentPos == _startPos:
-				_targetPos = _lookUpPos
+			if _currentPos == _cameraPositions.startPos:
+				_targetPos = _cameraPositions.upPos
 				
 		if Input.is_action_pressed("MoveDown"):
-			if _currentPos == _lookUpPos:
-				_targetPos = _startPos
+			if _currentPos == _cameraPositions.upPos:
+				_targetPos = _cameraPositions.startPos
 		
 		#Once an input is given and we have our target position, we tell the camera to move.
 		_moveCamera = true
@@ -59,28 +56,28 @@ func _process(delta):
 	
 	#Depending on which target vector2 we're passing through:
 	match _targetPos:
-		_lookLeftPos:
+		_cameraPositions.leftPos:
 			if position.x <= (_targetPos.x + 1):	#We check if the position is within a given threshold.
 				position.x = _targetPos.x			#Then we clamp it to our desired position
 				
-		_lookRightPos:
+		_cameraPositions.rightPos:
 			if position.x >= (_targetPos.x - 1):
 				position.x = _targetPos.x
 				
-		_lookUpPos:
+		_cameraPositions.upPos:
 			if position.y <= (_targetPos.y + 1):
 				position.y = _targetPos.y
 			pass
 
-		_startPos:
+		_cameraPositions.startPos:
 			#We check whcih position we're moving to the start position from.
-			if _currentPos == _lookLeftPos:	
+			if _currentPos == _cameraPositions.leftPos:	
 				if position.x >= (_targetPos.x - 1) and position.x <= (_targetPos.x + 1):	#We then check if x/y position is within threshold
 					position.x = _targetPos.x												#then we just clamp it to the start position. 
-			elif _currentPos == _lookRightPos:
+			elif _currentPos == _cameraPositions.rightPos:
 				if position.x <= (_targetPos.x + 1) and position.x >= (_targetPos.x - 1):
 					position.x = _targetPos.x
-			elif _currentPos == _lookUpPos:
+			elif _currentPos == _cameraPositions.upPos:
 				if position.y >=  (_targetPos.y - 1):
 					position.y = _targetPos.y 
 			pass

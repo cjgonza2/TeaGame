@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "MoveableObject",
+"language": "GDScript",
+"path": "res://CamDev/Scripts/Utility/MoveableObject.gd"
+} ]
+_global_script_class_icons={
+"MoveableObject": ""
+}
+
 [application]
 
 config/name="Tisane - Godot"
