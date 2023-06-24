@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://CamDev/Sprites/Backgrounds/goyo_canyon_bg.png" type="Texture" id=1]
 [ext_resource path="res://CamDev/Scenes/Workspace/TeaCart.tscn" type="PackedScene" id=2]
 [ext_resource path="res://CamDev/Scenes/PlayerTools/Camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://CamDev/Scenes/PlayerTools/TeaPot.tscn" type="PackedScene" id=4]
 
 [node name="GoyoCanyon" type="Node2D"]
 
@@ -21,3 +22,5 @@ _cameraPositions = {
 "startPos": Vector2( -62, 104 ),
 "upPos": Vector2( -62, -40 )
 }
+
+[node name="TeaPot" parent="." instance=ExtResource( 4 )]

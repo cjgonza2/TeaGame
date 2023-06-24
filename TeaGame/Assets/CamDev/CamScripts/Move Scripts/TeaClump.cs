@@ -133,9 +133,7 @@ public class TeaClump : MonoBehaviour
                 potSteep.sweet = true;
                 potSteep.teaBase = true;
                 break;
-            default:
-                //Debug.Log("No base Detected");
-                break;
+
         }
     }
 

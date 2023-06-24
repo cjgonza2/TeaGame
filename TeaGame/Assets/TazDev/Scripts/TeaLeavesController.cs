@@ -152,19 +152,8 @@ public class TeaLeavesController : MonoBehaviour
     {
         if (inventoryManager.gamePaused) return;
         if (inventoryManager.compendiumOpen) return;
-        
-        //based on whatever leaf name there is, starts the appropriate check.
-        //StartCoroutine($"{leafName}Check");
-
-        /*if (!enoughClumps) //if it sees there aren't enough clumps.
-        {
-            return; //simply returns and doesn't do the rest.
-        }*/
-
-        //Debug.Log("YOu have made it bast the clump check.");
 
         selected = true;
-        //clumpMoveScript._selected = true;
 
         CreateClump(); //creates the tea clump.
     
