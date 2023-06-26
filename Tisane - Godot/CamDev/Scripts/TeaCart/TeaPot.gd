@@ -21,18 +21,21 @@ var _collision: MoveableObject
 var _lidDefault: Vector2
 var _lidTarget: Vector2
 
+onready var _openLid = get_node("MoveableObject/Lid/Tween")
+onready var _closeLid
+
 export var _moveSpeed: int
 
 func _ready():
 	_collision = get_node("MoveableObject")
 	_collision._lerpSpeed = _moveSpeed
 	
+	
 	_calculateLidPos()
 	
 	
 func _physics_process(delta):
 	_calculateLidPos()
-	print(_lidTarget)
 	pass
 
 
@@ -50,19 +53,23 @@ func _on_MoveableObject_input_event(viewport, event, shape_idx):
 
 
 func _on_Lid_mouse_entered():
-	var tween := create_tween()
-	var _isPlaying = false
+	_openLid = get_tree().create_tween()
 	
-	if tween.is_running():
-		_isPlaying = true
-	else:
-		_isPlaying = false
-	
-	if !_isPlaying:
-		tween.tween_property($MoveableObject/Lid, "global_position", _lidTarget, 1) 
-
+	_openLid.tween_property(
+		$MoveableObject/Lid, "global_position", _lidTarget, 0.3)
+	_openLid.parallel().tween_property(
+		$MoveableObject/Lid, "rotation_degrees", 35, 0.3)
+		
 
 func _on_Lid_mouse_exited():
-	var resetTween = create_tween()
-	resetTween.tween_property($MoveableObject/Lid, "global_position", _lidDefault, 1)
+	_closeLid = get_tree().create_tween()
+	
+	_closeLid.tween_property(
+		$MoveableObject/Lid, "global_position", _lidDefault, 0.3)
+	_closeLid.parallel().tween_property(
+		$MoveableObject/Lid, "rotation_degrees", 0, 0.3)
+
+
+func _on_Tween_tween_completed(object, key):
+	print ("im finished")
 	pass # Replace with function body.
