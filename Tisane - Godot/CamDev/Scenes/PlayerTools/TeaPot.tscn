@@ -32,10 +32,14 @@ shape = SubResource( 1 )
 [node name="TeaPot_Inside_Sprite" type="Sprite" parent="MoveableObject"]
 texture = ExtResource( 4 )
 
+[node name="TeaPot_HighLight_Sprite" type="Sprite" parent="MoveableObject"]
+
 [node name="Lid" type="Area2D" parent="MoveableObject"]
 
 [node name="Lid_Sprite" type="Sprite" parent="MoveableObject/Lid"]
 texture = ExtResource( 5 )
+
+[node name="Lid_HighLight_Sprite" type="Sprite" parent="MoveableObject/Lid"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MoveableObject/Lid"]
 position = Vector2( -3, -93 )
@@ -45,5 +49,7 @@ shape = SubResource( 2 )
 [node name="Tween" type="Tween" parent="MoveableObject/Lid"]
 
 [connection signal="input_event" from="MoveableObject" to="." method="_on_MoveableObject_input_event"]
+[connection signal="mouse_entered" from="MoveableObject" to="." method="_on_MoveableObject_mouse_entered"]
+[connection signal="mouse_exited" from="MoveableObject" to="." method="_on_MoveableObject_mouse_exited"]
 [connection signal="mouse_entered" from="MoveableObject/Lid" to="." method="_on_Lid_mouse_entered"]
 [connection signal="mouse_exited" from="MoveableObject/Lid" to="." method="_on_Lid_mouse_exited"]
