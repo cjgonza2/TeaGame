@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "MoveableObject",
 "language": "GDScript",
 "path": "res://CamDev/Scripts/Utility/MoveableObject.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "TeaClump",
+"language": "GDScript",
+"path": "res://CamDev/Scripts/Utility/TeaClump.gd"
+}, {
+"base": "Node2D",
+"class": "TeaClumpContainer",
+"language": "GDScript",
+"path": "res://CamDev/Scripts/Utility/TeaContainer.gd"
 } ]
 _global_script_class_icons={
-"MoveableObject": ""
+"MoveableObject": "",
+"TeaClump": "",
+"TeaClumpContainer": ""
 }
 
 [application]

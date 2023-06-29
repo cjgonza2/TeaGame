@@ -22,7 +22,7 @@ func _on_Pipe_mouse_exited():
 
 func _on_Pipe_input_event(viewport, event, shape_idx):
 	#if we click on the fuacet
-	if Input.is_action_pressed("click"):
+	if Input.is_action_just_pressed("click"):
 		#we check if the faucet animation is pouring, 
 		#if it is not:
 		if !$FaucetPouring.playing:

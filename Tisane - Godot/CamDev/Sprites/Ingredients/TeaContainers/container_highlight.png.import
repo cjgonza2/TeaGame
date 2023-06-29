@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/teacup_pixel.png-2a31a595d8c4e703289314e6eda7a15d.stex"
+path="res://.import/container_highlight.png-19e2447489fa1801daccb960f9a6e47c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CamDev/Sprites/PlayerTools/teacup_pixel.png"
-dest_files=[ "res://.import/teacup_pixel.png-2a31a595d8c4e703289314e6eda7a15d.stex" ]
+source_file="res://CamDev/Sprites/Ingredients/TeaContainers/container_highlight.png"
+dest_files=[ "res://.import/container_highlight.png-19e2447489fa1801daccb960f9a6e47c.stex" ]
 
 [params]
 

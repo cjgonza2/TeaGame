@@ -38,12 +38,12 @@ export var _moveSpeed: int #move speed of the object that determines lerp speed.
 func _ready():
 	_collision._lerpSpeed = _moveSpeed #we set our lerpspeed.
 	pass
-	
-	
+
+
 func _physics_process(delta):
 	_calculateLidPos()	#Here so we always have a consistent update to our lid pos.
 	
-	if _collision.selected:
+	if _collision.selected: #if we're selected we disable the highlight sprites.
 		if _highLight.texture and _lidHighlight.texture != null:
 			_highLight.texture = null
 			_lidHighlight.texture = null
@@ -59,11 +59,9 @@ func _calculateLidPos():
 
 
 func _on_MoveableObject_input_event(viewport, event, shape_idx):
-	if Input.is_action_pressed("click"):
+	if Input.is_action_just_pressed("click"):
 		_collision.selected = true #tells the moveable obj script that we're selected
-	
-
-	
+	pass
 
 
 func _on_Lid_mouse_entered():
@@ -84,7 +82,7 @@ func _on_Lid_mouse_entered():
 	_openLid.parallel().tween_property(		#creates a tween parralel to the first one.
 		$MoveableObject/Lid, "rotation_degrees", 35, 0.3)
 	pass
-		
+
 
 func _on_Lid_mouse_exited():
 	if _collision.selected:return
@@ -102,7 +100,7 @@ func _on_MoveableObject_mouse_entered():
 	_highLight.texture = _hightLightSpr
 	_lidHighlight.texture = _lidHighLightSpr
 	pass
-	
+
 
 func _on_MoveableObject_mouse_exited():
 	_highLight.texture = null
