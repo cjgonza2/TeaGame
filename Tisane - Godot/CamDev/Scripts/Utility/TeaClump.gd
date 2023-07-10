@@ -11,12 +11,14 @@ signal _sendName(_ingName) #the signal we emmit to send the tea clump's name to 
 
 var _selected: bool = false
 var _offScreen: bool = false
+var _lidOpen: bool = false
 
 #Physics variables
 export var _gravityRate:int #the rate at which the tea clump falls
 var _gravity: Vector2 = Vector2() #holds the gravity rate so that we can add it to the velocity
 var _velocity: Vector2 = Vector2() #Tea clumps downward velocity
 
+onready var _restPos: Vector2 = global_position
 
 ###NOTE: KinematicBody2Ds (at least in 3.5.2) can't really detect inputs,
 		#even if they have a collision shape. The easiest way around this is for
@@ -24,6 +26,7 @@ var _velocity: Vector2 = Vector2() #Tea clumps downward velocity
 		#input/collisions.
 		
 func _ready():
+	print(_restPos)
 	_sprite.texture = _clumpSpr #sets our texture to whichever clump we give it.
 	_gravity = Vector2(0, _gravityRate) #sets our gravity rate. we can't do this when we declare the variable
 										#becasue at the moment of decleration the _gravityrate variable has no
@@ -63,3 +66,15 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func _on_VisibilityNotifier2D_screen_entered():
 	_offScreen = false
+
+
+func _on_Area2D_area_entered(area):
+	if area.get_name() == "MoveableObject":
+		if _lidOpen:
+			emit_signal("_sendName", _ingName)
+			global_position = _restPos
+			_velocity = Vector2.ZERO
+
+
+func _on_TeaPot__lidIsOpen():
+	_lidOpen = true

@@ -16,6 +16,23 @@ height = 30.0
 
 [node name="TeaPot" type="Node2D"]
 script = ExtResource( 2 )
+_spriteDir = {
+"dryAile": "res://CamDev/Sprites/PlayerTools/TeaPot/DrySprites/teapot_individual_aile.png",
+"dryBomBom": "res://CamDev/Sprites/PlayerTools/TeaPot/DrySprites/teapot_individual_bombom.png",
+"dryBomBomAile": "res://CamDev/Sprites/PlayerTools/TeaPot/DrySprites/teapot_dry_bombomaile.png",
+"dryBomBomPoff": "res://CamDev/Sprites/PlayerTools/TeaPot/DrySprites/teapot_dry_bombompoff.png",
+"dryBomBomShnoot": "res://CamDev/Sprites/PlayerTools/TeaPot/DrySprites/teapot_dry_bombomshnoot.png",
+"dryHaka": "res://CamDev/Sprites/PlayerTools/TeaPot/DrySprites/teapot_individual_haka.png",
+"dryHakaAile": "res://CamDev/Sprites/PlayerTools/TeaPot/DrySprites/teapot_dry_hakaaile.png",
+"dryHakaPoff": "res://CamDev/Sprites/PlayerTools/TeaPot/DrySprites/teapot_dry_hakapoff.png",
+"dryHakaShnoot": "res://CamDev/Sprites/PlayerTools/TeaPot/DrySprites/teapot_dry_hakashnoot.png",
+"dryPoffBerry": "res://CamDev/Sprites/PlayerTools/TeaPot/DrySprites/teapot_individual_poff.png",
+"dryShnoot": "res://CamDev/Sprites/PlayerTools/TeaPot/DrySprites/teapot_individual_shnoot.png",
+"dryTallow": "res://CamDev/Sprites/PlayerTools/TeaPot/DrySprites/teapot_individual_tallow.png",
+"dryTallowAile": "res://CamDev/Sprites/PlayerTools/TeaPot/DrySprites/teapot_dry_tallowaile.png",
+"dryTallowPoff": "res://CamDev/Sprites/PlayerTools/TeaPot/DrySprites/teapot_dry_tallowpoff.png",
+"dryTallowShnoot": "res://CamDev/Sprites/PlayerTools/TeaPot/DrySprites/teapot_dry_tallowshnoot.png"
+}
 _moveSpeed = 25
 
 [node name="MoveableObject" type="Area2D" parent="."]

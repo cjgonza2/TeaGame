@@ -4,10 +4,10 @@
 [ext_resource path="res://CamDev/Sprites/Ingredients/TeaClumps/clump_tallow.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 24.0208
+radius = 9.05539
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 24.0
+radius = 9.05539
 
 [node name="TeaClump" type="KinematicBody2D"]
 position = Vector2( 75, 83 )
@@ -22,7 +22,6 @@ _gravityRate = 50
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -30,6 +29,7 @@ shape = SubResource( 1 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
