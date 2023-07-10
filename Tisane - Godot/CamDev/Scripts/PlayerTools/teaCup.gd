@@ -3,13 +3,13 @@ extends Node2D
 const _default = preload("res://CamDev/Sprites/PlayerTools/TeaCup/teacup_pixel.png")
 const _highLightSpr = preload("res://CamDev/Sprites/PlayerTools/TeaCup/teacup_highlight.png")
 
-onready var _baseSpr = get_node("MoveableObject/BaseSprite")
-onready var _highlight = get_node("MoveableObject/Highlight")
+@onready var _baseSpr = get_node("MoveableObject/BaseSprite")
+@onready var _highlight = get_node("MoveableObject/Highlight")
 
 
-onready var _collision: MoveableObject = get_node("MoveableObject")  #refernce to moveable obj node
+@onready var _collision: MoveableObject = get_node("MoveableObject")  #refernce to moveable obj node
 												#this is how we'll talk to the moveable obj script
-export var _moveSpeed: int #move speed of the object that determines lerp speed.
+@export var _moveSpeed: int #move speed of the object that determines lerp speed.
 
 
 func _ready():

@@ -1,12 +1,12 @@
 class_name TeaClump
 
-extends KinematicBody2D
+extends CharacterBody2D
 
 #Sprite variables
-export var _clumpSpr: Texture
-onready var _sprite = get_node("Sprite")
+@export var _clumpSpr: Texture2D
+@onready var _sprite = get_node("Sprite2D")
 
-export var _ingName: String
+@export var _ingName: String
 signal _sendName(_ingName) #the signal we emmit to send the tea clump's name to the steeper.
 
 var _selected: bool = false
@@ -14,11 +14,11 @@ var _offScreen: bool = false
 var _lidOpen: bool = false
 
 #Physics variables
-export var _gravityRate:int #the rate at which the tea clump falls
+@export var _gravityRate:int #the rate at which the tea clump falls
 var _gravity: Vector2 = Vector2() #holds the gravity rate so that we can add it to the velocity
 var _velocity: Vector2 = Vector2() #Tea clumps downward velocity
 
-onready var _restPos: Vector2 = global_position
+@onready var _restPos: Vector2 = global_position
 
 ###NOTE: KinematicBody2Ds (at least in 3.5.2) can't really detect inputs,
 		#even if they have a collision shape. The easiest way around this is for
@@ -35,7 +35,7 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and not event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			_selected = false
 
 func _physics_process(delta):	

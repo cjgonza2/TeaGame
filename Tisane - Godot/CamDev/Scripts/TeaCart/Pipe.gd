@@ -12,12 +12,12 @@ const _highlight = preload("res://CamDev/Sprites/TeaCart/pipe_selected.png")
 
 func _on_Pipe_mouse_entered():
 	#Sprite texture set to highlighted texture
-	$Sprite.texture = _highlight
+	$Sprite2D.texture = _highlight
 
 
 func _on_Pipe_mouse_exited():
 	#Resets texture back to default texture.
-	$Sprite.texture = _default
+	$Sprite2D.texture = _default
 
 
 func _on_Pipe_input_event(viewport, event, shape_idx):

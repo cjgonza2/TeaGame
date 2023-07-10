@@ -1,7 +1,7 @@
 extends Node2D
 
 #dictionarry for holding the camera positions.
-export var _cameraPositions: Dictionary
+@export var _cameraPositions: Dictionary
 
 var _targetPos: Vector2
 var _currentPos: Vector2
@@ -90,7 +90,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	
-	if _moveCamera: #if the Camera can move.
+	if _moveCamera: #if the Camera3D can move.
 		position = lerp(position, _targetPos, 15 * delta) #we move the object to it's targeted position. 
 	
 #ISSUE LOG

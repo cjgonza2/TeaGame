@@ -14,7 +14,7 @@ func _input(event):
 	#if our input relates at all to the mouse buttons:
 	if event is InputEventMouseButton:
 	#We check if the button index is our left mouse button and if the event is not pressed.
-		if event.button_index == BUTTON_LEFT and not event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 	#Then we unselect the object. 
 			selected = false
 

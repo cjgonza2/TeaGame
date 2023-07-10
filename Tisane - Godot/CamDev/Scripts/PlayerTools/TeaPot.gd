@@ -9,19 +9,19 @@ const _hightLightSpr = preload("res://CamDev/Sprites/PlayerTools/TeaPot/teapot_h
 const _lidHighLightSpr = preload("res://CamDev/Sprites/PlayerTools/TeaPot/lid_highlight.png")
 
 #the sprite nodes
-onready var _bodySpr = get_node("MoveableObject/TeaPot_Body_Sprite")
-onready var _highLight = get_node("MoveableObject/TeaPot_HighLight_Sprite")
-onready var _lidHighlight = get_node("MoveableObject/Lid/Lid_HighLight_Sprite")
+@onready var _bodySpr = get_node("MoveableObject/TeaPot_Body_Sprite")
+@onready var _highLight = get_node("MoveableObject/TeaPot_HighLight_Sprite")
+@onready var _lidHighlight = get_node("MoveableObject/Lid/Lid_HighLight_Sprite")
 
 #NOTE: dictionaries sort keys alphabetically. 
 #sprite dictionary - for now holds all of our dry tea pot sprites
 #since we can't make a dictionary of sprites, we can just get a string of the node path,
 #then we can just load the string as a sprite when we need it. 
-export var _spriteDir = {}
+@export var _spriteDir = {}
 
 ###############################################################
 
-onready var _collision: MoveableObject = get_node("MoveableObject")  #refernce to moveable obj node
+@onready var _collision: MoveableObject = get_node("MoveableObject")  #refernce to moveable obj node
 												#this is how we'll talk to the moveable obj script
 
 ###############################################################
@@ -29,8 +29,12 @@ onready var _collision: MoveableObject = get_node("MoveableObject")  #refernce t
 var _lidDefault: Vector2	#default pos of the tea lid.
 var _lidTarget: Vector2		#target tween pos based on the tea pot's body. 
 
-export var _ingredientOne: String
-export var _ingredientTwo: String
+var _ingredients = {"haka": false,
+				"tallow": false,
+				"bombom": false,
+				"shnoot": false,
+				"aile": false,
+				"poffberry": false}
 
 var _filled: bool #if the pot is filled with water.
 var _lidOpen: bool
@@ -40,17 +44,15 @@ var _infusion: bool
 ###NOTE: honestly I don't really understand how this is working with a tween node
 		#vs without a tween node. this seems to be the only thing that doesn't 
 		#consistently break it. 
-onready var _lidObj = get_node("MoveableObject/Lid")
-onready var _openLid = get_node("MoveableObject/Lid/Tween")
-onready var _closeLid = get_node("MoveableObject/Lid/Tween")
+@onready var _lidObj = get_node("MoveableObject/Lid")
+@onready var _openLid = get_node("MoveableObject/Lid/Tween")
+@onready var _closeLid = get_node("MoveableObject/Lid/Tween")
 
-export var _moveSpeed: int #move speed of the object that determines lerp speed.
+@export var _moveSpeed: int #move speed of the object that determines lerp speed.
 
 
 func _ready():
 	_collision._lerpSpeed = _moveSpeed #we set our lerpspeed.
-	#print("this is: ", _spriteDir.keys()[0])
-	print(_spriteDir["dryHaka"])
 	pass
 
 func _physics_process(delta):
@@ -58,9 +60,10 @@ func _physics_process(delta):
 	_calculateLidPos()	#Here so we always have a consistent update to our lid pos.
 	
 	if _lidObj.global_position == _lidDefault:
-		print("lid in default position")
-	else:
-		print("lid is not in default position")
+		#print("lid in default position")
+	#else:
+		#print("lid is not in default position")
+		pass
 	
 	if _collision.selected: #if we're selected we disable the highlight sprites.
 		if _highLight.texture and _lidHighlight.texture != null:
@@ -78,43 +81,38 @@ func _calculateLidPos():
 
 func _setIngredient(name: String):
 	print("called set ingredient ", name)
-	if !_base and !_infusion:
-		if name == "haka" or "tallow" or "bombom":
-			_ingredientOne = name
-			_base = true
-		elif name == "shnoot" or "aile" or "poffberry":
-			_ingredientOne = name
-			_infusion = true
-		else:
-			_ingredientTwo = name
+	if name == "haka" or "tallow" or "bombom":
+		if _base: return
+		_ingredients[name] = true
+		_base = true
+	if name == "shnoot" or "aile" or "poffberry":
+		if _infusion: return
+		_ingredients[name] = true
+		_infusion = true
 
-	_changeSprite(_ingredientOne)
-
-	if _ingredientOne and _ingredientTwo != null:
-		_checkBlend()
-		pass
+	#_changeSprite(_ingredientOne)
 
 
-func _changeSprite(clumpName):
-	print("clumpname ", clumpName)
-	if _base and !_infusion or !_base and _infusion:
-		match(_ingredientOne):
-			"haka":
-				if !_filled:
-					_bodySpr.texture = load(_spriteDir["dryHaka"])
-				else:
-					pass
-			"tallow":
-				_bodySpr.texture = load(_spriteDir["dryTallow"])
-			"bombom":
-				_bodySpr.texture = load(_spriteDir["dryBomBom"])
-			"poffBerry":
-				_bodySpr.texture = load(_spriteDir["dryPoffBerry"])
-			"shnoot":
-				_bodySpr.texture = load(_spriteDir["dryShnoot"])
-			"aile":
-				_bodySpr.texture = load(_spriteDir["dryAile"])
-	pass
+#func _changeSprite(clumpName):
+#	print("clumpname ", clumpName)
+#	if _base and !_infusion or !_base and _infusion:
+#		match(_ingredientOne):
+#			"haka":
+#				if !_filled:
+#					_bodySpr.texture = load(_spriteDir["dryHaka"])
+#				else:
+#					pass
+#			"tallow":
+#				_bodySpr.texture = load(_spriteDir["dryTallow"])
+#			"bombom":
+#				_bodySpr.texture = load(_spriteDir["dryBomBom"])
+#			"poffBerry":
+#				_bodySpr.texture = load(_spriteDir["dryPoffBerry"])
+#			"shnoot":
+#				_bodySpr.texture = load(_spriteDir["dryShnoot"])
+#			"aile":
+#				_bodySpr.texture = load(_spriteDir["dryAile"])
+#	pass
 
 func _checkBlend():
 	pass

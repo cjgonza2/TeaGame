@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://CamDev/Scripts/Utility/MoveableObject.gd" type="Script" id=1]
-[ext_resource path="res://CamDev/Sprites/PlayerTools/TeaCup/teacup_pixel.png" type="Texture" id=2]
+[ext_resource path="res://CamDev/Sprites/PlayerTools/TeaCup/teacup_pixel.png" type="Texture2D" id=2]
 [ext_resource path="res://CamDev/Scripts/PlayerTools/teaCup.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -18,14 +18,14 @@ _moveSpeed = 25
 [node name="MoveableObject" type="Area2D" parent="."]
 script = ExtResource( 1 )
 
-[node name="BaseSprite" type="Sprite" parent="MoveableObject"]
+[node name="BaseSprite" type="Sprite2D" parent="MoveableObject"]
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MoveableObject"]
 position = Vector2( 4, -1 )
 shape = SubResource( 1 )
 
-[node name="Highlight" type="Sprite" parent="MoveableObject"]
+[node name="Highlight" type="Sprite2D" parent="MoveableObject"]
 
 [node name="PourCollider" type="Area2D" parent="."]
 

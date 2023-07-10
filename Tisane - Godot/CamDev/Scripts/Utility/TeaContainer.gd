@@ -9,13 +9,13 @@ const _highLight = preload("res://CamDev/Sprites/Ingredients/TeaContainers/conta
 		#such as KinematicBody2ds for example (what I was trying to do here.)
 		
 		#@"" is just another way of saying NodePath
-export var _clump_path := @""; # So We have to have a public reference to the node path. 
-onready var _clump := get_node(_clump_path) as Node2D #Then we set our clump variable equal to 
+@export var _clump_path := @""; # So We have to have a public reference to the node path. 
+@onready var _clump := get_node(_clump_path) as Node2D #Then we set our clump variable equal to 
 													#to the node that we grabbed from our node path.
 
-export var _containerSpr: Texture #public sprite reference to whatever container we are
-onready var _sprite = get_node("Area2D/ContainerSprite") #this just gets our sprite node
-onready var _highLightSprite = get_node("Area2D/HighLightSprite") #reference to our highlight node when we need to highlight our sprite.
+@export var _containerSpr: Texture2D #public sprite reference to whatever container we are
+@onready var _sprite = get_node("Area2D/ContainerSprite") #this just gets our sprite node
+@onready var _highLightSprite = get_node("Area2D/HighLightSprite") #reference to our highlight node when we need to highlight our sprite.
 
 
 func _ready():
